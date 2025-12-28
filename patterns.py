@@ -14,6 +14,7 @@ Run with: uv run python agent_patterns.py
 import asyncio
 import csv
 import json
+import os
 import sys
 import time
 from dataclasses import dataclass, field
@@ -21,11 +22,25 @@ from pathlib import Path
 from typing import Any, Callable, Literal, Union
 import uvloop
 from ddgs import DDGS
+import httpx
 import logging
 from pydantic import BaseModel, ConfigDict, Field
 from pydantic_ai import Agent, RunContext
 from pydantic_ai.models.cerebras import CerebrasModel, CerebrasModelSettings
 from pydantic_ai.output import ToolOutput
+import logfire as logger
+
+CORE_INSTRUCTIONS = """
+You are a document collector. Your task is to collect items by:
+1. Searching for relevant items using DuckDuckGo
+2. Fetching promising URLs to get content
+3. Saving good items to your collection
+
+Continue until you've collected enough items (check save responses for progress)
+OR you've exhausted all reasonable search strategies.
+
+Be thorough - try multiple search queries before concluding.
+"""
 
 PROMPTS: list[str] = [
     # Employment-focused (mix of BR and US)
@@ -78,11 +93,44 @@ PROMPTS: list[str] = [
 
     'Collect 4 documents and summarize each in ≤100 words: 2 Brazilian regulatory (CVM, BACEN, or ANPD), 2 American regulatory (SEC, CFTC, or FTC). Summary must include: jurisdiction, document type, parties, key holding, date.',
 ]
-import logfire as logger
+
+
 # =============================================================================
-# LOGGING CONFIGURATION
+# LOGGING & HTTPX CONFIGURATION
 # =============================================================================
 
+# Configure logfire (call configure() to enable tracing)
+logger.configure()
+
+# Instrument httpx for automatic tracing of HTTP requests
+# This will trace all httpx requests including Jina AI fetches
+logger.instrument_httpx(capture_all=True)
+
+# Jina AI configuration for real web fetching
+JINA_API_KEY = os.getenv("JINA_API_KEY")
+JINA_BASE_URL = "https://r.jina.ai/"
+
+# Create a shared async httpx client for efficient connection pooling
+_httpx_client: httpx.AsyncClient | None = None
+
+
+async def get_httpx_client() -> httpx.AsyncClient:
+    """Get or create a shared async httpx client."""
+    global _httpx_client
+    if _httpx_client is None:
+        _httpx_client = httpx.AsyncClient(
+            timeout=httpx.Timeout(30.0, connect=10.0),
+            limits=httpx.Limits(max_keepalive_connections=20, max_connections=100),
+        )
+    return _httpx_client
+
+
+async def close_httpx_client() -> None:
+    """Close the shared httpx client."""
+    global _httpx_client
+    if _httpx_client is not None:
+        await _httpx_client.aclose()
+        _httpx_client = None
 
 
 # =============================================================================
@@ -115,7 +163,6 @@ class AgentResult(BaseModel):
 # =============================================================================
 
 @dataclass
-@dataclass
 class Deps:
     """Shared state across tool calls."""
     items: list[dict[str, Any]] = field(default_factory=list)
@@ -129,7 +176,7 @@ class Deps:
 
     def log(self) -> Any:
         """Get a logger bound to this pattern."""
-        return logger.bind(pattern=self.pattern_name)
+        return logger.with_tags(self.pattern_name)
 
 
 # =============================================================================
@@ -169,7 +216,7 @@ def ddg_search(query: str, max_results: int = 5) -> list[dict[str, Any]]:
 async def _search_impl(ctx: RunContext[Deps], query: str) -> list[dict[str, Any]]:
     """Search using DuckDuckGo."""
     log = ctx.deps.log()
-    log.info("🔍 Searching: '%s'", query)
+    log.info(f"🔍 Searching: '{query}'")
 
     # Run sync DDGS in thread pool
     loop = asyncio.get_event_loop()
@@ -181,18 +228,62 @@ async def _search_impl(ctx: RunContext[Deps], query: str) -> list[dict[str, Any]
 
 
 async def _fetch_impl(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
-    """Simulated fetch - in real impl would fetch URL content."""
-    log = ctx.deps.log()
-    log.info(f"📥 Fetching: {url[:50]}...")  # noqa: G004
+    """Fetch URL content using Jina AI Reader API.
 
-    await asyncio.sleep(0.1)  # Simulate network delay
+    Jina AI Reader (https://r.jina.ai/) converts web pages to clean markdown/text,
+    making it ideal for document collection and content extraction.
+
+    The request is automatically traced by logfire via instrument_httpx().
+    """
+    log = ctx.deps.log()
+    log.info(f"📥 Fetching via Jina AI: {url[:50]}...")  # noqa: G004
+
     ctx.deps.actions.append(f"fetch:{url[:30]}")
 
-    return {
-        "url": url,
-        "content": f"Content from {url}",
-        "status": "success",
+    # Build Jina AI Reader URL
+    jina_url = f"{JINA_BASE_URL}{url}"
+
+    # Prepare headers with API key if available
+    headers: dict[str, str] = {
+        "Accept": "text/plain",  # Get plain text/markdown response
     }
+    if JINA_API_KEY:
+        headers["Authorization"] = f"Bearer {JINA_API_KEY}"
+
+    try:
+        client = await get_httpx_client()
+        response = await client.get(jina_url, headers=headers)
+        response.raise_for_status()
+
+        content = response.text
+
+        # Log success with content preview
+        log.debug(f"   Fetched {len(content)} chars from {url[:30]}")  # noqa: G004
+
+        return {
+            "url": url,
+            "content": content[:5000] if len(content) > 5000 else content,  # Limit content size
+            "content_length": len(content),
+            "status": "success",
+            "status_code": response.status_code,
+        }
+    except httpx.HTTPStatusError as e:
+        log.warning(f"   HTTP error fetching {url[:30]}: {e.response.status_code}")  # noqa: G004
+        return {
+            "url": url,
+            "content": "",
+            "status": "error",
+            "status_code": e.response.status_code,
+            "error": str(e),
+        }
+    except httpx.RequestError as e:
+        log.warning(f"   Request error fetching {url[:30]}: {e}")  # noqa: G004
+        return {
+            "url": url,
+            "content": "",
+            "status": "error",
+            "error": str(e),
+        }
 
 
 async def _save_impl(ctx: RunContext[Deps], item_id: str, content: str) -> str:  # noqa: RUF029
@@ -224,17 +315,7 @@ pattern1_agent = Agent(
     get_model(),
     deps_type=Deps,
     output_type=ToolOutput(Pattern1Result, strict=True),
-    instructions="""
-    You are a data collector. Your goal is to collect items by:
-    1. Searching for relevant items using DuckDuckGo
-    2. Fetching promising results
-    3. Saving good items
-
-    Keep going until you've collected enough items (check save responses for progress)
-    OR you've exhausted reasonable search strategies.
-
-    Be thorough - try multiple search queries before concluding.
-    """,
+    instructions=CORE_INSTRUCTIONS,
 )
 
 
@@ -267,7 +348,7 @@ async def run_pattern1(prompt: str, target: int = 5) -> AgentResult:
     result = await pattern1_agent.run(prompt, deps=deps)
 
     elapsed = time.perf_counter() - start
-    log.success(f"Completed in {elapsed:.2f}s | Items: {len(deps.items)}")
+    log.info(f"✅ Completed in {elapsed:.2f}s | Items: {len(deps.items)}")
 
     return AgentResult(
         items_collected=deps.items,
@@ -286,15 +367,7 @@ pattern2_agent = Agent(
     get_model(),
     deps_type=Deps,
     output_type=str,
-    instructions="""
-    You are a data collector. Search DuckDuckGo, fetch, and save items.
-
-    Call the 'finish' tool ONLY when:
-    - You've collected enough items, OR
-    - You've exhausted all reasonable search strategies
-
-    Check save responses for your progress toward the target.
-    """,
+    instructions=CORE_INSTRUCTIONS,
 )
 
 
@@ -324,7 +397,7 @@ async def finish(ctx: RunContext[Deps], reason: str) -> str:  # noqa: RUF029
         reason: Why you're finishing (e.g., "collected enough", "no more results")
     """
     log = ctx.deps.log()
-    log.info("🏁 Finish called: %s", reason)
+    log.info(f"🏁 Finish called: {reason}")
 
     ctx.deps.is_finished = True
     ctx.deps.finish_reason = reason
@@ -344,7 +417,7 @@ async def run_pattern2(prompt: str, target: int = 5, max_iterations: int = 10) -
 
     for i in range(max_iterations):
         iterations += 1
-        log.debug("Iteration %s/%s", iterations, max_iterations)
+        log.debug(f"Iteration {iterations}/{max_iterations}")
 
         current_prompt = prompt if messages is None else "Continue your task."
 
@@ -359,7 +432,7 @@ async def run_pattern2(prompt: str, target: int = 5, max_iterations: int = 10) -
             break
 
     elapsed = time.perf_counter() - start
-    log.success(f"Completed in {elapsed:.2f}s | Iterations: {iterations} | Items: {len(deps.items)}")
+    log.info(f"✅ Completed in {elapsed:.2f}s | Iterations: {iterations} | Items: {len(deps.items)}")
 
     return AgentResult(
         items_collected=deps.items,
@@ -378,10 +451,7 @@ pattern3_agent = Agent(
     get_model(),
     deps_type=Deps,
     output_type=ToolOutput(Pattern1Result, strict=True),
-    instructions="""
-    You are a data collector. Search DuckDuckGo, fetch, and save items until you have enough.
-    Be thorough with your searches before concluding.
-    """,
+    instructions=CORE_INSTRUCTIONS,
 )
 
 
@@ -473,10 +543,10 @@ async def run_pattern3(prompt: str, target: int = 5) -> AgentResult:
                                     candidates.append((attr, repr(val)[:200]))
                                 except Exception:
                                     candidates.append((attr, "<error>"))
-                        log.debug("Node %s: CallTools node (no standard call attributes found). Candidates: %s", node_count, candidates[:6])
+                        log.debug(f"Node {node_count}: CallTools node (no standard call attributes found). Candidates: {candidates[:6]}")
                         tool_names = ["<unknown>"]
 
-                    log.debug("Node %s: Tools → %s", node_count, tool_names)
+                    log.debug(f"Node {node_count}: Tools → {tool_names}")
 
                 elif Agent.is_model_request_node(node):
                     # Extract a short preview of the model request for diagnostics.
@@ -496,17 +566,17 @@ async def run_pattern3(prompt: str, target: int = 5) -> AgentResult:
                             pv = preview_val[:2]
                         except Exception:
                             pv = str(preview_val)[:200]
-                        log.debug("Node %s: Model request | %s: %s", node_count, preview_attr, pv)
+                        log.debug(f"Node {node_count}: Model request | {preview_attr}: {pv}")
                     else:
-                        log.debug("Node %s: Model request | %s: %s", node_count, preview_attr, str(preview_val)[:200])
+                        log.debug(f"Node {node_count}: Model request | {preview_attr}: {str(preview_val)[:200]}")
 
                 else:
                     # Generic node diagnostic: show class name and a short list of attributes.
                     attrs = [a for a in dir(node) if not a.startswith("_")]
-                    log.debug("Node %s: %s | attrs: %s", node_count, node_type, attrs[:8])
+                    log.debug(f"Node {node_count}: {node_type} | attrs: {attrs[:8]}")
 
             except Exception as e:
-                log.exception("Failed to process node %s: %s", node_count, e)
+                log.exception(f"Failed to process node {node_count}: {e}")
 
     # Safely access run.result (run may not exist if context failed)
     result = None
@@ -545,7 +615,7 @@ async def run_pattern3(prompt: str, target: int = 5) -> AgentResult:
                 except Exception:
                     finish_reason = "unknown_output"
 
-    log.success(f"Completed in {elapsed:.2f}s | Nodes: {node_count} | Items: {len(deps.items)}")
+    log.info(f"✅ Completed in {elapsed:.2f}s | Nodes: {node_count} | Items: {len(deps.items)}")
 
     return AgentResult(
         items_collected=deps.items,
@@ -587,15 +657,8 @@ pattern4_agent = Agent(
     get_model(),
     deps_type=Deps,
     output_type=DecisionOutputSpec,
-    instructions="""
-    You are a data collector. Each turn you must:
-    1. Use tools to search DuckDuckGo, fetch, and save items
-    2. Then decide: continue or finish?
-
-    Choose 'continue' if you haven't reached your target and have more strategies to try.
-    Choose 'finish' if you've collected enough OR exhausted all options.
-
-    Always explain your reasoning.
+    instructions=CORE_INSTRUCTIONS + """
+    After using tools, you must decide: output ContinueAction or FinishAction.
     """,
 )
 
@@ -632,7 +695,7 @@ async def run_pattern4(prompt: str, target: int = 5, max_iterations: int = 10) -
 
     for i in range(max_iterations):
         iterations += 1
-        log.debug("Iteration %s/%s", iterations, max_iterations)
+        log.debug(f"Iteration {iterations}/{max_iterations}")
 
         current_prompt = prompt if messages is None else "Continue or finish based on your progress."
 
@@ -645,17 +708,17 @@ async def run_pattern4(prompt: str, target: int = 5, max_iterations: int = 10) -
 
         match result.output:
             case ContinueAction(reasoning=reason, next_steps=steps):
-                log.info("➡️  Continue: %s", reason)
-                log.debug("   Next steps: %s", steps)
+                log.info(f"➡️  Continue: {reason}")
+                log.debug(f"   Next steps: {steps}")
 
             case FinishAction(reason=reason, summary=summary):
-                log.info("🏁 Finish: %s", reason)
-                log.debug("   Summary: %s", summary)
+                log.info(f"🏁 Finish: {reason}")
+                log.debug(f"   Summary: {summary}")
                 finish_reason = reason
                 break
 
     elapsed = time.perf_counter() - start
-    log.success(f"Completed in {elapsed:.2f}s | Iterations: {iterations} | Items: {len(deps.items)}")
+    log.info(f"✅ Completed in {elapsed:.2f}s | Iterations: {iterations} | Items: {len(deps.items)}")
 
     return AgentResult(
         items_collected=deps.items,
@@ -861,9 +924,14 @@ async def main():
     setup_results_directories()
     logger.info("Created doc_results/pat1-4 directories")
 
-    for idx, prompt in enumerate(PROMPTS, start=1):
-        await run_comparison(prompt, target=5, prompt_idx=idx)
-        logger.info("\n" * 2)
+    try:
+        for idx, prompt in enumerate(PROMPTS, start=1):
+            await run_comparison(prompt, target=5, prompt_idx=idx)
+            logger.info("\n" * 2)
+    finally:
+        # Clean up httpx client
+        await close_httpx_client()
+        logger.info("Closed httpx client")
 
 
 if __name__ == "__main__":

@@ -1851,6 +1851,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "ddgs" },
+    { name = "httpx" },
     { name = "logfire" },
     { name = "loguru" },
     { name = "opentelemetry-instrumentation-botocore" },
@@ -1867,7 +1868,8 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "ddgs", specifier = ">=9.10.0" },
-    { name = "logfire", specifier = ">=3.0.0" },
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "logfire", specifier = ">=4.16.0" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "opentelemetry-instrumentation-botocore", specifier = ">=0.60b1" },
     { name = "opentelemetry-instrumentation-requests", specifier = ">=0.60b1" },

@@ -12,3 +12,52 @@ prompt_9,69.78821733302902,67.32009733293671,58.64942120795604,44.15936370799318
 prompt_10,76.07702775008511,27.54143599991221,49.67850387492217,51.42935104202479,846,740,627,670,Collect 4 property documents: 2 Brazilian imóveis documents from TJSP jurisprudência (ações possessó...
 prompt_11,166.4977694589179,113.27004341594875,140.15035199990962,101.78851750004105,934,701,886,148,"Collect 4 tax documents: 2 Brazilian (1 CARF acórdão, 1 mandado de segurança tributário from TRF) an..."
 prompt_12,10.762676416081376,44.385482499958016,43.996400458039716,39.650523375021294,618,601,625,619,"Collect 4 tax compliance docs: 2 Brazilian (ICMS-related from SEFAZ consultation or CONFAZ), 2 Ameri..."
+prompt_13,52.46725004201289,47.47217962506693,0.0,41.4985772499349,903,744,0,650,Collect 4 M&A documents from public filings only: 2 Brazilian (CVM fatos relevantes or acquisition a...
+prompt_14,41.15861312497873,111.45891641604248,60.57963062496856,85.29704370908439,813,818,683,607,"Collect 4 securities documents: 2 Brazilian (1 prospecto de oferta pública, 1 CVM auto de infração),..."
+prompt_15,63.05924541607965,88.50029645906761,0.0,74.9410132500343,797,639,0,662,"Collect exactly: 1 Brazilian service contract (≥4pp), 1 American MSA (≥6pp), 1 Brazilian TJSP civil ..."
+prompt_16,69.11611399997491,75.99690487491898,174.56258691695984,182.78844204207417,682,662,683,499,"Collect 4 documents from São Paulo or New York only: 2 from TJSP (1 sentença, 1 acórdão), 2 from NY ..."
+prompt_1,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) an..."
+prompt_2,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 labor/employment docs: 2 from TST or TRT (any region) published 2022-2024, 2 from PACER (S..."
+prompt_3,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 commercial contracts: 2 Brazilian (1 prestação de serviços, 1 compra e venda) and 2 Americ..."
+prompt_4,0.0,0.0,0.0,0.0,0,0,0,0,Collect 4 lease agreements: 2 Brazilian commercial leases (locação não-residencial) from São Paulo r...
+prompt_5,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 court briefs: 2 Brazilian petições iniciais from TJSP e-SAJ (cível), 2 American motions to..."
+prompt_6,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 civil litigation briefs: 2 Brazilian (1 contestação, 1 recurso de apelação) from any TJ, 2..."
+prompt_7,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 legal opinions: 2 Brazilian pareceres jurídicos (1 from PGE/PGR if available, 1 from law f..."
+prompt_8,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 corporate/tax opinions: 2 Brazilian (CVM or RFB consultas), 2 American (IRS PLRs or SEC st..."
+prompt_9,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 real estate documents: 2 Brazilian (1 escritura de compra e venda, 1 contrato de locação c..."
+prompt_10,0.0,0.0,0.0,0.0,0,0,0,0,Collect 4 property documents: 2 Brazilian imóveis documents from TJSP jurisprudência (ações possessó...
+prompt_11,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 tax documents: 2 Brazilian (1 CARF acórdão, 1 mandado de segurança tributário from TRF) an..."
+prompt_12,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 tax compliance docs: 2 Brazilian (ICMS-related from SEFAZ consultation or CONFAZ), 2 Ameri..."
+prompt_13,0.0,0.0,0.0,0.0,0,0,0,0,Collect 4 M&A documents from public filings only: 2 Brazilian (CVM fatos relevantes or acquisition a...
+prompt_14,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 securities documents: 2 Brazilian (1 prospecto de oferta pública, 1 CVM auto de infração),..."
+prompt_15,0.0,0.0,0.0,0.0,0,0,0,0,"Collect exactly: 1 Brazilian service contract (≥4pp), 1 American MSA (≥6pp), 1 Brazilian TJSP civil ..."
+prompt_16,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 documents from São Paulo or New York only: 2 from TJSP (1 sentença, 1 acórdão), 2 from NY ..."
+prompt_17,0.0,0.0,0.0,0.0,0,0,0,0,Collect 4 consumer protection docs: 2 Brazilian (PROCON administrative decisions or CDC-related TJSP...
+prompt_18,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 damages/indemnification docs: 2 Brazilian (indenização decisions from STJ or TJSP), 2 Amer..."
+prompt_19,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 compliance documents: 2 Brazilian (1 LGPD-related ANPD decision or guidance, 1 anticorrupt..."
+prompt_20,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 documents and summarize each in ≤100 words: 2 Brazilian regulatory (CVM, BACEN, or ANPD), ..."
+prompt_1,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) an..."
+prompt_2,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 labor/employment docs: 2 from TST or TRT (any region) published 2022-2024, 2 from PACER (S..."
+prompt_3,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 commercial contracts: 2 Brazilian (1 prestação de serviços, 1 compra e venda) and 2 Americ..."
+prompt_4,0.0,0.0,0.0,0.0,0,0,0,0,Collect 4 lease agreements: 2 Brazilian commercial leases (locação não-residencial) from São Paulo r...
+prompt_5,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 court briefs: 2 Brazilian petições iniciais from TJSP e-SAJ (cível), 2 American motions to..."
+prompt_6,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 civil litigation briefs: 2 Brazilian (1 contestação, 1 recurso de apelação) from any TJ, 2..."
+prompt_7,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 legal opinions: 2 Brazilian pareceres jurídicos (1 from PGE/PGR if available, 1 from law f..."
+prompt_8,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 corporate/tax opinions: 2 Brazilian (CVM or RFB consultas), 2 American (IRS PLRs or SEC st..."
+prompt_9,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 real estate documents: 2 Brazilian (1 escritura de compra e venda, 1 contrato de locação c..."
+prompt_10,0.0,0.0,0.0,0.0,0,0,0,0,Collect 4 property documents: 2 Brazilian imóveis documents from TJSP jurisprudência (ações possessó...
+prompt_11,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 tax documents: 2 Brazilian (1 CARF acórdão, 1 mandado de segurança tributário from TRF) an..."
+prompt_12,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 tax compliance docs: 2 Brazilian (ICMS-related from SEFAZ consultation or CONFAZ), 2 Ameri..."
+prompt_13,0.0,0.0,0.0,0.0,0,0,0,0,Collect 4 M&A documents from public filings only: 2 Brazilian (CVM fatos relevantes or acquisition a...
+prompt_14,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 securities documents: 2 Brazilian (1 prospecto de oferta pública, 1 CVM auto de infração),..."
+prompt_15,0.0,0.0,0.0,0.0,0,0,0,0,"Collect exactly: 1 Brazilian service contract (≥4pp), 1 American MSA (≥6pp), 1 Brazilian TJSP civil ..."
+prompt_16,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 documents from São Paulo or New York only: 2 from TJSP (1 sentença, 1 acórdão), 2 from NY ..."
+prompt_17,0.0,0.0,0.0,0.0,0,0,0,0,Collect 4 consumer protection docs: 2 Brazilian (PROCON administrative decisions or CDC-related TJSP...
+prompt_18,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 damages/indemnification docs: 2 Brazilian (indenização decisions from STJ or TJSP), 2 Amer..."
+prompt_19,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 compliance documents: 2 Brazilian (1 LGPD-related ANPD decision or guidance, 1 anticorrupt..."
+prompt_20,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 documents and summarize each in ≤100 words: 2 Brazilian regulatory (CVM, BACEN, or ANPD), ..."
+prompt_1,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) an..."
+prompt_2,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 labor/employment docs: 2 from TST or TRT (any region) published 2022-2024, 2 from PACER (S..."
+prompt_3,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 commercial contracts: 2 Brazilian (1 prestação de serviços, 1 compra e venda) and 2 Americ..."
+prompt_4,0.0,0.0,0.0,0.0,0,0,0,0,Collect 4 lease agreements: 2 Brazilian commercial leases (locação não-residencial) from São Paulo r...
+prompt_5,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 court briefs: 2 Brazilian petições iniciais from TJSP e-SAJ (cível), 2 American motions to..."

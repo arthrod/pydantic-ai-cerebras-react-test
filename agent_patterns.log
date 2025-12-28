@@ -3957,3 +3957,307 @@ pydantic_ai.exceptions.ModelHTTPError: status_code: 400, model_name: zai-glm-4.6
 2025-12-28 17:01:00.585 | WARNING  | DDGS search failed for 'site:sefaz.sp.gov.br ICMS consulta 2024 oficial': No results found.
 2025-12-28 17:01:33.703 | WARNING  | DDGS search failed for 'SEFAZ ICMS consulta oficial 2023 2024 site:sefaz.gov.br': Request timed out: ConnectTimeout('timed out')
 2025-12-28 17:04:38.088 | WARNING  | DDGS search failed for 'site:ir.itan.com.br fato relevante aquisição acquisition 2023 2024': No results found.
+2025-12-28 17:04:55.193 | WARNING  | DDGS search failed for 'site:ri.brffoods.com.br fato relevante aquisição acquisition 2023 2024': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:05:17.215 | WARNING  | DDGS search failed for 'site:search.sec.gov 6-K Brazil acquisition merger 2023 filetype:pdf': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:05:27.441 | WARNING  | DDGS search failed for 'site:search.sec.com 6-K "merger agreement" 2023 2024 filetype:pdf': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:05:40.412 | WARNING  | DDGS search failed for 'site:ri.gerdau.com.br fato relevante aquisição 2023 2024': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:05:50.764 | WARNING  | DDGS search failed for 'site:ir.ambev.com.br fato relevante aquisição 2023 2024': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:06:37.900 | WARNING  | DDGS search failed for 'site:ir.mercadolibre.com "fato relevante" 2023 2024': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:07:04.927 | ERROR    | ❌ Pattern 3: iter() API failed: The next request would exceed the request_limit of 50
+Traceback (most recent call last):
+
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/patterns.py", line 891, in <module>
+    uvloop.run(main())
+    │      │   └ <function main at 0x109c69900>
+    │      └ <function run at 0x101797320>
+    └ <module 'uvloop' from '/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-pack...
+
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/uvloop/__init__.py", line 96, in run
+    return __asyncio.run(
+           │         └ <function run at 0x1016768d0>
+           └ <module 'asyncio' from '/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/asyncio/__init...
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           │      │   └ <coroutine object run.<locals>.wrapper at 0x109c35e00>
+           │      └ <function Runner.run at 0x101676e50>
+           └ <asyncio.runners.Runner object at 0x109bdaf90>
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<run.<locals>.wrapper() running at /Users/arthrod/temp/Manual Library/temp/pydantic-ai-cereb...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x10170e980>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x109bdaf90>
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/uvloop/__init__.py", line 48, in wrapper
+    return await main
+                 └ <coroutine object main at 0x109c266b0>
+
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/patterns.py", line 886, in main
+    await run_comparison(prompt, target=5, prompt_idx=idx)
+          │              │                            └ 13
+          │              └ 'Collect 4 M&A documents from public filings only: 2 Brazilian (CVM fatos relevantes or acquisition agreements from Form 6-K)...
+          └ <function run_comparison at 0x109c69bc0>
+
+> File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/patterns.py", line 821, in run_comparison
+    result = await runner(prompt, target)
+                   │      │       └ 5
+                   │      └ 'Collect 4 M&A documents from public filings only: 2 Brazilian (CVM fatos relevantes or acquisition agreements from Form 6-K)...
+                   └ <function run_pattern3 at 0x109c690c0>
+
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/patterns.py", line 437, in run_pattern3
+    async with pattern3_agent.iter(prompt, deps=deps) as run:
+               │              │    │            │        └ <AgentRun result=<run not finished> usage=RunUsage(input_tokens=365628, output_tokens=2131, requests=50, tool_calls=50)>
+               │              │    │            └ Deps(items=[{'id': 'brazil_01_petrobras_6k', 'content': 'SEC FORM 6-K - PETRÓLEO BRASILEIRO S.A. - PETROBRAS (2016)\n\nThis F...
+               │              │    └ 'Collect 4 M&A documents from public filings only: 2 Brazilian (CVM fatos relevantes or acquisition agreements from Form 6-K)...
+               │              └ <function Agent.iter at 0x108ff4720>
+               └ Agent(model=CerebrasModel(), name=None, end_strategy='early', model_settings=None, output_type=ToolOutput(output=<class '__ma...
+
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/contextlib.py", line 235, in __aexit__
+    await self.gen.athrow(value)
+          │    │   │      └ CancelledError('Cancelled via cancel scope 10c37a090')
+          │    │   └ <method 'athrow' of 'async_generator' objects>
+          │    └ <async_generator object Agent.iter at 0xa9a476090>
+          └ <contextlib._AsyncGeneratorContextManager object at 0x10c246b30>
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_ai/agent/__init__.py", line 705, in iter
+    async with graph.iter(
+               │     └ <function Graph.iter at 0x108ed10c0>
+               └ <pydantic_graph.beta.graph.Graph object at 0x10c4c4b50
+                 stateDiagram-v2
+                   UserPromptNode
+                   state decision <<choice>>
+                   CallToo...
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/contextlib.py", line 235, in __aexit__
+    await self.gen.athrow(value)
+          │    │   │      └ CancelledError('Cancelled via cancel scope 10c37a090')
+          │    │   └ <method 'athrow' of 'async_generator' objects>
+          │    └ <async_generator object Graph.iter at 0x109bd9a80>
+          └ <contextlib._AsyncGeneratorContextManager object at 0x10c46cad0>
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/graph.py", line 270, in iter
+    async with GraphRun[StateT, DepsT, OutputT](
+               │        │       │      └ OutputT
+               │        │       └ DepsT
+               │        └ StateT
+               └ <class 'pydantic_graph.beta.graph.GraphRun'>
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/graph.py", line 423, in __aexit__
+    await self._async_exit_stack.__aexit__(exc_type, exc_val, exc_tb)
+          │    │                 │         │         │        └ <traceback object at 0x10c4d9080>
+          │    │                 │         │         └ CancelledError('Cancelled via cancel scope 10c37a090')
+          │    │                 │         └ <class 'asyncio.exceptions.CancelledError'>
+          │    │                 └ <function AsyncExitStack.__aexit__ at 0x1014cda60>
+          │    └ <contextlib.AsyncExitStack object at 0x10c1ba620>
+          └ <pydantic_graph.beta.graph.GraphRun object at 0x10c45add0>
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/contextlib.py", line 768, in __aexit__
+    raise exc
+          └ UsageLimitExceeded('The next request would exceed the request_limit of 50')
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/contextlib.py", line 749, in __aexit__
+    cb_suppress = cb(*exc_details)
+                  │   └ (<class 'ExceptionGroup'>, ExceptionGroup('unhandled errors in a TaskGroup', [UsageLimitExceeded('The next request would exce...
+                  └ <bound method _GeneratorContextManager.__exit__ of <contextlib._GeneratorContextManager object at 0x10c46cb40>>
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    │    │   │     └ ExceptionGroup('unhandled errors in a TaskGroup', [UsageLimitExceeded('The next request would exceed the request_limit of 50')])
+    │    │   └ <method 'throw' of 'generator' objects>
+    │    └ <generator object _unwrap_exception_groups at 0x10c45b680>
+    └ <contextlib._GeneratorContextManager object at 0x10c46cb40>
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/graph.py", line 981, in _unwrap_exception_groups
+    raise exception
+          └ UsageLimitExceeded('The next request would exceed the request_limit of 50')
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/graph.py", line 750, in _run_tracked_task
+    result = await self._run_task(t_)
+                   │    │         └ GraphTask(node_id='ModelRequestNode', inputs=ModelRequestNode(request=ModelRequest(parts=[ToolReturnPart(tool_name='__save', ...
+                   │    └ <function _GraphIterator._run_task at 0x108ed81a0>
+                   └ _GraphIterator(graph=<pydantic_graph.beta.graph.Graph object at 0x10c4c4b50
+                     stateDiagram-v2
+                       UserPromptNode
+                       state decision...
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/graph.py", line 782, in _run_task
+    output = await node.call(step_context)
+                   │    │    └ StepContext(_state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect 4 M&A documents from ...
+                   │    └ <property object at 0x108e7eb10>
+                   └ NodeStep(id='ModelRequestNode', _call=<bound method NodeStep._call_node of ...>, label=None)
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/step.py", line 253, in _call_node
+    return await node.run(GraphRunContext(state=ctx.state, deps=ctx.deps))
+                 │    │   │                     │   │           │   └ <property object at 0x108e7ddf0>
+                 │    │   │                     │   │           └ StepContext(_state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect 4 M&A documents from ...
+                 │    │   │                     │   └ <property object at 0x108e7dda0>
+                 │    │   │                     └ StepContext(_state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect 4 M&A documents from ...
+                 │    │   └ <class 'pydantic_graph.nodes.GraphRunContext'>
+                 │    └ <function ModelRequestNode.run at 0x108fb4670>
+                 └ ModelRequestNode(request=ModelRequest(parts=[ToolReturnPart(tool_name='__save', content='Saved. Progress: 1/5 items.', tool_c...
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_ai/_agent_graph.py", line 449, in run
+    return await self._make_request(ctx)
+                 │    │             └ GraphRunContext(state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect 4 M&A documents fr...
+                 │    └ <function ModelRequestNode._make_request at 0x108fb49e0>
+                 └ ModelRequestNode(request=ModelRequest(parts=[ToolReturnPart(tool_name='__save', content='Saved. Progress: 1/5 items.', tool_c...
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_ai/_agent_graph.py", line 492, in _make_request
+    model_settings, model_request_parameters, message_history, run_context = await self._prepare_request(ctx)
+                                                                                   │    │                └ GraphRunContext(state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect 4 M&A documents fr...
+                                                                                   │    └ <function ModelRequestNode._prepare_request at 0x108fb4b40>
+                                                                                   └ ModelRequestNode(request=ModelRequest(parts=[ToolReturnPart(tool_name='__save', content='Saved. Progress: 1/5 items.', tool_c...
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_ai/_agent_graph.py", line 536, in _prepare_request
+    ctx.deps.usage_limits.check_before_request(usage)
+    │   │    │            │                    └ RunUsage(input_tokens=365628, output_tokens=2131, requests=50, tool_calls=50)
+    │   │    │            └ <function UsageLimits.check_before_request at 0x108d683b0>
+    │   │    └ UsageLimits()
+    │   └ GraphAgentDeps(user_deps=Deps(items=[{'id': 'brazil_01_petrobras_6k', 'content': 'SEC FORM 6-K - PETRÓLEO BRASILEIRO S.A. - P...
+    └ GraphRunContext(state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect 4 M&A documents fr...
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_ai/usage.py", line 358, in check_before_request
+    raise UsageLimitExceeded(f'The next request would exceed the request_limit of {request_limit}')
+          │                                                                        └ 50
+          └ <class 'pydantic_ai.exceptions.UsageLimitExceeded'>
+
+pydantic_ai.exceptions.UsageLimitExceeded: The next request would exceed the request_limit of 50
+2025-12-28 17:07:42.029 | WARNING  | DDGS search failed for 'site:sec.companiesmarketcap.com DEFM14A merger proxy statement major acquisition 2024': No results found.
+2025-12-28 17:09:17.329 | WARNING  | DDGS search failed for '"Form S-1" site:sec.gov/FileOps 2024 registration': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:10:05.418 | WARNING  | DDGS search failed for '"order instituting proceedings" "file no" SEC 2024 site:sec.gov/enforcement': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:14:19.568 | WARNING  | DDGS search failed for 'Master Service Agreement MSA 2020 2021 2022 2023 2024 United States site:gov.pdf OR site:edu.pdf': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:16:39.984 | WARNING  | DDGS search failed for 'site:tx.gov "Master Services Agreement" supplier contract 2023 2024 filetype:pdf': No results found.
+2025-12-28 17:17:23.672 | WARNING  | DDGS search failed for 'site:fl.gov "Master Services Agreement" vendor 2023 filetype:pdf': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:19:41.711 | ERROR    | ❌ Pattern 3: iter() API failed: The next request would exceed the request_limit of 50
+Traceback (most recent call last):
+
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/patterns.py", line 891, in <module>
+    uvloop.run(main())
+    │      │   └ <function main at 0x109c69900>
+    │      └ <function run at 0x101797320>
+    └ <module 'uvloop' from '/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-pack...
+
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/uvloop/__init__.py", line 96, in run
+    return __asyncio.run(
+           │         └ <function run at 0x1016768d0>
+           └ <module 'asyncio' from '/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/asyncio/__init...
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/asyncio/runners.py", line 204, in run
+    return runner.run(main)
+           │      │   └ <coroutine object run.<locals>.wrapper at 0x109c35e00>
+           │      └ <function Runner.run at 0x101676e50>
+           └ <asyncio.runners.Runner object at 0x109bdaf90>
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/asyncio/runners.py", line 127, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<run.<locals>.wrapper() running at /Users/arthrod/temp/Manual Library/temp/pydantic-ai-cereb...
+           │    │     └ <cyfunction Loop.run_until_complete at 0x10170e980>
+           │    └ <uvloop.Loop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x109bdaf90>
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/uvloop/__init__.py", line 48, in wrapper
+    return await main
+                 └ <coroutine object main at 0x109c266b0>
+
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/patterns.py", line 886, in main
+    await run_comparison(prompt, target=5, prompt_idx=idx)
+          │              │                            └ 15
+          │              └ 'Collect exactly: 1 Brazilian service contract (≥4pp), 1 American MSA (≥6pp), 1 Brazilian TJSP civil brief (≥5pp), 1 American...
+          └ <function run_comparison at 0x109c69bc0>
+
+> File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/patterns.py", line 821, in run_comparison
+    result = await runner(prompt, target)
+                   │      │       └ 5
+                   │      └ 'Collect exactly: 1 Brazilian service contract (≥4pp), 1 American MSA (≥6pp), 1 Brazilian TJSP civil brief (≥5pp), 1 American...
+                   └ <function run_pattern3 at 0x109c690c0>
+
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/patterns.py", line 437, in run_pattern3
+    async with pattern3_agent.iter(prompt, deps=deps) as run:
+               │              │    │            │        └ <AgentRun result=<run not finished> usage=RunUsage(input_tokens=614625, output_tokens=2696, requests=50, tool_calls=50)>
+               │              │    │            └ Deps(items=[{'id': 'brazilian_service_contract_2023', 'content': 'PDF Source: https://www.gov.br/mcom/pt-br/arquivos/contrato...
+               │              │    └ 'Collect exactly: 1 Brazilian service contract (≥4pp), 1 American MSA (≥6pp), 1 Brazilian TJSP civil brief (≥5pp), 1 American...
+               │              └ <function Agent.iter at 0x108ff4720>
+               └ Agent(model=CerebrasModel(), name=None, end_strategy='early', model_settings=None, output_type=ToolOutput(output=<class '__ma...
+
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/contextlib.py", line 235, in __aexit__
+    await self.gen.athrow(value)
+          │    │   │      └ CancelledError('Cancelled via cancel scope 10c431e50')
+          │    │   └ <method 'athrow' of 'async_generator' objects>
+          │    └ <async_generator object Agent.iter at 0xa9a62aa90>
+          └ <contextlib._AsyncGeneratorContextManager object at 0x10c599240>
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_ai/agent/__init__.py", line 705, in iter
+    async with graph.iter(
+               │     └ <function Graph.iter at 0x108ed10c0>
+               └ <pydantic_graph.beta.graph.Graph object at 0x10c5b3540
+                 stateDiagram-v2
+                   UserPromptNode
+                   state decision <<choice>>
+                   CallToo...
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/contextlib.py", line 235, in __aexit__
+    await self.gen.athrow(value)
+          │    │   │      └ CancelledError('Cancelled via cancel scope 10c431e50')
+          │    │   └ <method 'athrow' of 'async_generator' objects>
+          │    └ <async_generator object Graph.iter at 0x10a72a8f0>
+          └ <contextlib._AsyncGeneratorContextManager object at 0x10c59b460>
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/graph.py", line 270, in iter
+    async with GraphRun[StateT, DepsT, OutputT](
+               │        │       │      └ OutputT
+               │        │       └ DepsT
+               │        └ StateT
+               └ <class 'pydantic_graph.beta.graph.GraphRun'>
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/graph.py", line 423, in __aexit__
+    await self._async_exit_stack.__aexit__(exc_type, exc_val, exc_tb)
+          │    │                 │         │         │        └ <traceback object at 0x10c617180>
+          │    │                 │         │         └ CancelledError('Cancelled via cancel scope 10c431e50')
+          │    │                 │         └ <class 'asyncio.exceptions.CancelledError'>
+          │    │                 └ <function AsyncExitStack.__aexit__ at 0x1014cda60>
+          │    └ <contextlib.AsyncExitStack object at 0x10c4e6d00>
+          └ <pydantic_graph.beta.graph.GraphRun object at 0x10c4ecf30>
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/contextlib.py", line 768, in __aexit__
+    raise exc
+          └ UsageLimitExceeded('The next request would exceed the request_limit of 50')
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/contextlib.py", line 749, in __aexit__
+    cb_suppress = cb(*exc_details)
+                  │   └ (<class 'ExceptionGroup'>, ExceptionGroup('unhandled errors in a TaskGroup', [UsageLimitExceeded('The next request would exce...
+                  └ <bound method _GeneratorContextManager.__exit__ of <contextlib._GeneratorContextManager object at 0x10c598280>>
+  File "/Users/arthrod/.local/share/uv/python/cpython-3.14.0-macos-aarch64-none/lib/python3.14/contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    │    │   │     └ ExceptionGroup('unhandled errors in a TaskGroup', [UsageLimitExceeded('The next request would exceed the request_limit of 50')])
+    │    │   └ <method 'throw' of 'generator' objects>
+    │    └ <generator object _unwrap_exception_groups at 0x10c4efe60>
+    └ <contextlib._GeneratorContextManager object at 0x10c598280>
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/graph.py", line 981, in _unwrap_exception_groups
+    raise exception
+          └ UsageLimitExceeded('The next request would exceed the request_limit of 50')
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/graph.py", line 750, in _run_tracked_task
+    result = await self._run_task(t_)
+                   │    │         └ GraphTask(node_id='ModelRequestNode', inputs=ModelRequestNode(request=ModelRequest(parts=[ToolReturnPart(tool_name='___search...
+                   │    └ <function _GraphIterator._run_task at 0x108ed81a0>
+                   └ _GraphIterator(graph=<pydantic_graph.beta.graph.Graph object at 0x10c5b3540
+                     stateDiagram-v2
+                       UserPromptNode
+                       state decision...
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/graph.py", line 782, in _run_task
+    output = await node.call(step_context)
+                   │    │    └ StepContext(_state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect exactly: 1 Brazilian ...
+                   │    └ <property object at 0x108e7eb10>
+                   └ NodeStep(id='ModelRequestNode', _call=<bound method NodeStep._call_node of ...>, label=None)
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_graph/beta/step.py", line 253, in _call_node
+    return await node.run(GraphRunContext(state=ctx.state, deps=ctx.deps))
+                 │    │   │                     │   │           │   └ <property object at 0x108e7ddf0>
+                 │    │   │                     │   │           └ StepContext(_state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect exactly: 1 Brazilian ...
+                 │    │   │                     │   └ <property object at 0x108e7dda0>
+                 │    │   │                     └ StepContext(_state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect exactly: 1 Brazilian ...
+                 │    │   └ <class 'pydantic_graph.nodes.GraphRunContext'>
+                 │    └ <function ModelRequestNode.run at 0x108fb4670>
+                 └ ModelRequestNode(request=ModelRequest(parts=[ToolReturnPart(tool_name='___search', content=[{'title': 'Revised: March 7, 2023...
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_ai/_agent_graph.py", line 449, in run
+    return await self._make_request(ctx)
+                 │    │             └ GraphRunContext(state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect exactly: 1 Brazili...
+                 │    └ <function ModelRequestNode._make_request at 0x108fb49e0>
+                 └ ModelRequestNode(request=ModelRequest(parts=[ToolReturnPart(tool_name='___search', content=[{'title': 'Revised: March 7, 2023...
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_ai/_agent_graph.py", line 492, in _make_request
+    model_settings, model_request_parameters, message_history, run_context = await self._prepare_request(ctx)
+                                                                                   │    │                └ GraphRunContext(state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect exactly: 1 Brazili...
+                                                                                   │    └ <function ModelRequestNode._prepare_request at 0x108fb4b40>
+                                                                                   └ ModelRequestNode(request=ModelRequest(parts=[ToolReturnPart(tool_name='___search', content=[{'title': 'Revised: March 7, 2023...
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_ai/_agent_graph.py", line 536, in _prepare_request
+    ctx.deps.usage_limits.check_before_request(usage)
+    │   │    │            │                    └ RunUsage(input_tokens=614625, output_tokens=2696, requests=50, tool_calls=50)
+    │   │    │            └ <function UsageLimits.check_before_request at 0x108d683b0>
+    │   │    └ UsageLimits()
+    │   └ GraphAgentDeps(user_deps=Deps(items=[{'id': 'brazilian_service_contract_2023', 'content': 'PDF Source: https://www.gov.br/mco...
+    └ GraphRunContext(state=GraphAgentState(message_history=[ModelRequest(parts=[UserPromptPart(content='Collect exactly: 1 Brazili...
+  File "/Users/arthrod/temp/Manual Library/temp/pydantic-ai-cerebras-react-test/.venv/lib/python3.14/site-packages/pydantic_ai/usage.py", line 358, in check_before_request
+    raise UsageLimitExceeded(f'The next request would exceed the request_limit of {request_limit}')
+          │                                                                        └ 50
+          └ <class 'pydantic_ai.exceptions.UsageLimitExceeded'>
+
+pydantic_ai.exceptions.UsageLimitExceeded: The next request would exceed the request_limit of 50
+2025-12-28 17:24:43.878 | WARNING  | DDGS search failed for '"sentença" TJSP PDF 2024 site:mongo.jusbrasil.com.br': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:24:57.201 | WARNING  | DDGS search failed for '"Processo nº" "sentença" TJSP PDF 2023 site:forumdeconciliacao.jus.br': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:25:08.771 | WARNING  | DDGS search failed for 'TJSP sentença site:forumdeconcursoeconcursos.com.br': No results found.
+2025-12-28 17:25:23.482 | WARNING  | DDGS search failed for '"sentença TJSP" "processo nº" site:tjsj.jus.br': No results found.
+2025-12-28 17:28:51.729 | WARNING  | DDGS search failed for '"sentença nº. 1020336-41.2019.8.26.0196" TJSP': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:29:17.557 | WARNING  | DDGS search failed for 'site:scielo.br site:scholar.google.com TJSP "sentença" "íntegra" 2023 2024': Request timed out: ConnectTimeout('timed out')

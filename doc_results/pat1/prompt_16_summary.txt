@@ -1,0 +1,37 @@
+Prompt Index: 16
+Elapsed Seconds: 69.116
+Iterations: 1
+Finish Reason: Successfully collected all required documents: 2 from TJSP (1 sentença, 1 acórdão) and 2 from NY state courts (1 trial court decision, 1 appellate decision) with proper Bluebook/ABNT citations.
+Items Collected: 4
+Actions Taken: 22
+Total Data Size: 682 bytes (0.67 KB)
+
+Items Saved:
+  - prompt_16_item_1.json (176 bytes)
+  - prompt_16_item_2.json (190 bytes)
+  - prompt_16_item_3.json (159 bytes)
+  - prompt_16_item_4.json (157 bytes)
+
+Actions:
+  - search:TJSP sentença site:tjsp.jus.br
+  - fetch:https://www.tjsp.jus.br/Jurisp
+  - search:TJSP sentença exemplo número processo ABNT citação
+  - fetch:https://lp.publiko.me/tj-sp-ju
+  - search:site:tjsp.jus.br "Processo Nº" sentença 2023
+  - search:"Processo Nº" TJSP sentença "Vara Cível" São Paulo 2023
+  - fetch:https://www.conjur.com.br/wp-c
+  - search:"Processo" TJSP acórdão Câmara Turma relator 2023 São Paulo
+  - fetch:https://www.conjur.com.br/wp-c
+  - search:New York Supreme Court decision site:nycourts.gov
+  - fetch:https://www.nycourts.gov/repor
+  - fetch:https://nycourts.gov/courts/ny
+  - search:site:nycourts.gov "Supreme Court" decision 2023 Justice
+  - fetch:https://nycourts.gov/courts/ad
+  - fetch:https://nycourts.gov/courts/ad
+  - search:New York trial court decisions "Supreme Court" 2023 Justice opinion
+  - fetch:https://caselaw.findlaw.com/co
+  - search:New York trial court opinion Bluebook citation example
+  - save:tjsp_sentenca_001
+  - save:tjsp_acordao_001
+  - save:ny_appellate_decisio
+  - save:ny_supreme_decision_

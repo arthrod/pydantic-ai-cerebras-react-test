@@ -1,0 +1,61 @@
+Prompt Index: 16
+Elapsed Seconds: 174.563
+Iterations: 96
+Finish Reason: Coletados com sucesso 4 documentos dos tribunais solicitados: 2 do TJSP (1 sentença e 1 acórdão) e 2 dos tribunais de Nova York (1 decisão de primeira instância e 1 decisão appellate). Todos os documentos incluem citações completas nos formatos ABNT/Bluebook conforme solicitado.
+Items Collected: 4
+Actions Taken: 46
+Total Data Size: 683 bytes (0.67 KB)
+
+Items Saved:
+  - prompt_16_item_1.json (194 bytes)
+  - prompt_16_item_2.json (153 bytes)
+  - prompt_16_item_3.json (157 bytes)
+  - prompt_16_item_4.json (179 bytes)
+
+Actions:
+  - search:TJSP Tribunal de Justiça de São Paulo sentença decisão site:tjsp.jus.br
+  - search:"sentença" "Tribunal de Justiça de São Paulo" 2023 2024 filetype:pdf
+  - search:site:tjsp.jus.br acórdão """"
+  - fetch:https://esaj.tjsp.jus.br/cjsg/
+  - fetch:https://esaj.tjsp.jus.br/cjsg/
+  - search:site:tjsp.jus.br "sentença" "pdf"
+  - search:"sentença" "Vara Cível" "São Paulo" PDF site:jusbrasil.com.br
+  - search:" processo nº" "sentença" site:tjsp.jus.br
+  - search:JusBrasil "sentença TJSP" 2024
+  - fetch:https://www.conjur.com.br/wp-c
+  - fetch:https://coimbrachaves.com.br/t
+  - search:"Processo nº" "sentença" "São Paulo" site:jusbrasil.com.br
+  - search:New York Supreme Court decision PDF 2024 site:nycourts.gov
+  - fetch:https://www.nycourts.gov/repor
+  - search:"Supreme Court of the State of New York" "County of" 2024 PDF site:nycourts.gov
+  - search:New York Supreme Court decision motion summary judgment 2024 PDF site:law.justia.com
+  - fetch:https://law.justia.com/cases/n
+  - fetch:https://law.justia.com/cases/n
+  - search:site:jusbrasil.com.br "sentença TJSP" 2024 processo nº
+  - fetch:https://www.jusbrasil.com.br/p
+  - search:"sentença TJSP" "Processo nº" 2024 site:jusbrasil.com.br
+  - search:"sentença" TJSP site:stf.jus.br
+  - search:"sentença" TJSP PDF 2024 site:mongo.jusbrasil.com.br
+  - search:TJSP sentença site:esaj.tjsp.jus.br cposg
+  - fetch:https://esaj.tjsp.jus.br/cposg
+  - search:"Processo nº" "sentença" TJSP PDF 2023 site:forumdeconciliacao.jus.br
+  - search:TJSP sentença site:forumdeconcursoeconcursos.com.br
+  - search:"sentença TJSP" filetype:pdf
+  - fetch:https://doceru.com/doc/s08151
+  - search:"sentença TJSP" "processo nº" site:tjsj.jus.br
+  - search:"sentença TJSP" "processo nº" filetype:doc
+  - search:"Processo n°" sentença São Paulo site:stj.jus.br
+  - save:tjsp_acordao_001
+  - search:"Pelletteri v Ferrantino & Co., Inc." New York Supreme Court 2024
+  - fetch:https://www.nycourts.gov/REPOR
+  - search:"Vassilakos v Vassilakos" New York Appellate Division 2024
+  - fetch:https://law.justia.com/cases/n
+  - save:ny_trial_decision_00
+  - save:ny_appellate_decisio
+  - search:"Processo nº" sentença TJSP 2024 site:jusbrasil.com.br
+  - fetch:https://www.jusbrasil.com.br/j
+  - fetch:https://www.jusbrasil.com.br/j
+  - search:Vassilakos v Vassilakos New York Official Reports site:nycourts.gov
+  - save:tjsp_sentenca_001
+  - search:New York Supreme Court trial decision 2024 site:law.cornell.edu
+  - search:New York Supreme Court "Index No." decision 2024 PDF

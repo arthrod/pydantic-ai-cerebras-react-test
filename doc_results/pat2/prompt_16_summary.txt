@@ -1,0 +1,43 @@
+Prompt Index: 16
+Elapsed Seconds: 75.997
+Iterations: 1
+Finish Reason: Successfully collected 4 documents as required: 2 from TJSP (1 sentença, 1 acórdão) and 2 from NY state courts (1 trial court decision, 1 appellate decision). All documents include full citations in Bluebook/ABNT format. Target achieved.
+Items Collected: 4
+Actions Taken: 28
+Total Data Size: 662 bytes (0.65 KB)
+
+Items Saved:
+  - prompt_16_item_1.json (170 bytes)
+  - prompt_16_item_2.json (184 bytes)
+  - prompt_16_item_3.json (152 bytes)
+  - prompt_16_item_4.json (156 bytes)
+
+Actions:
+  - search:TJSP sentença site:tjsp.jus.br
+  - search:site:tjsp.jus.br "Processo Nº" "sentença" "Vistos"
+  - search:TJSP acórdão site:jusbrasil.com.br
+  - fetch:https://www.jusbrasil.com.br/p
+  - search:site:tjsp.jus.br ementa acórdão "Relator"
+  - fetch:https://esaj.tjsp.jus.br/cjsg/
+  - fetch:https://esaj.tjsp.jus.br/cposg
+  - search:site:tjsp.jus.br "Processo Nº" "Vistos" "sentença" "Dispensado o relatório"
+  - search:site:tjsp.jus.br "sentença" "Processo" "Comarca de São Paulo" pdf
+  - search:site:jusbrasil.com.br TJSP sentença "Vistos" "Dispensado o relatório"
+  - fetch:https://www.jusbrasil.com.br/j
+  - fetch:https://www.jusbrasil.com.br/j
+  - search:New York State Unified Court System decisions site:nycourts.gov
+  - fetch:https://www.nycourts.gov/repor
+  - fetch:https://www.nycourts.gov/court
+  - search:site:nycourts.gov "Supreme Court" "New York County" "Decision" pdf 2024
+  - search:site:nycourts.gov "Appellate Division" "Decision" 2024 pdf
+  - fetch:https://www.nycourts.gov/court
+  - fetch:https://www.nycourts.gov/court
+  - search:"2024 NY Slip Op" "Supreme Court" "New York County" site:law.justia.com
+  - fetch:https://law.justia.com/cases/n
+  - search:"2024 NY Slip Op" "Appellate Division" site:law.justia.com
+  - fetch:https://law.justia.com/cases/n
+  - fetch:https://law.justia.com/cases/n
+  - save:tjsp_sentenca_1
+  - save:tjsp_acordao_1
+  - save:ny_trial_decision_1
+  - save:ny_appellate_decisio

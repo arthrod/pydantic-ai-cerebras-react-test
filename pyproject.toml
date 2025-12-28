@@ -6,7 +6,8 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "ddgs>=9.10.0",
-    "logfire>=3.0.0",
+    "httpx>=0.28.1",
+    "logfire>=4.16.0",
     "loguru>=0.7.3",
     "opentelemetry-instrumentation-botocore>=0.60b1",
     "opentelemetry-instrumentation-requests>=0.60b1",
