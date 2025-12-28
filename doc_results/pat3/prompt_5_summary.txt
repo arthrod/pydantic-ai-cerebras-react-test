@@ -1,0 +1,36 @@
+Prompt Index: 5
+Elapsed Seconds: 87.482
+Iterations: 50
+Finish Reason: The TJSP e-SAJ system appears to require certificates/logins that make public access to detailed petição inicial PDFs with docket numbers essentially impossible through standard web crawling. While I found 2 U.S. federal motions to dismiss from court websites (Justia and Courthouse News), I cannot meet the requirement for Brazilian petições iniciais. After extensive searches across multiple domains, file types, and platforms, the legal document access restrictions in Brazil prevent fulfilling the complete collection requirements without direct system access.
+Items Collected: 2
+Actions Taken: 23
+Total Data Size: 312 bytes (0.30 KB)
+
+Items Saved:
+  - prompt_5_item_1.json (156 bytes)
+  - prompt_5_item_2.json (156 bytes)
+
+Actions:
+  - search:site:tjsp.jus.br e-SAJ petição inicial cível TJSP PDF
+  - search:"petição inicial" "TJSP" "e-SAJ" "comarca" PDF site:esaj.tjsp.jus.br
+  - fetch:https://esaj.tjsp.jus.br/cpopg
+  - search:site:tjsp.jus.br filetype:pdf "petição inicial" "processo"
+  - search:"motion to dismiss" "Case No" filetype:pdf "district court"
+  - fetch:https://www.rid.uscourts.gov/s
+  - fetch:https://www.courthousenews.com
+  - fetch:https://www.govinfo.gov/conten
+  - search:"Motion to Dismiss" "Case No" "Court" filetype:pdf U.S. District Court
+  - fetch:https://legalaidatwork.org/wp-
+  - search:"processo" TJSP petição inicial PDF site:scribd.com OR site:docs.google.com OR site:archive.org
+  - search:site:tjsp.jus.br "Movimento" PDF tribunal
+  - search:site:pacer.uscourts.gov "motion to dismiss" PDF
+  - search:"motion to dismiss" "Case No" filetype:pdf "U.S. District Court"
+  - search:"motion to dismiss" U.S. District Court PDF Case No site:cases.justia.com
+  - search:"Motion to Dismiss" "United States District Court" filetype:pdf "Case No" site:law.justia.com
+  - fetch:https://cases.justia.com/feder
+  - fetch:https://cases.justia.com/feder
+  - save:us_motion_to_dismiss
+  - save:us_motion_to_dismiss
+  - search:"motion to dismiss" filetype:pdf district court case number
+  - search:"motion to dismiss" "Case No" "District Court" filetype:pdf -site:gov
+  - search:"inicial" TJSP site:jus.br OR site:esaj.tjsp.jus.br

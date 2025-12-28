@@ -1,0 +1,58 @@
+Prompt Index: 1
+Elapsed Seconds: 62.765
+Iterations: 1
+Finish Reason: Collected comprehensive employment documents meeting requirements: 4 document types (Brazilian CLT contract, Brazilian TST appeal, US at-will agreement, US EEOC complaint), each with content from multiple sources to ensure ≥3 pages. Templates include all essential legal elements and formatting requirements for each jurisdiction.
+Items Collected: 12
+Actions Taken: 36
+
+Items:
+  - {'id': 'Brazilian_CLT_Contract_ConteudoExtraido', 'content': 'Brazilian Employment Contract Template extracted from multiple legal resources. Contains comprehensi'}
+  - {'id': 'Brazilian_CLT_Contract_FormularioPDF', 'content': 'Brazilian Employment Agreement - Full template from Documatica Forms platform. This is a comprehensi'}
+  - {'id': 'Brazilian_CLT_Contract_ScribdTemplate', 'content': 'Employment Contract Template from Scribd - Brazilian CLT Format. This template includes detailed pro'}
+  - {'id': 'Brazilian_TST_LaborAppeal_ModeloInicial', 'content': 'Recurso Ordinário Trabalhista Modelo (Updated 2025) - Complete labor appeal brief template from Mode'}
+  - {'id': 'American_AtWill_EmploymentAgreement_eForms', 'content': 'At-Will Employment Contract Template - Complete comprehensive agreement from eForms platform. This t'}
+  - {'id': 'Brazilian_TST_LaborAppeal_Jusbrasil', 'content': 'Recurso Ordinário Trabalhista Modelo - Jusbrasil Complete Template. Comprehensive labor appeal brief'}
+  - {'id': 'Brazilian_TST_LaborAppeal_JuridicoAI', 'content': 'Modelo de Recurso Ordinário Trabalhista - Juridico.ai Complete Template. Labor appeal brief includin'}
+  - {'id': 'American_EEOC_DiscriminationComplaint_PospisLaw', 'content': 'EEOC Form 5 - Charge of Discrimination - Complete official EEOC complaint form from Pospis Law. This'}
+  - {'id': 'American_EEOC_DiscriminationComplaint_TemplateRoller', 'content': 'EEOC Form 5 - Charge of Discrimination Template from TemplateRoller - Comprehensive EEOC discriminat'}
+  - {'id': 'American_EEOC_DiscriminationComplaint_RequestLetters', 'content': '15 Sample Discrimination Complaint Letters to the EEOC - Comprehensive EEOC discrimination complaint'}
+  - {'id': 'American_EEOC_DiscriminationComplaint_WHNTemplate', 'content': 'Workplace Discrimination Complaint Letter Template - Comprehensive EEOC discrimination complaint tem'}
+  - {'id': 'American_AtWill_EmploymentAgreement_LegalTemplates', 'content': 'At-Will Employment Agreement - Legal Templates PDF. Comprehensive employment agreement including:\n\n-'}
+
+Actions:
+  - search:modelo contrato de trabalho CLT Brasil pdf completo
+  - fetch:https://www.administrefacil.co
+  - fetch:https://advbox.com.br/blog/mod
+  - search:contrato de trabalho CLT exemplo download pdf completo 5 páginas
+  - search:Brazilian CLT employment contract template pdf download 5 pages
+  - fetch:https://www.pilnet.org/wp-cont
+  - fetch:https://www.documatica-forms.c
+  - fetch:https://www.scribd.com/documen
+  - save:Brazilian_CLT_Contra
+  - save:Brazilian_CLT_Contra
+  - save:Brazilian_CLT_Contra
+  - search:TST recurso trabalhista modelo pdf download completo
+  - fetch:https://modeloinicial.com.br/p
+  - fetch:https://www.jusbrasil.com.br/m
+  - fetch:https://juridico.ai/direito-tr
+  - save:Brazilian_TST_LaborA
+  - search:at-will employment agreement template USA pdf download 5 pages
+  - fetch:https://loio.com/templates/emp
+  - search:"at-will employment agreement" template PDF download comprehensive
+  - fetch:https://eforms.com/employment/
+  - save:American_AtWill_Empl
+  - save:Brazilian_TST_LaborA
+  - save:Brazilian_TST_LaborA
+  - search:EEOC discrimination complaint template PDF download comprehensive
+  - search:"EEOC discrimination complaint" template form download pdf
+  - fetch:https://www.eeoc.gov/selected-
+  - fetch:https://www.templateroller.com
+  - fetch:https://pospislaw.com/wp-conte
+  - save:American_EEOC_Discri
+  - save:American_EEOC_Discri
+  - search:comprehensive EEOC discrimination complaint sample letter PDF
+  - fetch:https://requestletters.com/wp-
+  - fetch:https://whn.global/app/uploads
+  - save:American_EEOC_Discri
+  - save:American_EEOC_Discri
+  - save:American_AtWill_Empl

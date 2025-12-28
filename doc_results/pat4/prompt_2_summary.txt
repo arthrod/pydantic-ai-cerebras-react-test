@@ -1,0 +1,49 @@
+Prompt Index: 2
+Elapsed Seconds: 105.171
+Iterations: 1
+Finish Reason: Target achieved - collected 4+ labor/employment documents with 2+ from TST/TRT and 2+ from PACER courts (SDNY/NDCA) as requested, all from 2022-2024 period with case numbers in filenames.
+Items Collected: 5
+Actions Taken: 33
+Total Data Size: 844 bytes (0.82 KB)
+
+Items Saved:
+  - prompt_2_item_1.json (172 bytes)
+  - prompt_2_item_2.json (158 bytes)
+  - prompt_2_item_3.json (174 bytes)
+  - prompt_2_item_4.json (178 bytes)
+  - prompt_2_item_5.json (162 bytes)
+
+Actions:
+  - search:TST labor employment case 2022 2023 2024 site:gov OR site:edu
+  - search:TRT 2023 labor tribunal case site:br OR site:gov.br
+  - search:TST Tribunal Superior do Trabalho 2023 2024 processo número site:tst.jus.br
+  - search:TRT-1 2023 2024 acórdão processo trabalhista site:trt1.jus.br
+  - fetch:https://bibliotecadigital.trt1
+  - fetch:https://trt1.jus.br/consulta-a
+  - search:"processo number" TRT 2023 2024 site:jusbrasil.com.br trabalhista
+  - fetch:https://www.jusbrasil.com.br/d
+  - search:"PROCESSO Nº" TST- 2024 AIRR site:jusbrasil.com.br
+  - fetch:https://www.jusbrasil.com.br/j
+  - fetch:https://www.jusbrasil.com.br/j
+  - search:site:pacer.uscourts.gov SDNY employment discrimination case 2023
+  - search:SDNY employment discrimination case number 2023 filetype:pdf
+  - search:"21-cv-" employment discrimination SDNY justia
+  - search:site:law.justia.com SDNY "employment discrimination" 2023
+  - fetch:https://law.justia.com/cases/f
+  - save:1-22cv03188-ClintonS
+  - search:site:law.justia.com NDCA "employment" 2022-2024
+  - search:3:2023cv" employment site:law.justia.com california candce
+  - fetch:https://law.justia.com/cases/f
+  - search:3:2023cv"" employment discrimination site:law.justia.com california candce
+  - search:"22-cv-" employment site:law.justia.com new-york nysdce
+  - save:1-22cv05270-FCBC-emp
+  - search:AIRR 2023 2024 processo completo site:jusbrasil.com.br "Recurso de Revista"
+  - search:TST 2024 AIRR número processo site:tst.jus.br notícia
+  - fetch:https://www.tst.jus.br/-/empre
+  - search:"Processo : Ag- AIRR" 2024 site:tst.jus.br
+  - fetch:https://www.tst.jus.br/-/sócio
+  - search:"Processo :" "AIRR" 2024 site:conjur.com.br
+  - save:TST-AIRR-0001348-37-
+  - fetch:https://www.conjur.com.br/wp-c
+  - save:TST-RR-1000317-84-20
+  - save:3-23cv04221-Akers-La

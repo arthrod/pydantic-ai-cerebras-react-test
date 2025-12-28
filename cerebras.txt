@@ -1,0 +1,125 @@
+
+
+    Pydantic AI
+    API Reference
+    pydantic_ai
+
+pydantic_ai.models.cerebras
+Setup
+
+For details on how to set up authentication with this model, see model configuration for Cerebras.
+
+Cerebras model implementation using OpenAI-compatible API.
+CerebrasModelName module-attribute
+
+CerebrasModelName = str | LatestCerebrasModelNames
+
+Possible Cerebras model names.
+
+Since Cerebras supports a variety of models and the list changes frequently, we explicitly list known models but allow any name in the type hints.
+
+See https://inference-docs.cerebras.ai/models/overview for an up to date list of models.
+CerebrasModelSettings
+
+Bases: ModelSettings
+
+Settings used for a Cerebras model request.
+
+ALL FIELDS MUST BE cerebras_ PREFIXED SO YOU CAN MERGE THEM WITH OTHER MODELS.
+Source code in pydantic_ai_slim/pydantic_ai/models/cerebras.py
+
+Source code in pydantic_ai_slim/pydantic_ai/models/cerebras.py
+
+cerebras_disable_reasoning instance-attribute
+
+cerebras_disable_reasoning: bool
+
+Disable reasoning for the model.
+
+This setting is only supported on reasoning models: zai-glm-4.6 and gpt-oss-120b.
+
+See the Cerebras docs for more details.
+CerebrasModel dataclass
+
+Bases: OpenAIChatModel
+
+A model that uses Cerebras's OpenAI-compatible API.
+
+Cerebras provides ultra-fast inference powered by the Wafer-Scale Engine (WSE).
+
+Apart from __init__, all methods are private or match those of the base class.
+Source code in pydantic_ai_slim/pydantic_ai/models/cerebras.py
+
+Source code in pydantic_ai_slim/pydantic_ai/models/cerebras.py
+
+__init__
+
+__init__(
+    model_name: CerebrasModelName,
+    *,
+    provider: (
+        Literal["cerebras"] | Provider[AsyncOpenAI]
+    ) = "cerebras",
+    profile: ModelProfileSpec | None = None,
+    settings: CerebrasModelSettings | None = None
+)
+
+Initialize a Cerebras model.
+
+Parameters:
+Name 	Type 	Description 	Default
+model_name 	CerebrasModelName 	
+
+The name of the Cerebras model to use.
+	required
+provider 	Literal['cerebras'] | Provider[AsyncOpenAI] 	
+
+The provider to use. Defaults to 'cerebras'.
+	'cerebras'
+profile 	ModelProfileSpec | None 	
+
+The model profile to use. Defaults to a profile based on the model name.
+	None
+settings 	CerebrasModelSettings | None 	
+
+Model-specific settings that will be used as defaults for this model.
+	None
+Source code in pydantic_ai_slim/pydantic_ai/models/cerebras.py
+
+def __init__(
+    self,
+    model_name: CerebrasModelName,
+    *,
+    provider: Literal['cerebras'] | Provider[AsyncOpenAI] = 'cerebras',
+    profile: ModelProfileSpec | None = None,
+    settings: CerebrasModelSettings | None = None,
+):
+    """Initialize a Cerebras model.
+
+    Args:
+        model_name: The name of the Cerebras model to use.
+        provider: The provider to use. Defaults to 'cerebras'.
+        profile: The model profile to use. Defaults to a profile based on the model name.
+        settings: Model-specific settings that will be used as defaults for this model.
+    """
+    super().__init__(model_name, provider=provider, profile=profile, settings=settings)
+
+
+
+def __init__(
+    self,
+    model_name: CerebrasModelName,
+    *,
+    provider: Literal['cerebras'] | Provider[AsyncOpenAI] = 'cerebras',
+    profile: ModelProfileSpec | None = None,
+    settings: CerebrasModelSettings | None = None,
+):
+    """Initialize a Cerebras model.
+
+    Args:
+        model_name: The name of the Cerebras model to use.
+        provider: The provider to use. Defaults to 'cerebras'.
+        profile: The model profile to use. Defaults to a profile based on the model name.
+        settings: Model-specific settings that will be used as defaults for this model.
+    """
+    super().__init__(model_name, provider=provider, profile=profile, settings=settings)

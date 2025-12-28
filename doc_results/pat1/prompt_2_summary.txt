@@ -1,0 +1,54 @@
+Prompt Index: 2
+Elapsed Seconds: 121.692
+Iterations: 1
+Finish Reason: Collected 4 labor/employment documents: 2 from TST/TRT (2022-2024) with case numbers, and 2 from PACER courts (SDNY and NDCA) employment disputes with case numbers. All files have proper identification and meet the requirements.
+Items Collected: 5
+Actions Taken: 38
+Total Data Size: 899 bytes (0.88 KB)
+
+Items Saved:
+  - prompt_2_item_1.json (171 bytes)
+  - prompt_2_item_2.json (195 bytes)
+  - prompt_2_item_3.json (168 bytes)
+  - prompt_2_item_4.json (187 bytes)
+  - prompt_2_item_5.json (178 bytes)
+
+Actions:
+  - search:TST TRT labor decisions 2022 2023 2024 site:tst.com OR site:trt.gov
+  - search:Texas Supreme Court labor employment cases 2022 2023 2024
+  - fetch:https://www.txcourts.gov/supre
+  - search:site:txcourts.gov "employment" 2023 supreme court opinion
+  - fetch:https://txcourts.gov/supreme/c
+  - search:site:txcourts.gov "employment" "supreme court" 2022 opinion
+  - fetch:https://search.txcourts.gov/Se
+  - search:Texas Supreme Court employment wrongful termination case 2022
+  - search:TRT Tribunal Regional do Trabalho 2023 2024 decisao emprego
+  - search:site:trt*.jus.br "acordão" "emprego" 2023
+  - search:Tribunal Regional do Trabalho decisão emprego 2023 pdf
+  - fetch:https://juslaboris.tst.jus.br/
+  - fetch:https://conexaotrabalho.portal
+  - save:TST_Retrospectiva_20
+  - search:TRT15 acórdão emprego 2022 2023 site:trt15.jus.br
+  - fetch:https://trt15.jus.br/sites/por
+  - search:site:pacer.uscourts.gov employment lawsuit SDNY 2023
+  - search:SDNY employment discrimination lawsuit 2023 case number
+  - search:"Docket Entry" SDNY employment complaint 2023 case no: 22-cv OR 23-cv
+  - fetch:https://unicourt.com/courthous
+  - fetch:https://caselaw.findlaw.com/co
+  - search:"22-cv-" OR "23-cv-" employment discrimination "Southern District of New York"
+  - save:TRT15_Acordao_001185
+  - search:"DOE v" employment lawsuit "SDNY" 2023 complaint
+  - fetch:https://cases.justia.com/feder
+  - save:SDNY_1-23-cv-10184_D
+  - save:TST_Informativo_2023
+  - search:"NDCA" Northern District California employment lawsuit 2023 case number
+  - search:"22-cv-" OR "23-cv-" employment "Northern District of California" complaint
+  - search:site:courtlistener.com "Northern District of California" employment 2023
+  - fetch:https://www.courtlistener.com/
+  - search:"Dialect LLC v Google" lawsuit employment contract case
+  - search:site:courtlistener.com "employment discrimination" California 2023 complaint
+  - fetch:https://www.courtlistener.com/
+  - fetch:https://www.courtlistener.com/
+  - search:"Liikala v Brookale Senior Living" employment case docket
+  - fetch:https://www.pacermonitor.com/p
+  - save:NDCA_23-cv-03612_Lii
