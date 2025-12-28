@@ -11,3 +11,4 @@ prompt_8,80.14851695904508,55.808641292038374,86.0745394580299,88.24404379201587
 prompt_9,69.78821733302902,67.32009733293671,58.64942120795604,44.15936370799318,799,700,689,626,"Collect 4 real estate documents: 2 Brazilian (1 escritura de compra e venda, 1 contrato de locação c..."
 prompt_10,76.07702775008511,27.54143599991221,49.67850387492217,51.42935104202479,846,740,627,670,Collect 4 property documents: 2 Brazilian imóveis documents from TJSP jurisprudência (ações possessó...
 prompt_11,166.4977694589179,113.27004341594875,140.15035199990962,101.78851750004105,934,701,886,148,"Collect 4 tax documents: 2 Brazilian (1 CARF acórdão, 1 mandado de segurança tributário from TRF) an..."
+prompt_12,10.762676416081376,44.385482499958016,43.996400458039716,39.650523375021294,618,601,625,619,"Collect 4 tax compliance docs: 2 Brazilian (ICMS-related from SEFAZ consultation or CONFAZ), 2 Ameri..."

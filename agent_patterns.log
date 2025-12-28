@@ -3953,3 +3953,7 @@ pydantic_ai.exceptions.ModelHTTPError: status_code: 400, model_name: zai-glm-4.6
 2025-12-28 16:40:05.131 | WARNING  | DDGS search failed for '"Private Letter Ruling 2024" PLR number site:irs.gov': Request timed out: ConnectTimeout('timed out')
 2025-12-28 16:56:11.302 | WARNING  | DDGS search failed for '"mandado de segurança" tributário site:trf*.jus.br pdf': Request timed out: ConnectTimeout('timed out')
 2025-12-28 16:59:09.937 | WARNING  | DDGS search failed for 'site:taxtreaties.gov IRS Chief Counsel Advice PDF 2023 2024': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:00:50.679 | WARNING  | DDGS search failed for 'site:sefaz.gov.br ICMS consulta 2023 2024 oficial': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:01:00.585 | WARNING  | DDGS search failed for 'site:sefaz.sp.gov.br ICMS consulta 2024 oficial': No results found.
+2025-12-28 17:01:33.703 | WARNING  | DDGS search failed for 'SEFAZ ICMS consulta oficial 2023 2024 site:sefaz.gov.br': Request timed out: ConnectTimeout('timed out')
+2025-12-28 17:04:38.088 | WARNING  | DDGS search failed for 'site:ir.itan.com.br fato relevante aquisição acquisition 2023 2024': No results found.
