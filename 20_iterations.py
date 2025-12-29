@@ -4,8 +4,9 @@ import json
 import os
 import statistics
 import time
+from collections.abc import Callable, Coroutine
 from pathlib import Path
-from typing import Any, Callable, Coroutine
+from typing import Any
 
 from rich.console import Console
 from rich.table import Table
