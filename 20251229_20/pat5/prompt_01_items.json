@@ -1,0 +1,74 @@
+[
+  {
+    "doc_id": "723945464d5b",
+    "url": "https://www.satedsp.org.br/wp-content/uploads/2018/08/Contrato_Tempo_Indeterminado.pdf",
+    "title": "Contrato_Tempo_Indeterminado.pdf",
+    "description": "",
+    "saved_path": "20251229_20/pat5/docs/prompt_01/Brazil_CLT_employment_contract_1978.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 81233,
+    "content_tokens": 949,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a Brazilian CLT employment contract (Contrato de Trabalho por Tempo Indeterminado) which matches the requirement for \"1 CLT employment contract\" from Brazil. It appears to be a template form but contains complete contractual clauses for an indefinite-term employment agreement under Portaria Nº 3.405/78. While I cannot verify the exact page count without the PDF, the document substantial content with multiple numbered clauses suggests it meets the ≥3 pages requirement. It dates to the Brazilian legal framework (1978 Portaria) and is a public document from satedsp.org.br, satisfying the public-filing source constraint.",
+      "file_summary": "Brazilian CLT employment contract template for indefinite-term work under Portaria Nº 3.405/78. Contains clauses for employee/employer identification, job functions, salary, work location, hours, weekly rest, travel compensation, and dubbing work provisions. Includes signature areas and distribution to employer, employee, Ministry of Labor, and Union.",
+      "suggested_filename": "Brazil_CLT_employment_contract_1978.pdf",
+      "save_instructions": "Save as PDF with filename: Brazil_CLT_employment_contract_1978.pdf following the pattern {jurisdiction}_{doc_type}_{date}.pdf. This represents a Brazilian (Brazil) CLT employment contract dated by the 1978 Portaria. If unable to obtain PDF bytes, save as markdown with .md extension but maintain same filename base."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "b4c0f058b999",
+    "url": "https://www.trt6.jus.br/portal/sites/default/files/documents/documento_521c79f_1_2.pdf",
+    "title": "documento_521c79f_1_2.pdf",
+    "description": "",
+    "saved_path": "20251229_20/pat5/docs/prompt_01/Brazil_TST_labor_appeal_2021-03-03.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 104800,
+    "content_tokens": 10299,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements for a Brazilian TST labor appeal brief. It is from the Tribunal Regional do Trabalho da 6ª Região (Brazil), is a Recurso Ordinário Trabalhista (labor appeal), and contains extensive legal analysis with detailed case information, docket number 0000205-34.2019.5.06.0143, and multiple pages content. However, I cannot verify the exact page count from the extracted content, though the substantial content suggests it meets the ≥3 pages requirement.",
+      "file_summary": "Brazilian labor court appeal (Recurso Ordinário Trabalhista) from TRT6 involving claims of moral harassment, racial insults in the workplace, overtime pay disputes, and damages. The court ruled in favor of the employee, increasing moral damages compensation from R$5,000 to R$30,000 due to racist slurs including \"macaca buchuda\" and \"nego filho da puta\" from a supervisor who was promoted despite the harassment. The decision also awarded overtime pay, interval violations, and additional compensation.",
+      "suggested_filename": "Brazil_TST_0000205-34.2019.5.06.0143_2021-03-03.pdf",
+      "save_instructions": "Save this document with the filename pattern: {jurisdiction}_{doc_type}_{date}.pdf using Brazil_TST_0000205-34.2019.5.06.0143_2021-03-03.pdf. If PDF bytes are available from the original source, use them directly. If only markdown content is available, convert to PDF before saving with this exact filename. Include the docket number 0000205-34.2019.5.06.0143 in the filename as shown."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "c3238243624d",
+    "url": "https://esign.com/wp-content/uploads/At-Will-Employment-Contract-Template.pdf",
+    "title": "At-Will Employment Contract Template",
+    "description": "",
+    "saved_path": "20251229_20/pat5/docs/prompt_01/US_at-will_employment_agreement_2024.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 1399535,
+    "content_tokens": 2873,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements for the American at-will employment agreement. It is from the US jurisdiction (as evidenced by references to State and Federal laws), is an at-will employment contract template, and meets the page count requirement at 6 pages. The document contains comprehensive employment terms including at-will termination provisions, compensation, benefits, confidentiality, and non-compete clauses typical of US employment agreements.",
+      "file_summary": "A comprehensive 6-page American at-will employment contract template covering employment terms, termination rights (at-will), compensation structure, benefits eligibility, confidentiality agreements, non-compete provisions, and standard employment clauses. The document includes spaces for employer and employee details, job titles, pay rates, and benefits customization, with clear sections on trial periods, vacation, personal leave, and regulatory compliance.",
+      "suggested_filename": "US_at-will_employment_agreement_2024.pdf",
+      "save_instructions": "Save as PDF with filename: US_at-will_employment_agreement_2024.pdf following the pattern {jurisdiction}_{doc_type}_{date}.pdf. Use \"US\" for jurisdiction, \"at-will_employment_agreement\" for document type, and current year 2024 for date. If PDF conversion is not available, save as markdown file but retain the same naming convention with .md extension."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "ef2a9d6e55b4",
+    "url": "https://www.govinfo.gov/content/pkg/USCOURTS-njd-3_17-cv-11401/pdf/USCOURTS-njd-3_17-cv-11401-0.pdf",
+    "title": "USCOURTS-njd-3_17-cv-11401-0.pdf",
+    "description": "",
+    "saved_path": "20251229_20/pat5/docs/prompt_01/US_EEOC_discrimination_complaint_2020-12-09.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 548274,
+    "content_tokens": 25344,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is an American court opinion (45 pages) from the US District Court for the District of New Jersey. While it discusses an employment discrimination case involving an EEOC complaint and contains extensive analysis of employment law under Title VII, NJLAD, and other statutes, it is a judicial memorandum and order rather than an employment agreement or EEOC complaint. However, it thoroughly details the plaintiff's discrimination claims and EEOC proceedings, making it valuable as a supporting reference document for understanding EEOC discrimination complaint processes and employment discrimination law in America.",
+      "file_summary": "A 45-page US District Court memorandum and order regarding an employment discrimination case. The document details a Latina employee's claims of race, sex, and age discrimination against her employer (Township of Lakewood), including her filing of an EEOC complaint in October 2016, subsequent investigation, and termination. The court analyzes claims under Title VII, Section 1981, NJLAD, and CEPA, ultimately dismissing many claims due to timing issues but allowing some to proceed. The case provides extensive discussion of employment discrimination law and EEOC-related proceedings.",
+      "suggested_filename": "USA_court_opinion_3_17-cv-11401_2020-12-09.pdf",
+      "save_instructions": "Save this PDF with the full case citation in the filename: USA_court_opinion_3_17-cv-11401_2020-12-09.pdf. The document appears to be a judicial opinion from December 9, 2020 (based on the filing date in the document header), with case number 3:17-cv-11401 from the District of New Jersey. The 45-page length meets the ≥3 pages requirement for the American employment document category."
+    },
+    "pdf_download_error": null
+  }
+]

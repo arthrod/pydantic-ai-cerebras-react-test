@@ -102,6 +102,8 @@ def _estimate_tokens(msg: Any) -> int:
         return len(_get_encoding().encode(content))
     except Exception:
         return 100  # Fallback if encoding fails
+
+
 def is_context_length_error(e: Exception) -> bool:
     """Check if exception is a context length exceeded error."""
     if isinstance(e, ModelHTTPError) and e.status_code == 400:
@@ -292,9 +294,6 @@ def token_limit_history_processor_sync(messages: list[Any]) -> list[Any]:
     return messages
 
 
-
-
-
 async def close_httpx_client() -> None:
     """Close the shared httpx client."""
     global _httpx_client
@@ -366,6 +365,7 @@ async def get_httpx_client() -> httpx.AsyncClient:
             limits=httpx.Limits(max_keepalive_connections=20, max_connections=100),
         )
     return _httpx_client
+
 
 async def jina_search(query: str, max_results: int = 10) -> dict[str, Any]:
     """Perform a Jina AI search using the correct POST API.
@@ -526,7 +526,7 @@ async def jina_fetch(url: str) -> dict[str, Any]:
 async def _search_impl(ctx: RunContext[Deps], query: str) -> dict[str, Any]:
     """Search using Jina AI. Returns structured search results."""
     log = ctx.deps.log()
-    log.info(f"🔍 Searching: '{query}'")
+    log.info("🔍 Searching: '%s'", query)
 
     results = await jina_search(query, max_results=10)
     ctx.deps.actions.append(f'search:{query}')
@@ -720,7 +720,7 @@ async def finish(ctx: RunContext[Deps], reason: str) -> str:
         Confirmation that the task is marked complete
     """
     log = ctx.deps.log()
-    log.info(f'🏁 Finish called: {reason}')
+    log.info('🏁 Finish called: %s', reason)
 
     ctx.deps.is_finished = True
     ctx.deps.finish_reason = reason
@@ -740,7 +740,7 @@ async def run_pattern2(prompt: str, target: int = 5, max_iterations: int = 10) -
 
     for i in range(max_iterations):
         iterations += 1
-        log.debug(f'Iteration {iterations}/{max_iterations}')
+        log.debug('Iteration %s/%s', iterations, max_iterations)
 
         current_prompt = prompt if messages is None else 'Continue your task.'
 
@@ -843,16 +843,16 @@ async def run_pattern3(prompt: str, target: int = 5) -> AgentResult:
 
                     if Agent.is_call_tools_node(node):
                         tool_names = _extract_tool_names(node)
-                        log.debug(f'Node {node_count}: Tools → {tool_names}')
+                        log.debug('Node %s: Tools → %s', node_count, tool_names)
 
                     elif Agent.is_model_request_node(node):
-                        log.debug(f'Node {node_count}: Model request')
+                        log.debug('Node %s: Model request', node_count)
 
                     else:
-                        log.debug(f'Node {node_count}: {node_type}')
+                        log.debug('Node %s: %s', node_count, node_type)
 
                 except Exception as e:
-                    log.exception(f'Failed to process node {node_count}: {e}')
+                    log.exception('Failed to process node %s: %s', node_count, e)
     except ModelHTTPError as e:
         if is_context_length_error(e):
             log.warning('🔥 Context length exceeded in internal loop, returning partial results')
@@ -1003,7 +1003,7 @@ async def run_pattern4(prompt: str, target: int = 5, max_iterations: int = 10) -
 
     for i in range(max_iterations):
         iterations += 1
-        log.debug(f'Iteration {iterations}/{max_iterations}')
+        log.debug('Iteration %s/%s', iterations, max_iterations)
 
         current_prompt = prompt if messages is None else 'Continue or finish based on your progress.'
 
@@ -1021,12 +1021,12 @@ async def run_pattern4(prompt: str, target: int = 5, max_iterations: int = 10) -
 
         match result.output:
             case ContinueAction(reasoning=reason, next_steps=steps):
-                log.info(f'➡️  Continue: {reason}')
-                log.debug(f'   Next steps: {steps}')
+                log.info('➡️  Continue: %s', reason)
+                log.debug('   Next steps: %s', steps)
 
             case FinishAction(reason=reason, summary=summary):
-                log.info(f'🏁 Finish: {reason}')
-                log.debug(f'   Summary: {summary}')
+                log.info('🏁 Finish: %s', reason)
+                log.debug('   Summary: %s', summary)
                 finish_reason = reason
                 break
 
