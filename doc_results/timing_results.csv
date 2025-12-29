@@ -61,3 +61,14 @@ prompt_2,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 labor/employment docs: 2 from TST or
 prompt_3,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 commercial contracts: 2 Brazilian (1 prestação de serviços, 1 compra e venda) and 2 Americ..."
 prompt_4,0.0,0.0,0.0,0.0,0,0,0,0,Collect 4 lease agreements: 2 Brazilian commercial leases (locação não-residencial) from São Paulo r...
 prompt_5,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 court briefs: 2 Brazilian petições iniciais from TJSP e-SAJ (cível), 2 American motions to..."
+prompt_1,3.2127697080140933,140.32316283299588,2.6742729999823496,4.020056542009115,0,714,0,0,"Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) an..."
+prompt_2,5.366131208953448,9.310252791969106,3.4398510840255767,3.49747775006108,0,0,0,0,"Collect 4 labor/employment docs: 2 from TST or TRT (any region) published 2022-2024, 2 from PACER (S..."
+prompt_3,3.4984562079189345,56.14811275003012,4.024832208058797,7.441234749974683,0,0,0,0,"Collect 4 commercial contracts: 2 Brazilian (1 prestação de serviços, 1 compra e venda) and 2 Americ..."
+prompt_4,5.1181794160511345,56.84345870791003,41.3614446669817,93.9230203749612,0,869,800,525,Collect 4 lease agreements: 2 Brazilian commercial leases (locação não-residencial) from São Paulo r...
+prompt_1,5.096404916956089,80.8769692920614,3.750537790940143,3.495739416917786,0,695,0,0,"Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) an..."
+prompt_1,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) an..."
+prompt_1,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) an..."
+prompt_1,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) an..."
+prompt_2,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 labor/employment docs: 2 from TST or TRT (any region) published 2022-2024, 2 from PACER (S..."
+prompt_3,0.0,0.0,0.0,0.0,0,0,0,0,"Collect 4 commercial contracts: 2 Brazilian (1 prestação de serviços, 1 compra e venda) and 2 Americ..."
+prompt_4,0.0,0.0,0.0,0.0,0,0,0,0,Collect 4 lease agreements: 2 Brazilian commercial leases (locação não-residencial) from São Paulo r...

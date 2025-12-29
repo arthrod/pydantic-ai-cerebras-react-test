@@ -3,36 +3,71 @@ Four agentic loop patterns for comparison testing.
 Each pattern receives the same prompt and produces a standardized result.
 
 Features:
-- DuckDuckGo search integration
-- Proper logging with loguru
+- Jina AI Search and Reader API integration (correct POST requests)
+- Proper logging with logfire
 - Time to completion tracking
 - Cerebras model with zai-glm-4.6
 
 Run with: uv run python agent_patterns.py
+
+Get your Jina AI API key for free: https://jina.ai/?sui=apikey
 """
 
-import asyncio
 import csv
 import json
 import os
-import sys
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Callable, Literal, Union
-import uvloop
-from ddgs import DDGS
+from typing import Any, Callable, Literal
+
 import httpx
-import logging
+import uvloop
 from pydantic import BaseModel, ConfigDict, Field
 from pydantic_ai import Agent, RunContext
+
 from pydantic_ai.models.cerebras import CerebrasModel, CerebrasModelSettings
 from pydantic_ai.output import ToolOutput
 import logfire as logger
+from dotenv import load_dotenv
 
+
+from pydantic_ai.messages import ToolCallPart, ToolReturnPart
+
+from pydantic_ai.exceptions import ModelHTTPError
+
+MAX_HISTORY_TOKENS = 120_000
+CHARS_PER_TOKEN = 4  # Conservative estimate for English text
+
+
+def is_context_length_error(e: Exception) -> bool:
+    """Check if exception is a context length exceeded error."""
+    if isinstance(e, ModelHTTPError) and e.status_code == 400:
+        body_str = str(e.body).lower()
+        return 'context_length' in body_str or 'context length' in body_str
+    return False
+
+
+def emergency_trim_history(messages: list[Any], keep_last: int = 3) -> list[Any]:
+    """Emergency trim when 400 error occurs - much more aggressive."""
+    if not messages or len(messages) <= keep_last + 1:
+        return messages
+
+    safe_indices = _find_safe_cut_indices(messages)
+    target_start = len(messages) - keep_last
+
+    for idx in reversed(safe_indices):
+        if idx >= target_start:
+            return [messages[0]] + messages[idx:]
+
+    return [messages[0]] + messages[-keep_last:]
+
+
+
+load_dotenv()
 CORE_INSTRUCTIONS = """
 You are a document collector. Your task is to collect items by:
-1. Searching for relevant items using DuckDuckGo
+1. Searching for relevant items using Jina AI Search
 2. Fetching promising URLs to get content
 3. Saving good items to your collection
 
@@ -95,31 +130,191 @@ PROMPTS: list[str] = [
 ]
 
 
-# =============================================================================
-# LOGGING & HTTPX CONFIGURATION
-# =============================================================================
-
 # Configure logfire (call configure() to enable tracing)
 logger.configure()
 
 # Instrument httpx for automatic tracing of HTTP requests
-# This will trace all httpx requests including Jina AI fetches
 logger.instrument_httpx(capture_all=True)
 
-# Jina AI configuration for real web fetching
+# Jina AI configuration - CORRECT endpoints for POST requests
 JINA_API_KEY = os.getenv("JINA_API_KEY")
-JINA_BASE_URL = "https://r.jina.ai/"
+JINA_SEARCH_URL = "https://s.jina.ai/"  # POST with {"q": "..."}
+JINA_READER_URL = "https://r.jina.ai/"  # POST with {"url": "..."}
 
 # Create a shared async httpx client for efficient connection pooling
 _httpx_client: httpx.AsyncClient | None = None
+def _estimate_tokens(msg: Any) -> int:
+    """Estimate token count for a message (~4 chars per token)."""
+    try:
+        # Use JSON serialization for accurate content measurement
+        if hasattr(msg, 'model_dump_json'):
+            content = msg.model_dump_json()
+        else:
+            content = str(msg)
+        return len(content) // CHARS_PER_TOKEN
+    except Exception:
+        return 100  # Fallback estimate
 
+
+def _has_tool_calls(msg: Any) -> bool:
+    """Check if a ModelResponse contains tool calls."""
+    if not hasattr(msg, 'parts'):
+        return False
+    return any(isinstance(p, ToolCallPart) for p in msg.parts)
+
+
+def _has_tool_returns(msg: Any) -> bool:
+    """Check if a ModelRequest contains tool returns."""
+    if not hasattr(msg, 'parts'):
+        return False
+    return any(isinstance(p, ToolReturnPart) for p in msg.parts)
+
+
+def _find_safe_cut_indices(messages: list[Any]) -> list[int]:
+    """
+    Find indices where it's safe to cut (not breaking tool call/return pairs).
+
+    Safe cut points are BEFORE messages that:
+    - Are ModelRequests without ToolReturnParts, OR
+    - Are ModelResponses without ToolCallParts that need pairing
+
+    We never cut at index 0 (system prompt).
+    """
+    safe = []
+    n = len(messages)
+
+    for i in range(1, n):  # Skip index 0 (system prompt)
+        msg = messages[i]
+        prev_msg = messages[i - 1] if i > 0 else None
+
+        # If this message has tool returns, the previous MUST have tool calls
+        # So cutting here would break the pair - NOT safe
+        if _has_tool_returns(msg):
+            continue
+
+        # If previous message has tool calls, we need this message to have returns
+        # Since we already checked above, if we're here and prev has calls, skip
+        if prev_msg and _has_tool_calls(prev_msg):
+            continue
+
+        # Safe to cut here
+        safe.append(i)
+
+    return safe
+
+
+async def token_limit_history_processor(
+    ctx: RunContext[Deps],
+    messages: list[Any],
+) -> list[Any]:
+    """
+    Limit message history to ~120k tokens while preserving tool call/return pairs.
+
+    Strategy:
+    1. Estimate total tokens
+    2. If under limit, return as-is
+    3. Otherwise, find safe cut points and remove oldest messages
+    4. Always keep first message (system prompt) and recent messages
+    """
+    if not messages:
+        return messages
+
+    # Calculate current token estimate
+    token_estimates = [_estimate_tokens(m) for m in messages]
+    total_tokens = sum(token_estimates)
+
+    if total_tokens <= MAX_HISTORY_TOKENS:
+        return messages
+
+    log = ctx.deps.log()
+    original_count = len(messages)
+    log.info(
+        f"⚠️  History exceeds limit: ~{total_tokens:,} tokens > {MAX_HISTORY_TOKENS:,} limit "
+        f"({original_count} messages)"
+    )
+
+    # Find safe cut points
+    safe_indices = _find_safe_cut_indices(messages)
+
+    if not safe_indices:
+        # No safe cuts found - keep first and last few messages
+        log.warning("No safe cut points found - keeping first + last 5 messages")
+        if len(messages) > 6:
+            return [messages[0]] + messages[-5:]
+        return messages
+
+    # Binary search for the right cut point
+    # We want to keep messages from cut_index onwards (plus first message)
+    result = list(messages)
+
+    for cut_idx in safe_indices:
+        # Try cutting everything from index 1 to cut_idx
+        candidate = [messages[0]] + messages[cut_idx:]
+        candidate_tokens = _estimate_tokens(messages[0]) + sum(token_estimates[cut_idx:])
+
+        if candidate_tokens <= MAX_HISTORY_TOKENS:
+            result = candidate
+            break
+    else:
+        # Even cutting at the last safe point isn't enough
+        # Take first message + everything from last safe index
+        if safe_indices:
+            last_safe = safe_indices[-1]
+            result = [messages[0]] + messages[last_safe:]
+
+    final_tokens = sum(_estimate_tokens(m) for m in result)
+    removed = original_count - len(result)
+
+    log.info(
+        f"✂️  Trimmed history: {original_count} → {len(result)} messages "
+        f"(~{total_tokens:,} → ~{final_tokens:,} tokens, removed {removed})"
+    )
+
+    return result
+
+
+# Synchronous wrapper for agents that might not use async processors
+def token_limit_history_processor_sync(
+    messages: list[Any],
+) -> list[Any]:
+    """
+    Sync version without ctx - uses simple token estimation.
+    For use when RunContext isn't needed.
+    """
+    if not messages:
+        return messages
+
+    token_estimates = [_estimate_tokens(m) for m in messages]
+    total_tokens = sum(token_estimates)
+
+    if total_tokens <= MAX_HISTORY_TOKENS:
+        return messages
+
+    safe_indices = _find_safe_cut_indices(messages)
+
+    if not safe_indices:
+        if len(messages) > 6:
+            return [messages[0]] + messages[-5:]
+        return messages
+
+    for cut_idx in safe_indices:
+        candidate = [messages[0]] + messages[cut_idx:]
+        candidate_tokens = _estimate_tokens(messages[0]) + sum(token_estimates[cut_idx:])
+
+        if candidate_tokens <= MAX_HISTORY_TOKENS:
+            return candidate
+
+    if safe_indices:
+        return [messages[0]] + messages[safe_indices[-1]:]
+
+    return messages
 
 async def get_httpx_client() -> httpx.AsyncClient:
     """Get or create a shared async httpx client."""
     global _httpx_client
     if _httpx_client is None:
         _httpx_client = httpx.AsyncClient(
-            timeout=httpx.Timeout(30.0, connect=10.0),
+            timeout=httpx.Timeout(60.0, connect=10.0),  # Longer timeout for Jina
             limits=httpx.Limits(max_keepalive_connections=20, max_connections=100),
         )
     return _httpx_client
@@ -180,95 +375,182 @@ class Deps:
 
 
 # =============================================================================
-# DUCKDUCKGO SEARCH IMPLEMENTATION
+# JINA AI SEARCH IMPLEMENTATION (FIXED - POST request)
 # =============================================================================
 
-def ddg_search(query: str, max_results: int = 5) -> list[dict[str, Any]]:
+async def jina_search(query: str, max_results: int = 10) -> dict[str, Any]:
     """
-    Perform a DuckDuckGo search synchronously.
+    Perform a Jina AI search using the correct POST API.
+
+    Per Jina docs:
+    - Endpoint: https://s.jina.ai/
+    - Method: POST
+    - Body: {"q": "search query"}
+    - Headers: Authorization, Content-Type, Accept
 
     Args:
         query: Search query string
-        max_results: Maximum number of results to return
+        max_results: Maximum number of results (passed as 'num' parameter)
 
     Returns:
-        List of search results with title, href, body
+        Parsed Jina response with search results
     """
     try:
-        results = DDGS().text(query, max_results=max_results)
-        return [
-            {
-                "title": r.get("title", ""),
-                "url": r.get("href", ""),
-                "snippet": r.get("body", "")[:200],
-            }
-            for r in results
-        ]
-    except Exception as e:
-        logger.warning(f"DDGS search failed for '{query}': {e}")
-        return []
-
-
-# =============================================================================
-# SHARED TOOL IMPLEMENTATIONS
-# =============================================================================
-
-async def _search_impl(ctx: RunContext[Deps], query: str) -> list[dict[str, Any]]:
-    """Search using DuckDuckGo."""
-    log = ctx.deps.log()
-    log.info(f"🔍 Searching: '{query}'")
-
-    # Run sync DDGS in thread pool
-    loop = asyncio.get_event_loop()
-    results = await loop.run_in_executor(None, ddg_search, query, 5)
-
-    ctx.deps.actions.append(f"search:{query}")
-    log.debug(f"   Found {len(results)} results")  # noqa: G004
-    return results
-
-
-async def _fetch_impl(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
-    """Fetch URL content using Jina AI Reader API.
-
-    Jina AI Reader (https://r.jina.ai/) converts web pages to clean markdown/text,
-    making it ideal for document collection and content extraction.
-
-    The request is automatically traced by logfire via instrument_httpx().
-    """
-    log = ctx.deps.log()
-    log.info(f"📥 Fetching via Jina AI: {url[:50]}...")  # noqa: G004
-
-    ctx.deps.actions.append(f"fetch:{url[:30]}")
-
-    # Build Jina AI Reader URL
-    jina_url = f"{JINA_BASE_URL}{url}"
-
-    # Prepare headers with API key if available
-    headers: dict[str, str] = {
-        "Accept": "text/plain",  # Get plain text/markdown response
-    }
-    if JINA_API_KEY:
-        headers["Authorization"] = f"Bearer {JINA_API_KEY}"
-
-    try:
-        client = await get_httpx_client()
-        response = await client.get(jina_url, headers=headers)
-        response.raise_for_status()
-
-        content = response.text
-
-        # Log success with content preview
-        log.debug(f"   Fetched {len(content)} chars from {url[:30]}")  # noqa: G004
-
-        return {
-            "url": url,
-            "content": content[:5000] if len(content) > 5000 else content,  # Limit content size
-            "content_length": len(content),
-            "status": "success",
-            "status_code": response.status_code,
+        headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
         }
+        if JINA_API_KEY:
+            headers["Authorization"] = f"Bearer {JINA_API_KEY}"
+
+        # Jina Search API request body
+        request_body = {
+            "q": query,
+            "num": max_results,
+        }
+
+        client = await get_httpx_client()
+        response = await client.post(
+            JINA_SEARCH_URL,
+            headers=headers,
+            json=request_body,
+        )
+
+        # Log response status for debugging
+        logger.info(f"Jina search '{query}': status={response.status_code}")
+
+        if response.status_code != 200:
+            logger.warning(f"Jina search non-200: {response.status_code} - {response.text[:500]}")
+            return {
+                "error": f"HTTP {response.status_code}",
+                "query": query,
+                "results": [],
+            }
+
+        # Parse JSON response
+        data = response.json()
+
+        # Jina response structure: {"code": 200, "status": 20000, "data": [...]}
+        if "data" in data:
+            results = data["data"]
+            logger.info(f"Jina search returned {len(results)} results for '{query}'")
+            return {
+                "query": query,
+                "results": results,
+                "count": len(results),
+            }
+        else:
+            logger.warning(f"Jina search unexpected response structure: {list(data.keys())}")
+            return {
+                "query": query,
+                "results": [],
+                "raw_response": data,
+            }
+
     except httpx.HTTPStatusError as e:
-        log.warning(f"   HTTP error fetching {url[:30]}: {e.response.status_code}")  # noqa: G004
+        logger.warning(f"Jina search HTTP error for '{query}': {e}")
+        return {"error": str(e), "query": query, "results": []}
+    except httpx.RequestError as e:
+        logger.warning(f"Jina search request error for '{query}': {e}")
+        return {"error": str(e), "query": query, "results": []}
+    except json.JSONDecodeError as e:
+        logger.warning(f"Jina search JSON decode error for '{query}': {e}")
+        return {"error": f"JSON decode error: {e}", "query": query, "results": []}
+    except Exception as e:
+        logger.exception(f"Jina search unexpected error for '{query}': {e}")
+        return {"error": str(e), "query": query, "results": []}
+
+
+# =============================================================================
+# JINA AI READER/FETCH IMPLEMENTATION (FIXED - POST request)
+# =============================================================================
+
+async def jina_fetch(url: str) -> dict[str, Any]:
+    """
+    Fetch URL content using Jina AI Reader API (correct POST method).
+
+    Per Jina docs:
+    - Endpoint: https://r.jina.ai/
+    - Method: POST
+    - Body: {"url": "https://example.com"}
+    - Headers: Authorization, Content-Type, Accept
+
+    Args:
+        url: The URL to fetch and convert to markdown
+
+    Returns:
+        Dict with url, content, title, and metadata
+    """
+    try:
+        headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        }
+        if JINA_API_KEY:
+            headers["Authorization"] = f"Bearer {JINA_API_KEY}"
+
+        # Jina Reader API request body
+        request_body = {
+            "url": url,
+        }
+
+        client = await get_httpx_client()
+        response = await client.post(
+            JINA_READER_URL,
+            headers=headers,
+            json=request_body,
+        )
+
+        logger.info(f"Jina fetch '{url[:50]}...': status={response.status_code}")
+
+        if response.status_code != 200:
+            logger.warning(f"Jina fetch non-200: {response.status_code}")
+            return {
+                "url": url,
+                "content": "",
+                "status": "error",
+                "status_code": response.status_code,
+                "error": response.text[:500],
+            }
+
+        # Parse JSON response
+        data = response.json()
+
+        # Jina Reader response: {"code": 200, "status": 20000, "data": {"title": ..., "content": ..., ...}}
+        if "data" in data:
+            page_data = data["data"]
+            content = page_data.get("content", "")
+            title = page_data.get("title", "")
+            description = page_data.get("description", "")
+
+            # Truncate content if too long
+            max_content_len = 8000
+            if len(content) > max_content_len:
+                content = content[:max_content_len] + "\n\n[... content truncated ...]"
+
+            logger.debug(f"Jina fetch got {len(content)} chars from {url[:40]}")
+
+            return {
+                "url": url,
+                "title": title,
+                "description": description,
+                "content": content,
+                "content_length": len(page_data.get("content", "")),
+                "status": "success",
+                "status_code": 200,
+            }
+        else:
+            logger.warning(f"Jina fetch unexpected response: {list(data.keys())}")
+            return {
+                "url": url,
+                "content": "",
+                "status": "error",
+                "error": "Unexpected response structure",
+                "raw_response": data,
+            }
+
+    except httpx.HTTPStatusError as e:
+        logger.warning(f"Jina fetch HTTP error {url[:40]}: {e.response.status_code}")
         return {
             "url": url,
             "content": "",
@@ -277,7 +559,23 @@ async def _fetch_impl(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
             "error": str(e),
         }
     except httpx.RequestError as e:
-        log.warning(f"   Request error fetching {url[:30]}: {e}")  # noqa: G004
+        logger.warning(f"Jina fetch request error {url[:40]}: {e}")
+        return {
+            "url": url,
+            "content": "",
+            "status": "error",
+            "error": str(e),
+        }
+    except json.JSONDecodeError as e:
+        logger.warning(f"Jina fetch JSON error {url[:40]}: {e}")
+        return {
+            "url": url,
+            "content": "",
+            "status": "error",
+            "error": f"JSON decode error: {e}",
+        }
+    except Exception as e:
+        logger.exception(f"Jina fetch unexpected error {url[:40]}: {e}")
         return {
             "url": url,
             "content": "",
@@ -286,7 +584,33 @@ async def _fetch_impl(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
         }
 
 
-async def _save_impl(ctx: RunContext[Deps], item_id: str, content: str) -> str:  # noqa: RUF029
+# =============================================================================
+# SHARED TOOL IMPLEMENTATIONS (using fixed Jina functions)
+# =============================================================================
+
+async def _search_impl(ctx: RunContext[Deps], query: str) -> dict[str, Any]:
+    """Search using Jina AI. Returns structured search results."""
+    log = ctx.deps.log()
+    log.info(f"🔍 Searching: '{query}'")
+
+    results = await jina_search(query, max_results=10)
+    ctx.deps.actions.append(f"search:{query}")
+
+    return results
+
+
+async def _fetch_impl(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
+    """Fetch URL content using Jina AI Reader API."""
+    log = ctx.deps.log()
+    log.info(f"📥 Fetching: {url[:50]}...")
+
+    ctx.deps.actions.append(f"fetch:{url[:30]}")
+    result = await jina_fetch(url)
+
+    return result
+
+
+async def _save_impl(ctx: RunContext[Deps], item_id: str, content: str) -> str:
     """Save an item to the collection."""
     log = ctx.deps.log()
 
@@ -295,7 +619,7 @@ async def _save_impl(ctx: RunContext[Deps], item_id: str, content: str) -> str: 
 
     current = len(ctx.deps.items)
     target = ctx.deps.target_count
-    log.info(f"💾 Saved '{item_id[:30]}...' | Progress: {current}/{target}")  # noqa: G004
+    log.info(f"💾 Saved '{item_id[:30]}...' | Progress: {current}/{target}")
 
     return f"Saved. Progress: {current}/{target} items."
 
@@ -316,24 +640,47 @@ pattern1_agent = Agent(
     deps_type=Deps,
     output_type=ToolOutput(Pattern1Result, strict=True),
     instructions=CORE_INSTRUCTIONS,
+    history_processors=[token_limit_history_processor],
 )
 
 
-@pattern1_agent.tool(strict=True)
-async def _search(ctx: RunContext[Deps], query: str) -> list[dict[str, Any]]:
-    """Search DuckDuckGo for items. Returns list of {title, url, snippet}."""
+@pattern1_agent.tool
+async def p1_search(ctx: RunContext[Deps], query: str) -> dict[str, Any]:
+    """Search for documents using Jina AI Search.
+
+    Args:
+        query: Search query string to find relevant documents
+
+    Returns:
+        Search results with URLs, titles, and snippets
+    """
     return await _search_impl(ctx, query)
 
 
-@pattern1_agent.tool(strict=True)
-async def _fetch(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
-    """Fetch content from a URL."""
+@pattern1_agent.tool
+async def p1_fetch(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
+    """Fetch and read content from a URL using Jina AI Reader.
+
+    Args:
+        url: Full URL to fetch (e.g., https://example.com/document.pdf)
+
+    Returns:
+        Page content as markdown with title and metadata
+    """
     return await _fetch_impl(ctx, url)
 
 
-@pattern1_agent.tool(strict=True)
-async def _save(ctx: RunContext[Deps], item_id: str, content: str) -> str:
-    """Save an item to collection. Returns progress."""
+@pattern1_agent.tool
+async def p1_save(ctx: RunContext[Deps], item_id: str, content: str) -> str:
+    """Save a collected document to the collection.
+
+    Args:
+        item_id: Unique identifier for the document (e.g., filename or URL)
+        content: Summary or key content from the document
+
+    Returns:
+        Progress message showing current collection status
+    """
     return await _save_impl(ctx, item_id, content)
 
 
@@ -345,7 +692,20 @@ async def run_pattern1(prompt: str, target: int = 5) -> AgentResult:
     log.info("Starting Pattern 1: Implicit output_type")
     start = time.perf_counter()
 
-    result = await pattern1_agent.run(prompt, deps=deps)
+    try:
+        result = await pattern1_agent.run(prompt, deps=deps)
+    except ModelHTTPError as e:
+        if is_context_length_error(e):
+            log.warning("🔥 Context length exceeded in internal loop, returning partial results")
+            elapsed = time.perf_counter() - start
+            return AgentResult(
+                items_collected=deps.items,
+                actions_taken=deps.actions,
+                iterations=1,
+                finish_reason="context_length_exceeded_partial",
+                elapsed_seconds=elapsed,
+            )
+        raise
 
     elapsed = time.perf_counter() - start
     log.info(f"✅ Completed in {elapsed:.2f}s | Items: {len(deps.items)}")
@@ -368,33 +728,59 @@ pattern2_agent = Agent(
     deps_type=Deps,
     output_type=str,
     instructions=CORE_INSTRUCTIONS,
+    history_processors=[token_limit_history_processor],
 )
 
 
-@pattern2_agent.tool(strict=True)
-async def __search(ctx: RunContext[Deps], query: str) -> list[dict[str, Any]]:
-    """Search DuckDuckGo for items."""
+@pattern2_agent.tool
+async def p2_search(ctx: RunContext[Deps], query: str) -> dict[str, Any]:
+    """Search for documents using Jina AI Search.
+
+    Args:
+        query: Search query string to find relevant documents
+
+    Returns:
+        Search results with URLs, titles, and snippets
+    """
     return await _search_impl(ctx, query)
 
 
-@pattern2_agent.tool(strict=True)
-async def __fetch(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
-    """Fetch content from a URL."""
+@pattern2_agent.tool
+async def p2_fetch(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
+    """Fetch and read content from a URL using Jina AI Reader.
+
+    Args:
+        url: Full URL to fetch (e.g., https://example.com/document.pdf)
+
+    Returns:
+        Page content as markdown with title and metadata
+    """
     return await _fetch_impl(ctx, url)
 
 
-@pattern2_agent.tool(strict=True)
-async def ____save(ctx: RunContext[Deps], item_id: str, content: str) -> str:
-    """Save an item. Returns progress."""
+@pattern2_agent.tool
+async def p2_save(ctx: RunContext[Deps], item_id: str, content: str) -> str:
+    """Save a collected document to the collection.
+
+    Args:
+        item_id: Unique identifier for the document
+        content: Summary or key content from the document
+
+    Returns:
+        Progress message showing current collection status
+    """
     return await _save_impl(ctx, item_id, content)
 
 
-@pattern2_agent.tool(strict=True)
-async def finish(ctx: RunContext[Deps], reason: str) -> str:  # noqa: RUF029
-    """Call this when you're done collecting.
+@pattern2_agent.tool
+async def finish(ctx: RunContext[Deps], reason: str) -> str:
+    """Call this when you're done collecting documents.
 
     Args:
         reason: Why you're finishing (e.g., "collected enough", "no more results")
+
+    Returns:
+        Confirmation that the task is marked complete
     """
     log = ctx.deps.log()
     log.info(f"🏁 Finish called: {reason}")
@@ -421,11 +807,24 @@ async def run_pattern2(prompt: str, target: int = 5, max_iterations: int = 10) -
 
         current_prompt = prompt if messages is None else "Continue your task."
 
-        result = await pattern2_agent.run(
-            current_prompt,
-            deps=deps,
-            message_history=messages,
-        )
+        try:
+            result = await pattern2_agent.run(
+                current_prompt,
+                deps=deps,
+                message_history=messages,
+            )
+        except ModelHTTPError as e:
+            if is_context_length_error(e) and messages:
+                log.warning("🔥 Context length exceeded, emergency trim and retry")
+                messages = emergency_trim_history(messages, keep_last=3)
+                result = await pattern2_agent.run(
+                    current_prompt,
+                    deps=deps,
+                    message_history=messages,
+                )
+            else:
+                raise
+
         messages = result.all_messages()
 
         if deps.is_finished:
@@ -452,24 +851,47 @@ pattern3_agent = Agent(
     deps_type=Deps,
     output_type=ToolOutput(Pattern1Result, strict=True),
     instructions=CORE_INSTRUCTIONS,
+    history_processors=[token_limit_history_processor],
 )
 
 
-@pattern3_agent.tool(strict=True)
-async def ___search(ctx: RunContext[Deps], query: str) -> list[dict[str, Any]]:
-    """Search DuckDuckGo for items."""
+@pattern3_agent.tool
+async def p3_search(ctx: RunContext[Deps], query: str) -> dict[str, Any]:
+    """Search for documents using Jina AI Search.
+
+    Args:
+        query: Search query string to find relevant documents
+
+    Returns:
+        Search results with URLs, titles, and snippets
+    """
     return await _search_impl(ctx, query)
 
 
-@pattern3_agent.tool(strict=True)
-async def ___fetch(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
-    """Fetch content from a URL."""
+@pattern3_agent.tool
+async def p3_fetch(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
+    """Fetch and read content from a URL using Jina AI Reader.
+
+    Args:
+        url: Full URL to fetch
+
+    Returns:
+        Page content as markdown with title and metadata
+    """
     return await _fetch_impl(ctx, url)
 
 
-@pattern3_agent.tool(strict=True)
-async def __save(ctx: RunContext[Deps], item_id: str, content: str) -> str:
-    """Save an item. Returns progress."""
+@pattern3_agent.tool
+async def p3_save(ctx: RunContext[Deps], item_id: str, content: str) -> str:
+    """Save a collected document to the collection.
+
+    Args:
+        item_id: Unique identifier for the document
+        content: Summary or key content from the document
+
+    Returns:
+        Progress message showing current collection status
+    """
     return await _save_impl(ctx, item_id, content)
 
 
@@ -483,111 +905,43 @@ async def run_pattern3(prompt: str, target: int = 5) -> AgentResult:
 
     node_count = 0
 
-    async with pattern3_agent.iter(prompt, deps=deps) as run:
-        async for node in run:
-            node_count += 1
-            try:
-                node_type = node.__class__.__name__
-
-                if Agent.is_call_tools_node(node):
-                    # Safely extract tool names without assuming a single attribute layout.
-                    def _extract_from_obj(obj):
-                        names: list[str] = []
-                        if isinstance(obj, (list, tuple)):
-                            for item in obj:
-                                if isinstance(item, str):
-                                    names.append(item)
-                                else:
-                                    nm = getattr(item, "tool_name", None) or getattr(item, "name", None) or getattr(item, "tool", None)
-                                    if nm is None:
-                                        try:
-                                            nm = str(item)
-                                        except Exception:
-                                            nm = "<unknown>"
-                                    names.append(nm)
-                        else:
-                            if isinstance(obj, str):
-                                names.append(obj)
-                            else:
-                                nm = getattr(obj, "tool_name", None) or getattr(obj, "name", None) or getattr(obj, "tool", None)
-                                if nm is None:
-                                    try:
-                                        nm = str(obj)
-                                    except Exception:
-                                        nm = "<unknown>"
-                                names.append(nm)
-                        return names
-
-                    tool_names: list[str] = []
-
-                    # Try a sequence of likely attribute names using getattr to avoid attribute access diagnostics.
-                    for attr in ("tool_calls", "calls", "call", "tool_call", "tools"):
-                        val = getattr(node, attr, None)
-                        if val:
-                            tool_names = _extract_from_obj(val)
-                            break
-
-                    # Fallback single-name attributes
-                    if not tool_names:
-                        single = getattr(node, "tool_name", None) or getattr(node, "tool", None)
-                        if single:
-                            tool_names = _extract_from_obj(single)
-
-                    # Last resort: look for any attributes mentioning 'tool' or 'call' and report candidates for diagnostics.
-                    if not tool_names:
-                        candidates = []
-                        for attr in dir(node):
-                            if "tool" in attr.lower() or "call" in attr.lower():
-                                try:
-                                    val = getattr(node, attr)
-                                    candidates.append((attr, repr(val)[:200]))
-                                except Exception:
-                                    candidates.append((attr, "<error>"))
-                        log.debug(f"Node {node_count}: CallTools node (no standard call attributes found). Candidates: {candidates[:6]}")
-                        tool_names = ["<unknown>"]
-
-                    log.debug(f"Node {node_count}: Tools → {tool_names}")
-
-                elif Agent.is_model_request_node(node):
-                    # Extract a short preview of the model request for diagnostics.
-                    preview_attr = None
-                    preview_val = None
-                    for attr in ("prompt", "request", "messages", "model_input", "input", "input_text", "text"):
-                        if hasattr(node, attr):
-                            try:
-                                preview_val = getattr(node, attr)
-                            except Exception as e:
-                                preview_val = f"<error reading {attr}: {e}>"
-                            preview_attr = attr
-                            break
-
-                    if isinstance(preview_val, (list, tuple)):
-                        try:
-                            pv = preview_val[:2]
-                        except Exception:
-                            pv = str(preview_val)[:200]
-                        log.debug(f"Node {node_count}: Model request | {preview_attr}: {pv}")
-                    else:
-                        log.debug(f"Node {node_count}: Model request | {preview_attr}: {str(preview_val)[:200]}")
-
-                else:
-                    # Generic node diagnostic: show class name and a short list of attributes.
-                    attrs = [a for a in dir(node) if not a.startswith("_")]
-                    log.debug(f"Node {node_count}: {node_type} | attrs: {attrs[:8]}")
-
-            except Exception as e:
-                log.exception(f"Failed to process node {node_count}: {e}")
-
-    # Safely access run.result (run may not exist if context failed)
-    result = None
     try:
-        result = getattr(run, "result", None)
-    except Exception:
-        result = None
+        async with pattern3_agent.iter(prompt, deps=deps) as run:
+            async for node in run:
+                node_count += 1
+                try:
+                    node_type = node.__class__.__name__
 
+                    if Agent.is_call_tools_node(node):
+                        tool_names = _extract_tool_names(node)
+                        log.debug(f"Node {node_count}: Tools → {tool_names}")
+
+                    elif Agent.is_model_request_node(node):
+                        log.debug(f"Node {node_count}: Model request")
+
+                    else:
+                        log.debug(f"Node {node_count}: {node_type}")
+
+                except Exception as e:
+                    log.exception(f"Failed to process node {node_count}: {e}")
+    except ModelHTTPError as e:
+        if is_context_length_error(e):
+            log.warning("🔥 Context length exceeded in internal loop, returning partial results")
+            elapsed = time.perf_counter() - start
+            return AgentResult(
+                items_collected=deps.items,
+                actions_taken=deps.actions,
+                iterations=node_count,
+                finish_reason="context_length_exceeded_partial",
+                elapsed_seconds=elapsed,
+            )
+        raise
+
+    # Safely access run.result
+    result = getattr(run, "result", None)
     elapsed = time.perf_counter() - start
 
-    # Robustly determine finish reason from whatever output shape is present.
+    # Determine finish reason
     finish_reason = "no_output"
     if result is not None:
         out = getattr(result, "output", None)
@@ -595,25 +949,8 @@ async def run_pattern3(prompt: str, target: int = 5) -> AgentResult:
             finish_reason = (
                 getattr(out, "reason_for_stopping", None)
                 or getattr(out, "reason", None)
-                or getattr(out, "decision", None)
+                or str(out)
             )
-            if finish_reason is None:
-                # Try dictionary-style inspection as a fallback
-                try:
-                    dictifier = getattr(out, "dict", None)
-                    if callable(dictifier):
-                        od = out.dict()
-                        for key in ("reason_for_stopping", "reason", "finish_reason", "decision"):
-                            if key in od:
-                                finish_reason = od.get(key)
-                                break
-                except Exception:
-                    pass
-            if finish_reason is None:
-                try:
-                    finish_reason = str(out)
-                except Exception:
-                    finish_reason = "unknown_output"
 
     log.info(f"✅ Completed in {elapsed:.2f}s | Nodes: {node_count} | Items: {len(deps.items)}")
 
@@ -624,6 +961,33 @@ async def run_pattern3(prompt: str, target: int = 5) -> AgentResult:
         finish_reason=finish_reason,
         elapsed_seconds=elapsed,
     )
+
+
+def _extract_tool_names(node: Any) -> list[str]:
+    """Extract tool names from a CallTools node."""
+    names: list[str] = []
+
+    for attr in ("tool_calls", "calls", "call", "tool_call", "tools"):
+        val = getattr(node, attr, None)
+        if val:
+            if isinstance(val, (list, tuple)):
+                for item in val:
+                    nm = (
+                        getattr(item, "tool_name", None)
+                        or getattr(item, "name", None)
+                        or str(item)
+                    )
+                    names.append(nm)
+            else:
+                nm = (
+                    getattr(val, "tool_name", None)
+                    or getattr(val, "name", None)
+                    or str(val)
+                )
+                names.append(nm)
+            break
+
+    return names if names else ["<unknown>"]
 
 
 # =============================================================================
@@ -646,7 +1010,6 @@ class FinishAction(BaseModel):
     reason: str = Field(description="Why you're stopping")
 
 
-DecisionOutput = Union[ContinueAction, FinishAction]
 DecisionOutputSpec: list[ToolOutput[ContinueAction] | ToolOutput[FinishAction]] = [
     ToolOutput(ContinueAction, strict=True),
     ToolOutput(FinishAction, strict=True)
@@ -658,26 +1021,50 @@ pattern4_agent = Agent(
     deps_type=Deps,
     output_type=DecisionOutputSpec,
     instructions=CORE_INSTRUCTIONS + """
-    After using tools, you must decide: output ContinueAction or FinishAction.
-    """,
+
+After using tools, you must decide: output ContinueAction or FinishAction.
+""",
+    history_processors=[token_limit_history_processor],
 )
 
 
-@pattern4_agent.tool(strict=True)
-async def search(ctx: RunContext[Deps], query: str) -> list[dict[str, Any]]:
-    """Search DuckDuckGo for items."""
+@pattern4_agent.tool
+async def p4_search(ctx: RunContext[Deps], query: str) -> dict[str, Any]:
+    """Search for documents using Jina AI Search.
+
+    Args:
+        query: Search query string to find relevant documents
+
+    Returns:
+        Search results with URLs, titles, and snippets
+    """
     return await _search_impl(ctx, query)
 
 
-@pattern4_agent.tool(strict=True)
-async def fetch(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
-    """Fetch content from a URL."""
+@pattern4_agent.tool
+async def p4_fetch(ctx: RunContext[Deps], url: str) -> dict[str, Any]:
+    """Fetch and read content from a URL using Jina AI Reader.
+
+    Args:
+        url: Full URL to fetch
+
+    Returns:
+        Page content as markdown with title and metadata
+    """
     return await _fetch_impl(ctx, url)
 
 
-@pattern4_agent.tool(strict=True)
-async def save(ctx: RunContext[Deps], item_id: str, content: str) -> str:
-    """Save an item. Returns progress."""
+@pattern4_agent.tool
+async def p4_save(ctx: RunContext[Deps], item_id: str, content: str) -> str:
+    """Save a collected document to the collection.
+
+    Args:
+        item_id: Unique identifier for the document
+        content: Summary or key content from the document
+
+    Returns:
+        Progress message showing current collection status
+    """
     return await _save_impl(ctx, item_id, content)
 
 
@@ -699,11 +1086,24 @@ async def run_pattern4(prompt: str, target: int = 5, max_iterations: int = 10) -
 
         current_prompt = prompt if messages is None else "Continue or finish based on your progress."
 
-        result = await pattern4_agent.run(
-            current_prompt,
-            deps=deps,
-            message_history=messages,
-        )
+        try:
+            result = await pattern4_agent.run(
+                current_prompt,
+                deps=deps,
+                message_history=messages,
+            )
+        except ModelHTTPError as e:
+            if is_context_length_error(e) and messages:
+                log.warning("🔥 Context length exceeded, emergency trim and retry")
+                messages = emergency_trim_history(messages, keep_last=3)
+                result = await pattern4_agent.run(
+                    current_prompt,
+                    deps=deps,
+                    message_history=messages,
+                )
+            else:
+                raise
+
         messages = result.all_messages()
 
         match result.output:
@@ -752,7 +1152,6 @@ def save_pattern_result(pattern_num: int, prompt_idx: int, result: AgentResult):
         with open(item_file, "w") as f:
             json.dump(item, f, indent=2)
 
-        # Calculate file size
         file_size = item_file.stat().st_size
         items_saved.append({
             "filename": item_file.name,
@@ -760,7 +1159,6 @@ def save_pattern_result(pattern_num: int, prompt_idx: int, result: AgentResult):
             "item": item
         })
 
-    # Calculate total size of all items
     total_size = sum(item["size_bytes"] for item in items_saved)
 
     # Save detailed result summary
@@ -786,28 +1184,17 @@ Items Saved:
     with open(result_file, "w") as f:
         f.write(summary_content)
 
-    # Return file size for CSV logging
     return total_size
 
 
 def append_to_csv(prompt_idx: int, prompt: str, times: dict[int, float], sizes: dict[int, int]):
-    """Append timing results to CSV file.
-
-    Args:
-        prompt_idx: Index of the prompt (1-based)
-        prompt: The prompt text
-        times: Dictionary mapping pattern number (1-4) to elapsed seconds
-        sizes: Dictionary mapping pattern number (1-4) to total bytes scraped
-    """
+    """Append timing results to CSV file."""
     csv_file = Path("doc_results") / "timing_results.csv"
-
-    # Check if file exists to determine if we need headers
     file_exists = csv_file.exists()
 
     with open(csv_file, "a", newline="") as f:
         writer = csv.writer(f)
 
-        # Write header if file is new
         if not file_exists:
             writer.writerow([
                 "prompt_num",
@@ -816,7 +1203,6 @@ def append_to_csv(prompt_idx: int, prompt: str, times: dict[int, float], sizes: 
                 "prompt_text"
             ])
 
-        # Write data row
         writer.writerow([
             f"prompt_{prompt_idx}",
             times.get(1, 0.0),
@@ -864,7 +1250,6 @@ async def run_comparison(prompt: str, target: int = 5, prompt_idx: int = 0) -> d
             results[name] = result
             timing_data[pattern_num] = result.elapsed_seconds
 
-            # Save individual pattern result and get total size
             total_size = save_pattern_result(pattern_num, prompt_idx, result)
             size_data[pattern_num] = total_size
 
@@ -892,7 +1277,6 @@ async def run_comparison(prompt: str, target: int = 5, prompt_idx: int = 0) -> d
             f"{result.elapsed_seconds:<10.2f}"
         )
 
-    # Save timing data to CSV
     append_to_csv(prompt_idx, prompt, timing_data, size_data)
 
     return results
@@ -929,7 +1313,6 @@ async def main():
             await run_comparison(prompt, target=5, prompt_idx=idx)
             logger.info("\n" * 2)
     finally:
-        # Clean up httpx client
         await close_httpx_client()
         logger.info("Closed httpx client")
 

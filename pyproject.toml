@@ -5,7 +5,6 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "ddgs>=9.10.0",
     "httpx>=0.28.1",
     "logfire>=4.16.0",
     "loguru>=0.7.3",
@@ -16,6 +15,7 @@ dependencies = [
     "opentelemetry-instrumentation-tornado>=0.60b1",
     "opentelemetry-instrumentation-urllib>=0.60b1",
     "pydantic-ai>=1.39.0",
+    "python-dotenv>=1.2.1",
     "rich>=14.2.0",
     "uvloop>=0.22.1",
 ]

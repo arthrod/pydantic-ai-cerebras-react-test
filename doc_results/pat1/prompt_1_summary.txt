@@ -1,45 +1,16 @@
 Prompt Index: 1
-Elapsed Seconds: 71.757
+Elapsed Seconds: 4.794
 Iterations: 1
-Finish Reason: Successfully collected all 4 required employment documents: 2 Brazilian (CLT contract from PUC Goiás, TST appeal brief from TRT6) and 2 American (at-will agreement from Georgia DECAL, EEOC complaint form from eeoc.gov). All documents are ≥3 pages and properly sourced from official government or educational institutions. Collection follows filename pattern {jurisdiction}_{doc_type}_{date}.pdf.
-Items Collected: 5
-Actions Taken: 29
-Total Data Size: 814 bytes (0.79 KB)
+Finish Reason: Search functionality is experiencing technical issues (HTTP 401 errors) preventing collection of required employment documents. The search tool consistently failed to return results for multiple targeted queries across both Brazilian and American employment document types.
+Items Collected: 0
+Actions Taken: 5
+Total Data Size: 0 bytes (0.00 KB)
 
 Items Saved:
-  - prompt_1_item_1.json (165 bytes)
-  - prompt_1_item_2.json (173 bytes)
-  - prompt_1_item_3.json (163 bytes)
-  - prompt_1_item_4.json (161 bytes)
-  - prompt_1_item_5.json (152 bytes)
 
 Actions:
-  - search:Brazilian CLT employment contract sample PDF 3+ pages
-  - search:"Contrato de Trabalho CLT" PDF modelo Brasil download
-  - fetch:https://www.administrefacil.co
-  - search:"Contrato de Trabalho" PDF site:.gov.br CLT modelo download
-  - search:"Contrato de Trabalho CLT" modelo completo PDF site:.edu.br
-  - fetch:https://professor.pucgoias.edu
-  - save:Brazilian_CLT_Contra
-  - search:"recurso ordinário trabalhista" TST PDF modelo completo
-  - fetch:https://modeloinicial.com.br/p
-  - fetch:https://www.lawdeck.ai/blog/mo
-  - search:"recurso ordinário" TST PDF site:.jus.br modelo completo
-  - fetch:https://www.trt6.jus.br/portal
-  - fetch:https://www.trt6.jus.br/portal
-  - save:Brazilian_TST_Appeal
-  - search:"at-will employment agreement" PDF template 3+ pages
-  - fetch:https://loio.com/templates/emp
-  - search:"at-will employment agreement" site:.gov PDF template
-  - fetch:https://www.fresno.gov/wp-cont
-  - fetch:https://www.decal.ga.gov/docum
-  - save:American_AtWill_Agre
-  - search:EEOC discrimination complaint form PDF 3+ pages
-  - search:site:eeoc.gov discrimination complaint form PDF
-  - fetch:https://www.eeoc.gov/sites/def
-  - search:site:eeoc.gov "form" PDF charge discrimination
-  - fetch:https://www.eeoc.gov/sites/def
-  - fetch:https://www.eeoc.gov/sites/def
-  - fetch:https://www.eeoc.gov/sites/def
-  - save:American_EEOC_Compla
-  - save:Collection_Complete
+  - search:Brazil CLT employment contract template sample documento de trabalho
+  - search:CLT contrato de trabalho exemplo PDF Brasil
+  - search:Brazil labor appeal TST petition template brief PDF
+  - search:employment agreement at-will template PDF
+  - search:EEOC discrimination complaint form template PDF
