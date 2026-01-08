@@ -1,0 +1,37 @@
+Prompt Index: 1
+Elapsed Seconds: 267.709
+Iterations: 1
+Finish Reason: Successfully collected 5 documents exceeding the target: 2 Brazilian documents from STJ and TJSP containing indenização decisions with monetary values (R$ 30,000 and R$ 7,000), and 3 American documents including personal injury damages bankruptcy opinion ($238,942), insurance duty to defend coverage opinion, and NuvaRing settlement agreement ($100 million). All documents contain monetary values as requested.
+Items Collected: 5
+Actions Taken: 21
+Total Saved Size: 2,244,873 bytes (2192.26 KB)
+
+Items:
+  - 20260107_19_03/pat1/docs/prompt_01/STJ_indenizacao_dano_moral_violencia_domestica_R30000.md (5,525 bytes) | https://www.ibdfam.org.br/noticias/13487/STJ+decide+que+dano+moral+%C3%A9+presumido+em+casos+de+viol%C3%AAncia+dom%C3%A9stica+contra+a+mulher
+  - 20260107_19_03/pat1/docs/prompt_01/TJSP_1005112-58.2024.8.26.0529_indenizacao_danos_morais_R7000.pdf (368,620 bytes) | https://esaj.tjsp.jus.br/cjsg/getArquivo.do?cdAcordao=19644652&cdForo=0
+  - 20260107_19_03/pat1/docs/prompt_01/US_Bankruptcy_Oregon_14-6086_personal_injury_damages_238942_2017.pdf (101,999 bytes) | https://www.orb.uscourts.gov/sites/orb/files/documents/opinions/14-6086-tmr.pdf
+  - 20260107_19_03/pat1/docs/prompt_01/US_insurance_duty_to_defend_coverage_opinion_Chapter6.pdf (168,006 bytes) | https://lommen.com/wp-content/uploads/2013/04/John-Crawford-Article-Duty-to-Defend.pdf
+  - 20260107_19_03/pat1/docs/prompt_01/NuvaRing_Settlement_Agreement_MDL1964_100Million_Damages_2014.pdf (1,600,723 bytes) | https://www.moed.uscourts.gov/sites/moed/files/documents/408md01964-1679-1.pdf
+
+Actions:
+  - search:STJ indenização decisão dano moral valor
+  - fetch:https://www.ibdfam.org.br/noticias/13487/STJ+decide+que+dano
+  - save:STJ_indenizacao_dano_moral_violencia_domestica_R30000.md
+  - search:TJSP indenização acórdão dano moral valor fixado
+  - fetch:https://esaj.tjsp.jus.br/cjsg/getArquivo.do?cdAcordao=196446
+  - save:TJSP_1005112-58.2024.8.26.0529_indenizacao_danos_morais_R7000.pdf
+  - search:personal injury complaint damages amount lawsuit
+  - search:personal injury complaint pdf settlement amount site:.gov
+  - search:personal injury complaint filetype:pdf site:uscourts.gov damages
+  - fetch:https://www.orb.uscourts.gov/sites/orb/files/documents/opini
+  - search:insurance coverage opinion personal injury damages settlement
+  - save:US_Bankruptcy_Oregon_14-6086_personal_injury_damages_238942_2017.pdf
+  - search:insurance coverage opinion letter personal injury analysis pdf
+  - search:site:lawfirm.insure OR site:insurancelawforum.com OR site:policyholderprospector.com insurance coverage opinion personal injury pdf
+  - fetch:https://www.kallenlawyer.com/coverage-opinions-index.pdf
+  - search:"duty to defend" insurance coverage opinion letter personal injury damages analysis
+  - fetch:https://lommen.com/wp-content/uploads/2013/04/John-Crawford-
+  - save:US_insurance_duty_to_defend_coverage_opinion_Chapter6.pdf
+  - search:settlement agreement personal injury damages amount PDF site:uscourts.gov
+  - fetch:https://www.moed.uscourts.gov/sites/moed/files/documents/408
+  - save:NuvaRing_Settlement_Agreement_MDL1964_100Million_Damages_2014.pdf

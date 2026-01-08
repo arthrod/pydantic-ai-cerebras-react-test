@@ -1,0 +1,92 @@
+[
+  {
+    "doc_id": "ba07cb0e0e4a",
+    "url": "https://www.ibdfam.org.br/noticias/13487/STJ+decide+que+dano+moral+%C3%A9+presumido+em+casos+de+viol%C3%AAncia+dom%C3%A9stica+contra+a+mulher",
+    "title": "STJ decide que dano moral é presumido em casos de violência doméstica contra a mulher",
+    "description": "",
+    "saved_path": "20260107_19_03/pat1/docs/prompt_01/STJ_indenizacao_dano_moral_violencia_domestica_R30000.md",
+    "saved_as": "md",
+    "file_size_bytes": 5525,
+    "content_tokens": 1528,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements for Brazilian damages/indemnification decisions. It is from STJ (Superior Tribunal de Justiça), specifically the Corte Especial, which is one of the acceptable Brazilian courts (STJ or TJSP). The document discusses an indenização (damages) decision for R$ 30,000 (thirty thousand reais) in a domestic violence case, where the STJ established that moral damages are presumed in cases of domestic violence against women. It includes specific monetary values and represents a judicial decision on compensation/damages, matching the prompt's criteria.",
+      "file_summary": "STJ Corte Especial decision establishing that moral damages are presumed in domestic violence cases against women. The court awarded R$ 30,000 in moral damages to a domestic violence victim and established a precedent (Tema 983) that specific proof of emotional suffering is not required when domestic violence is proven. The decision also included 4 months and 20 days detention, emphasizing the dual purpose of damages: punishing the aggressor and compensating the victim.",
+      "suggested_filename": "STJ_indenizacao_dano_moral_violencia_domestica_R30000.pdf",
+      "save_instructions": "Save this document using the naming convention: STJ_indenizacao_dano_moral_violencia_domestica_R30000.pdf. The filename includes the court (STJ), document type (indenizacao), key subject (dano moral violencia domestica), and monetary value (R30000). If the source provides PDF download capability, save as PDF. If only HTML content is available, convert to PDF or save as markdown with extension .md instead of .pdf."
+    },
+    "pdf_download_error": "Not a PDF (content-type=text/html; charset=utf-8)"
+  },
+  {
+    "doc_id": "0eb0600dcdac",
+    "url": "https://esaj.tjsp.jus.br/cjsg/getArquivo.do?cdAcordao=19644652&cdForo=0",
+    "title": "getArquivo.do",
+    "description": "",
+    "saved_path": "20260107_19_03/pat1/docs/prompt_01/TJSP_1005112-58.2024.8.26.0529_indenizacao_danos_morais_R7000.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 368620,
+    "content_tokens": 7364,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a Brazilian court decision (acórdão) from TJSP (Tribunal de Justiça do Estado de São Paulo) concerning an indemnização (damages) case. It meets the prompt requirements for Brazilian documents by being an indenização decision from TJSP, includes specific monetary values (R$ 7,000.00 for moral damages), and is a damages/indemnification related to interruption of essential electrical services. The case number (Apelação Cível nº 1005112-58.2024.8.26.0529) is clearly identified.",
+      "file_summary": "TJSP appellate court decision denying Eletropaulo's appeal in a moral damages case. The court upheld a R$ 7,000.00 award for illegal power cutoff on Friday (violating ANEEL Resolution 1.000/2021 and federal laws), with service restored only 4 days later instead of required 4 hours. The decision establishes that interruption of essential service on prohibited days causes automatic moral damages (in re ipsa) and maintains the original quantum as reasonable.",
+      "suggested_filename": "STJ_TJSP_1005112-58.2024.8.26.0529_indenizacao_danos_morais.pdf",
+      "save_instructions": "Save with the naming convention: [Court]_[CaseNumber]_[DocumentType].pdf format. Use case number Apelação Cível nº 1005112-58.2024.8.26.0529. This is a PDF document from the TJSP court system containing the full appellate decision. If PDF bytes are unavailable, save as .md with the same naming structure but include .md extension."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "5c0561dd7d04",
+    "url": "https://www.orb.uscourts.gov/sites/orb/files/documents/opinions/14-6086-tmr.pdf",
+    "title": "14-6086-tmr.pdf",
+    "description": "",
+    "saved_path": "20260107_19_03/pat1/docs/prompt_01/US_Bankruptcy_Oregon_14-6086_personal_injury_damages_238942_2017.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 101999,
+    "content_tokens": 10735,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is an American document that perfectly fits the prompt's requirements for a damages/indemnification document. It's a U.S. Bankruptcy Court opinion from Oregon (March 6, 2017) dealing with personal injury damages from a public nuisance case. The document includes substantial monetary values: a total judgment of $238,942, with specific allocations -$69,701 dischargeable, $134,598 nondischargeable as willful/malicious personal injury, and $34,643 excluded as post-petition debt. The case involved emotional distress damages from constant dog barking causing physical symptoms. This satisfies the requirement for American legal documents discussing damages with monetary values.",
+      "file_summary": "U.S. Bankruptcy Court opinion determining dischargeability of damages in a Chapter 13 case. Plaintiffs sued neighbors over 14 years of nuisance from constantly barking Mastiff dogs causing emotional distress and physical symptoms. The court awarded $238,942 in state court damages and then analyzed portions for bankruptcy discharge: $69,701 dischargeable (negligent period), $134,598 nondischargeable as willful/malicious personal injury, and $34,643 excluded from discharge as post-petition debt. Contains detailed analysis of \"personal injury\" under §1328(a)(4) and Oregon public nuisance law.",
+      "suggested_filename": "US_Bankruptcy_Oregon_14-6086_personal_injury_damages_2017.pdf",
+      "save_instructions": "Save as: US_Bankruptcy_Oregon_14-6086_personal_injury_damages_2017.pdf - Use case number 14-6086 from the docket, jurisdiction (Oregon Bankruptcy Court), document type (personal injury damages), and year (2017). If original PDF is not available, save the extracted content as a .md file with the same base filename."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "eb8980bc0eb4",
+    "url": "https://lommen.com/wp-content/uploads/2013/04/John-Crawford-Article-Duty-to-Defend.pdf",
+    "title": "Microsoft Word - Chapter 6 Duty to Defend",
+    "description": "",
+    "saved_path": "20260107_19_03/pat1/docs/prompt_01/US_insurance_duty_to_defend_coverage_opinion_Chapter6.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 168006,
+    "content_tokens": 31614,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is an American insurance coverage opinion discussing the duty to defend, which falls within the scope of \"damages/indemnification docs\" and specifically \"insurance coverage opinions\" for the American portion of the collection. The document contains extensive analysis of insurance policy provisions and case law. However, it does not contain specific monetary values or damages amounts as requested in the prompt. Despite this limitation, it represents a substantial American legal analysis on indemnification/defense duties that's relevant to the collection.",
+      "file_summary": "A comprehensive American legal analysis chapter on insurers' duty to defend, covering contractual and statutory bases, burden of proof, determining when duty exists through complaint analysis vs. extrinsic facts, tender requirements, scope of defense obligations, and the relationship between defense and indemnification duties. Focuses on Minnesota law with extensive case citations.",
+      "suggested_filename": "US_insurance_duty_to_defend_opinion_NO_DOCKET.pdf",
+      "save_instructions": "Save this file as US_insurance_duty_to_defend_opinion_NO_DOCKET.pdf following the convention of using US for American documents, including \"insurance\" for coverage opinions, and \"NO_DOCKET\" since no case or docket number is present. If PDF bytes are available, save as PDF; otherwise save as Markdown with .md extension. This represents one of the 2 required American insurance coverage opinions."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "9dc903cc2c3c",
+    "url": "https://www.moed.uscourts.gov/sites/moed/files/documents/408md01964-1679-1.pdf",
+    "title": "Microsoft Word - 5954985_21.DOCX",
+    "description": "",
+    "saved_path": "20260107_19_03/pat1/docs/prompt_01/NuvaRing_Settlement_Agreement_MDL1964_100Million_Damages_2014.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 1600723,
+    "content_tokens": 57586,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt for American damages/indemnification documents. It is a Master Settlement Agreement from a federal multi-district litigation (MDL No. 1964) in the U.S. District Court for the Eastern District of Missouri, dated February 7, 2014. The document establishes a settlement program for NuvaRing product liability claims, with significant monetary values ($100 million Settlement Funds) and detailed indemnification provisions. While it's a settlement agreement rather than a complaint or insurance opinion, it directly addresses damages, releases, and indemnification in a personal injury context, which align with the collection goals.",
+      "file_summary": "138-page Master Settlement Agreement for NuvaRing Products Liability Litigation MDL No. 1964, establishing a $100 million settlement program. Dated February 7, 2014, it outlines the claims process, enrollment procedures, settlement payment allocations, releases of liability, and comprehensive indemnification provisions for personal injury claims related to NuvaRing use. Includes detailed tax treatment of settlement funds as damages for personal physical injuries under IRC §104(a)(2).",
+      "suggested_filename": "NuvaRing_Settlement_Agreement_4-08-md-01964_2014-02-07.pdf",
+      "save_instructions": "Save this PDF file using the naming convention: [CaseName]_[DocumentType]_[CaseNumber]_[Date].pdf. The document is a Master Settlement Agreement from MDL No. 1964 filed 02/07/14. The monetary value discussed is $100,000,000 in Settlement Funds. If PDF bytes are unavailable, save the markdown content as a .md file with the same naming convention but .md extension."
+    },
+    "pdf_download_error": null
+  }
+]
