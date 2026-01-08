@@ -33,7 +33,6 @@ import logfire as logger
 import tiktoken
 import uvloop
 from dotenv import load_dotenv
-
 from pydantic import BaseModel, ConfigDict, Field
 from pydantic_ai import Agent, RunContext
 from pydantic_ai.exceptions import ModelHTTPError
@@ -52,9 +51,7 @@ logger.instrument_httpx(capture_all=True)
 load_dotenv()
 
 
-async def set_all_tools_strict(
-    ctx: RunContext[Any], tool_defs: list[ToolDefinition]
-) -> list[ToolDefinition]:
+async def set_all_tools_strict(ctx: RunContext[Any], tool_defs: list[ToolDefinition]) -> list[ToolDefinition]:
     """Prepare tools callback that sets strict=True on ALL tools.
 
     Cerebras requires all tools to have the same strict value.
@@ -97,7 +94,7 @@ IMPORTANT:
 
 PROMPTS: list[str] = [
     # Employment-focused (mix of BR and US)
-   # 'Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) and 2 American (1 at-will employment agreement, 1 EEOC discrimination complaint). Each must be ≥3 pages. Output as PDF with filenames following pattern: {jurisdiction}_{doc_type}_{date}.pdf',
+    # 'Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) and 2 American (1 at-will employment agreement, 1 EEOC discrimination complaint). Each must be ≥3 pages. Output as PDF with filenames following pattern: {jurisdiction}_{doc_type}_{date}.pdf',
     #'Collect 4 labor/employment docs: 2 from TST or TRT (any region) published 2022-2024, 2 from PACER (SDNY or NDCA) employment disputes. Include case numbers in filenames.',
     # Contract-focused
     #'Collect 4 commercial contracts: 2 Brazilian (1 prestação de serviços, 1 compra e venda) and 2 American (1 SaaS agreement, 1 asset purchase agreement). Minimum 5 pages each. Source from public filings (CVM or SEC EDGAR) only.',
@@ -115,14 +112,14 @@ PROMPTS: list[str] = [
     #'Collect 4 tax documents: 2 Brazilian (1 CARF acórdão, 1 mandado de segurança tributário from TRF) and 2 American (1 Tax Court opinion, 1 IRS Chief Counsel Advice). Each ≥6 pages with citation.',
     #'Collect 4 tax compliance docs: 2 Brazilian (ICMS-related from SEFAZ consultation or CONFAZ), 2 American (IRS Revenue Rulings or Procedures from 2020-2024). Include official publication numbers.',
     # Corporate / M&A
-    'Collect 4 M&A documents from public filings only: 2 Brazilian (CVM fatos relevantes or acquisition agreements from Form 6-K), 2 American (SEC merger proxy statements or 8-K acquisition exhibits). ≥15 pages each.',
-    'Collect 4 securities documents: 2 Brazilian (1 prospecto de oferta pública, 1 CVM auto de infração), 2 American (1 S-1 registration, 1 SEC enforcement action). Include CVM/SEC file numbers.',
+    #'Collect 4 M&A documents from public filings only: 2 Brazilian (CVM fatos relevantes or acquisition agreements from Form 6-K), 2 American (SEC merger proxy statements or 8-K acquisition exhibits). ≥15 pages each.',
+    #'Collect 4 securities documents: 2 Brazilian (1 prospecto de oferta pública, 1 CVM auto de infração), 2 American (1 S-1 registration, 1 SEC enforcement action). Include CVM/SEC file numbers.',
     # Mixed queries with specific requirements
     #'Collect exactly: 1 Brazilian service contract (≥4pp), 1 American MSA (≥6pp), 1 Brazilian TJSP civil brief (≥5pp), 1 American SDNY motion (≥8pp). All from 2020-2024. Output as separate PDFs with source URLs documented.',
     #'Collect 4 documents from São Paulo or New York only: 2 from TJSP (1 sentença, 1 acórdão), 2 from NY state courts (1 trial court decision, 1 appellate decision). Include full citations in Bluebook/ABNT format.',
     # Consumer / civil
     #'Collect 4 consumer protection docs: 2 Brazilian (PROCON administrative decisions or CDC-related TJSP cases), 2 American (CFPB enforcement actions or FTC complaints). Each ≥5 pages with case/matter numbers.',
-    #'Collect 4 damages/indemnification docs: 2 Brazilian (indenização decisions from STJ or TJSP), 2 American (personal injury complaints or insurance coverage opinions). Include monetary values discussed if available.',
+    'Collect 4 damages/indemnification docs: 2 Brazilian (indenização decisions from STJ or TJSP), 2 American (personal injury complaints or insurance coverage opinions). Include monetary values discussed if available.'
     # Compliance / regulatory
     #'Collect 4 compliance documents: 2 Brazilian (1 LGPD-related ANPD decision or guidance, 1 anticorruption agreement/TAC from CGU/MPF), 2 American (1 SEC enforcement, 1 DOJ FCPA resolution). Include official reference numbers.',
     #'Collect 4 documents and summarize each in ≤100 words: 2 Brazilian regulatory (CVM, BACEN, or ANPD), 2 American regulatory (SEC, CFTC, or FTC). Summary must include: jurisdiction, document type, parties, key holding, date.',
@@ -221,19 +218,19 @@ def _tool_pair_span(messages: list[Any], idx: int) -> set[int]:
 
 def _validate_and_fix_tool_sequence(messages: list[Any], log: Any | None = None) -> list[Any]:
     """Ensure no orphaned tool returns exist (each tool return must follow a tool_calls message).
-    
+
     This is critical for APIs like Cerebras that require tool messages to follow tool_calls.
     """
     if len(messages) <= 1:
         return messages
-    
+
     result = []
     i = 0
     removed_count = 0
-    
+
     while i < len(messages):
         msg = messages[i]
-        
+
         if _has_tool_returns(msg):
             # Check if previous message in result has tool_calls
             if result and _has_tool_calls(result[-1]):
@@ -259,12 +256,12 @@ def _validate_and_fix_tool_sequence(messages: list[Any], log: Any | None = None)
         else:
             # Regular message, keep it
             result.append(msg)
-        
+
         i += 1
-    
+
     if removed_count > 0 and log is not None:
         log.warning(f'🔧 Fixed tool sequence: removed {removed_count} orphaned messages')
-    
+
     return result
 
 
@@ -546,9 +543,7 @@ class SearchResultItem(BaseModel):
     url: str = Field(description='The URL of the search result')
     title: str = Field(description='Title of the page/document')
     snippet: str = Field(description='Brief description or snippet (max 200 chars)')
-    relevance_score: float = Field(
-        description='How relevant this result is to the query (0.0 to 1.0)', ge=0.0, le=1.0
-    )
+    relevance_score: float = Field(description='How relevant this result is to the query (0.0 to 1.0)', ge=0.0, le=1.0)
     worth_fetching: bool = Field(description='Whether this result is worth fetching for the collection task')
     reasoning: str = Field(description='Brief explanation of relevance assessment (max 100 chars)')
 
@@ -563,9 +558,7 @@ class SearchAnalysisResult(BaseModel):
     top_results: list[SearchResultItem] = Field(
         description='Top relevant results (max 10), sorted by relevance_score descending'
     )
-    search_quality: str = Field(
-        description="Overall quality assessment: 'excellent', 'good', 'fair', or 'poor'"
-    )
+    search_quality: str = Field(description="Overall quality assessment: 'excellent', 'good', 'fair', or 'poor'")
     suggested_next_query: str = Field(
         description='A suggested follow-up query if current results are insufficient (empty if not needed)'
     )
@@ -760,12 +753,7 @@ async def _search_impl(deps: Deps, query: str) -> dict[str, Any]:
 
     # If search failed, return error immediately
     if raw_results.get('error'):
-        return {
-            'query': query,
-            'status': 'error',
-            'error': raw_results.get('error'),
-            'results': [],
-        }
+        return {'query': query, 'status': 'error', 'error': raw_results.get('error'), 'results': []}
 
     # Convert raw results to JSON string for token counting and truncation
     results_list = raw_results.get('results', [])
@@ -825,16 +813,18 @@ RAW SEARCH RESULTS (may be truncated):
         if is_context_length_error(e):
             log.warning('🔥 Search sub-agent context length exceeded. Falling back to truncated raw results.')
             # Fallback: return truncated raw results with basic structure
-            truncated_results = []
-            for r in results_list[:5]:  # Limit to 5 results as fallback
-                truncated_results.append({
-                    'url': r.get('url') or r.get('link') or '',
+            # Limit to 5 results as fallback
+            truncated_results = [
+                {
+                    'url': r.get('url') or r.get('href') or r.get('link') or '',
                     'title': (r.get('title') or '')[:200],
                     'snippet': (r.get('description') or r.get('snippet') or '')[:200],
                     'relevance_score': 0.5,
                     'worth_fetching': True,
                     'reasoning': 'Fallback - sub-agent failed',
-                })
+                }
+                for r in results_list[:5]
+            ]
             return {
                 'query': query,
                 'status': 'partial',
@@ -1268,31 +1258,55 @@ async def run_pattern3(prompt: str, target: int, run_dir: Path, prompt_idx: int)
     node_count = 0
     finish_reason = 'no_output'
 
-    try:
-        async with pattern3_agent.iter(prompt, deps=deps) as run:
-            async for node in run:
-                node_count += 1
-                try:
-                    if Agent.is_call_tools_node(node):
-                        tool_names = _extract_tool_names(node)
-                        log.debug(f'Node {node_count}: Tools → {tool_names}')
-                    elif Agent.is_model_request_node(node):
-                        log.debug(f'Node {node_count}: Model request')
-                    else:
-                        log.debug(f'Node {node_count}: {node.__class__.__name__}')
-                except Exception as e:
-                    log.exception(f'Failed to process node {node_count}: {e}')
+    messages = None
+    max_attempts = 3
+    for attempt in range(1, max_attempts + 1):
+        current_prompt = prompt if messages is None else 'Continue your task.'
+        run = None
+        try:
+            async with pattern3_agent.iter(current_prompt, deps=deps, message_history=messages) as run:
+                async for node in run:
+                    node_count += 1
+                    try:
+                        if Agent.is_call_tools_node(node):
+                            tool_names = _extract_tool_names(node)
+                            log.debug(f'Node {node_count}: Tools → {tool_names}')
+                        elif Agent.is_model_request_node(node):
+                            log.debug(f'Node {node_count}: Model request')
+                        else:
+                            log.debug(f'Node {node_count}: {node.__class__.__name__}')
+                    except Exception as e:
+                        log.exception(f'Failed to process node {node_count}: {e}')
 
-        result = getattr(run, 'result', None)
-        if result is not None:
-            out = getattr(result, 'output', None)
-            if out is not None:
-                finish_reason = getattr(out, 'reason_for_stopping', None) or str(out)
-    except ModelHTTPError as e:
-        if is_context_length_error(e):
-            log.warning('🔥 Context length exceeded in internal loop, returning partial results')
-            finish_reason = 'context_length_exceeded_partial'
-        else:
+            result = getattr(run, 'result', None) if run is not None else None
+            if result is not None:
+                messages = result.all_messages()
+                out = getattr(result, 'output', None)
+                if out is not None:
+                    finish_reason = getattr(out, 'reason_for_stopping', None) or str(out)
+            break
+        except ModelHTTPError as e:
+            if is_context_length_error(e):
+                extracted_messages: list[Any] | None = None
+                if run is not None:
+                    extracted = getattr(run, 'all_messages', None)
+                    extracted = extracted() if callable(extracted) else None
+                    if isinstance(extracted, list):
+                        extracted_messages = extracted
+                    if extracted_messages is None:
+                        r = getattr(run, 'result', None)
+                        if r is not None:
+                            extracted2 = r.all_messages()
+                            if isinstance(extracted2, list):
+                                extracted_messages = extracted2
+                if extracted_messages:
+                    messages = emergency_trim_history(extracted_messages, max_tokens=60_000)
+                    log.warning(
+                        f'🔥 Context length exceeded, emergency trim and retry (attempt {attempt}/{max_attempts})'
+                    )
+                    continue
+                finish_reason = 'context_length_exceeded_partial'
+                break
             raise
 
     elapsed = time.perf_counter() - start
@@ -1326,10 +1340,7 @@ class FinishAction(BaseModel):
     reason: str = Field(description="Why you're stopping")
 
 
-DecisionOutputSpec = [
-    ToolOutput(ContinueAction, strict=True),
-    ToolOutput(FinishAction, strict=True),
-]
+DecisionOutputSpec = [ToolOutput(ContinueAction, strict=True), ToolOutput(FinishAction, strict=True)]
 
 
 pattern4_agent: Agent[Deps, ContinueAction | FinishAction] = Agent(
@@ -1399,11 +1410,11 @@ async def run_pattern4(
 
         match result.output:
             case ContinueAction(reasoning=reason, next_steps=steps):
-                log.info(f'➡️  Continue: {reason}')
-                log.debug(f'   Next steps: {steps}')
+                log.info('➡️  Continue: %s', reason)
+                log.debug('   Next steps: %s', steps)
             case FinishAction(reason=reason, summary=summary):
-                log.info(f'🏁 Finish: {reason}')
-                log.debug(f'   Summary: {summary}')
+                log.info('🏁 Finish: %s', reason)
+                log.debug('   Summary: %s', summary)
                 finish_reason = reason
                 break
 

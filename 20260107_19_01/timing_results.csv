@@ -1,0 +1,2 @@
+prompt_num,pattern1_sec,pattern2_sec,pattern3_sec,pattern4_sec,pattern5_sec,pattern1_bytes,pattern2_bytes,pattern3_bytes,pattern4_bytes,pattern5_bytes,prompt_text
+prompt_01,0.0,0.0,0.0,0.0,0.0,0,0,0,0,0,"Collect 4 damages/indemnification docs: 2 Brazilian (indenização decisions from STJ or TJSP), 2 American (personal injury complaints or insurance coverage opinions). Include monetary values discussed ..."

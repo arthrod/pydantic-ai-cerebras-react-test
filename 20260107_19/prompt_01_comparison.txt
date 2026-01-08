@@ -1,0 +1,8 @@
+==========================================================================================
+PROMPT 01
+==========================================================================================
+Collect 4 damages/indemnification docs: 2 Brazilian (indenização decisions from STJ or TJSP), 2 American (personal injury complaints or insurance coverage opinions). Include monetary values discussed if available.
+
+Pattern            Items  Actions  Iters  Time(s)    Finish
+------------------------------------------------------------------------------------------
+
