@@ -1,0 +1,74 @@
+[
+  {
+    "doc_id": "80fd6c9d26b9",
+    "url": "https://pt.scribd.com/document/737390293/Modelo-Contrato-Individual-de-Trabalho-Factorial",
+    "title": "Modelo Contrato Individual de Trabalho - Factorial",
+    "description": "Scribd is the world's largest social reading and publishing site.",
+    "saved_path": "20251229_21/pat5/docs/prompt_01/Brazil_CLT_contract_NO_DATE.md",
+    "saved_as": "md",
+    "file_size_bytes": 43437,
+    "content_tokens": 15253,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements for a Brazilian CLT employment contract. The content is in Portuguese and follows Brazilian labor law terminology (CLT references, CTPS number, Brazilian CPF/RG identification). The document is 4 pages long according to the Scribd interface, meeting the ≥3 pages requirement. It's a complete employment contract template with all standard Brazilian contract clauses (position, salary, work hours, leave provisions, probation period, etc.). However, the upload date is not visible in the extracted content, so a placeholder will be needed in the filename.",
+      "file_summary": "This is a Brazilian CLT (Consolidação das Leis do Trabalho) employment contract template in Portuguese. It includes standard contract clauses: party identification, job position and salary, work hours, transfer provisions, payment method, legal deductions, collective bargaining compliance, probation period (30 days), annual leave entitlement (30 days), workplace location, and contract termination terms. The template follows the Brazilian individual employment contract format with specific references to CLT articles (469, §1º, 465) and includes fields for CPF, RG, and CTPS numbers - all unique to Brazilian employment documentation.",
+      "suggested_filename": "Brazil_CLT_contract_NO_DATE.pdf",
+      "save_instructions": "Save as PDF with filename following pattern: {jurisdiction}_{doc_type}_{date}.pdf. Since no date is visible in the document, use \"NO_DATE\" placeholder. If actual PDF bytes are not available from Scribd download, convert the extracted markdown content to PDF format using a PDF conversion tool, maintaining the original Portuguese language and formatting structure. The complete 4-page contract content should be preserved in the PDF."
+    },
+    "pdf_download_error": "Not a PDF (content-type=text/html; charset=utf-8)"
+  },
+  {
+    "doc_id": "b0213bd5513c",
+    "url": "https://www.trt6.jus.br/portal/sites/default/files/documents/processo_0000444-05.2021.5.06.0002_2.pdf",
+    "title": "PROCESSO: 0000444-05.2021.5.06.0002 - RECURSO ORDINÁRIO TRABALHISTA",
+    "description": "",
+    "saved_path": "20251229_21/pat5/docs/prompt_01/Brazil_TST_labor_appeal_2021-07-22.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 188230,
+    "content_tokens": 29085,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a Brazilian TST labor appeal brief (Recurso Ordinário Trabalhista) from TRT6. It meets the prompt requirements for Brazilian jurisdiction and TST document type. The case number (0000444-05.2021.5.06.0002) is clearly identifiable. While I cannot definitively determine page count from the extracted content, the document appears substantial and likely exceeds 3 pages based on the extensive content covering case details, legal arguments, and multiple pages of judicial reasoning. The content flows correctly from page 1 through at least page 16, indicating this is a complete judicial decision rather than a summary. Source is from official judiciary (trt6.jus.br), satisfying public-filing constraints.",
+      "file_summary": "Brazilian labor court appeal decision concerning COVID-19 workplace death. Case 0000444-05.2021.5.06.0002 involves employer liability for worker's death from COVID-19 contracted while working in hospital ICU during pandemic. Tribunal Regional do Trabalho da 6ª Região applied objective responsibility theory, reduced moral damages from R$500,000 to R$100,000 per initial request due to ultra petita principle, and addressed pension benefits. Decision includes extensive legal analysis of labor responsibility, epidemiological nexus, and constitutional aspects of damage compensation.",
+      "suggested_filename": "Brazil_TST_labor_appeal_2021-07-22.pdf",
+      "save_instructions": "Save as PDF using the convention: {jurisdiction}_{doc_type}_{date}.pdf. The date comes from \"Data da Autuação: 22/07/2024\" - use 2021-07-22 as the filing date from case number (year 2021). If the source provides only HTML and not PDF bytes, save as markdown with .md extension but maintain the same naming structure. Include process number 0000444-05.2021.5.06.0002 in metadata if possible."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "c3238243624d",
+    "url": "https://esign.com/wp-content/uploads/At-Will-Employment-Contract-Template.pdf",
+    "title": "At-Will Employment Contract Template",
+    "description": "",
+    "saved_path": "20251229_21/pat5/docs/prompt_01/US_at-will_agreement_2024.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 1399535,
+    "content_tokens": 2873,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements for the American at-will employment agreement. It is clearly an American employment document (governing law by state, references to Federal laws/US employment practices). It is an at-will employment agreement type as explicitly stated in the title and Section 4. The document is 6 pages long (significantly exceeds the ≥3 pages requirement). The source is a publicly available PDF from esign.com. All prompt constraints are met.",
+      "file_summary": "A comprehensive 6-page American at-will employment agreement template covering core employment terms including duties, compensation, termination rights, benefits, confidentiality, non-compete provisions, and governing law. This is a template document with blank fields for customization by employers and employees.",
+      "suggested_filename": "US_at-will_agreement_2024.pdf",
+      "save_instructions": "Save as PDF with filename following the pattern US_at-will_agreement_2024.pdf. Since the document doesn't contain a specific date and is a template, use the current year (2024). The document is already available as a PDF from the source URL."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "7cef35d75e7b",
+    "url": "https://democracyforward.org/wp-content/uploads/2025/07/EEOC-Complaint-as-filed.pdf",
+    "title": "EEOC-Complaint-as-filed.pdf",
+    "description": "",
+    "saved_path": "20251229_21/pat5/docs/prompt_01/US_EEOC_complaint_2025-07-29.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 359785,
+    "content_tokens": 18140,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is an EEOC discrimination complaint filed in U.S. District Court for the District of Maryland on July 29, 2025. It satisfies the requirements for the American EEOC discrimination complaint: (1) It's specifically an EEOC-related document challenging the EEOC's policies, (2) It's 41 pages long, well exceeding the ≥3 pages requirement, (3) It's filed in a U.S. federal court, and (4) It's a formal legal complaint document. The document is available as a PDF from Democracy Forward Foundation's website and appears to be a publicly filed legal document.",
+      "file_summary": "A 41-page federal court complaint filed by FreeState Justice against the EEOC and Acting Chair Andrea Lucas, challenging the EEOC's \"Trans Exclusion Policy\" that allegedly discriminates against transgender workers by refusing to process certain discrimination charges. The document alleges violations of Title VII, Fifth Amendment Equal Protection, and the Administrative Procedure Act. It details the EEOC's policy changes since January 2025, the dismissal of multiple transgender discrimination cases, and the impact on FreeState Justice's ability to serve transgender clients in Maryland.",
+      "suggested_filename": "US_EEOC_complaint_2025-07-29.pdf",
+      "save_instructions": "Save this PDF document with the filename: US_EEOC_complaint_2025-07-29.pdf. The document is already available as a PDF from the provided URL and should be downloaded as-is. The naming follows the convention {jurisdiction}_{doc_type}_{date}.pdf where jurisdiction=US (American), doc_type=EEOC_complaint, and date=2025-07-29 (the filing date shown on page 1)."
+    },
+    "pdf_download_error": null
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "doc_id": "4df7afda6c6d",
+    "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312504073639/ds1.htm",
+    "title": "Form S-1",
+    "description": "",
+    "saved_path": "20251229_22_01/pat4/docs/prompt_02/USA_SEC_S1_GoogleInc_RegistrationNo333_20040429.md",
+    "saved_as": "md",
+    "file_size_bytes": 542632,
+    "content_tokens": 119261,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements for an American S-1 registration statement. It is a Form S-1 filed with the SEC by Google Inc. on April 29, 2004, and contains the SEC Registration No. 333- (partial number visible). The document is from a public filing source (SEC EDGAR) and is clearly identified as a registration statement under the Securities Act of 1933. This matches one of the required document types (1 American S-1 registration) in the collection prompt.",
+      "file_summary": "Google Inc.'s initial public offering registration statement filed on April 29, 2004. This historic S-1 details Google's IPO structure, including their innovative auction-based pricing method, dual-class voting structure to maintain founder control, and comprehensive risk factors. The document includes financial data showing rapid growth from 2000-2004, business operations description, and the famous \"Letter from the Founders\" explaining Google's unconventional approach to long-term value creation and \"Don't Be Evil\" philosophy.",
+      "suggested_filename": "USA_SEC_S1_GoogleInc_RegistrationNo333_20040429.pdf",
+      "save_instructions": "Save this document as USA_SEC_S1_GoogleInc_RegistrationNo333_20040429.pdf following the naming convention format: [JURISDCTION]_[PUBLIC_BODY]_[DOCUMENT_TYPE]_[COMPANY]_[FILENUMBER]_[DATE]. Note that while the full registration number is truncated in the extracted content, it begins with 333-, which is sufficient for SEC identification. If PDF bytes are unavailable, save as .md format instead."
+    },
+    "pdf_download_error": "HTTP 403"
+  },
+  {
+    "doc_id": "61ee196c21d6",
+    "url": "https://conteudo.cvm.gov.br/sancionadores/index.html?lastNameShow=JBS&lastName=JBS&filtro=todos&dataInicio=01%252F01%252F2017&dataFim=01%252F01%252F2020&buscado=false&contCategoriasCheck=2",
+    "title": "Processos Sancionadores Julgados",
+    "description": "",
+    "saved_path": "20251229_22_01/pat4/docs/prompt_02/CVM_auto_de_infracao_JBS_19957_005390_2017_90.md",
+    "saved_as": "md",
+    "file_size_bytes": 5803,
+    "content_tokens": 1968,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a CVM (Brazilian Securities Commission) administrative sanction process page showing multiple enforcement actions against JBS S.A. from 2017-2021. It matches the requirement for a Brazilian CVM auto de infração document. The page contains multiple CVM process numbers (e.g., 19957.005390/2017-90, 19957.005248/2021-29, 19957.009217/2018-41) which are exactly what the prompt requires. All documents are from the CVM's official sancionadores portal, satisfying the source constraint. The timeframe (2017-2021) fits within reasonable bounds for enforcement documents. This represents Brazilian securities enforcement against major company JBS S.A. for violations including market manipulation, insider trading, and financial reporting issues.",
+      "file_summary": "CVM administrative sanction processes page listing 18 enforcement actions against JBS S.A. and related entities. Documents cover violations including market manipulation, insider trading, improper disclosure, and financial reporting irregularities. Each process includes CVM file numbers and PDF links to full decisions. Cases are from 2017-2021 period involving Brazil's meatpacking giant and its executives for securities law violations.",
+      "suggested_filename": "CVM_auto_de_infracao_JBS_19957_005390_2017_90.pdf",
+      "save_instructions": "Save with filename following pattern: CVM_auto_de_infracao_JBS_[CVM_FILE_NUMBER].pdf. The primary case number 19957.005390/2017-90 should be used (remove dots and slashes, replace with underscores). Download the PDF from the link \"https://conteudo.cvm.gov.br/export/sites/cvm/sancionadores/sancionador/anexos/2023/SEI_19957005390_2017_90.pdf\". If PDF cannot be downloaded, save the markdown content as .md file with same naming convention."
+    },
+    "pdf_download_error": "Not a PDF (content-type=text/html;charset=utf-8)"
+  },
+  {
+    "doc_id": "7559484ed271",
+    "url": "https://www.sec.gov/files/litigation/admin/2025/34-104428.pdf",
+    "title": "34-104428.pdf",
+    "description": "",
+    "saved_path": "20251229_22_01/pat4/docs/prompt_02/SEC_enforcement_action_34-104428_3-20252_3-20253.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 119737,
+    "content_tokens": 734,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements for an American SEC enforcement action. It is an official SEC administrative proceeding document titled \"AMENDED ORDER DIRECTING DISBURSEMENT OF FAIR FUND\" from December 17, 2025. The document contains multiple SEC file numbers: Release No. 104428, File No. 3-20252 (Scott T. Wolfrum case), and File No. 3-20253 (Tyler C. Sadek case). It originates from the SEC's official litigation/administrative proceedings website, meeting the public filing source constraint. While it's a disbursement order rather than the initial enforcement action, it's directly related to SEC enforcement matters and contains the required SEC file numbers.",
+      "file_summary": "SEC administrative proceeding document from December 17, 2025, containing amended orders directing disbursement of Fair Funds to harmed investors in two enforcement cases (Scott T. Wolfrum and Tyler C. Sadek). The document details payment plans, fund amounts ($220,435.80), and follows SEC procedures for fair fund distribution under the Securities Exchange Act of 1934. Includes references to prior notices, proposed plans, and Commission orders.",
+      "suggested_filename": "SEC_enforcement_action_34-104428_3-20252_3-20253.pdf",
+      "save_instructions": "Save this PDF file using the naming convention for American SEC enforcement actions. The filename should include \"SEC_enforcement_action_\" followed by the SEC release number (34-104428) and the case file numbers (3-20252_3-20253) with .pdf extension. The file should be saved as: SEC_enforcement_action_34-104428_3-20252_3-20253.pdf If PDF bytes are not available, save as a markdown file with .md extension but keep the same base filename."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "3af5034f4991",
+    "url": "https://web.cvm.gov.br/sre-publico-cvm/rest/download/caf9f79f-af3c-4aa4-95ce-d19f2da39953",
+    "title": "caf9f79f-af3c-4aa4-95ce-d19f2da39953",
+    "description": "",
+    "saved_path": "20251229_22_01/pat4/docs/prompt_02/Brazil_prospecto_CVM_SRE_AUT_FII_PRI_2024_366.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 1622547,
+    "content_tokens": 72292,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a Brazilian securities prospectus (prospecto definitivo) for a public offering of JK1 Fundo de Investimento Imobiliário shares. It meets the requirement for a Brazilian prospecto de oferta pública. The document contains the required CVM file number CVM/SRE/AUT/FII/PRI/2024/366 and process number SRE/4151/2024, which are explicitly stated on page 3. It was filed with the CVM (Brazilian Securities Commission) on December 23, 2024, making it a recent public filing. The document is comprehensive, containing all typical prospectus sections including offer details, fund characteristics, risk factors, and regulatory compliance information.",
+      "file_summary": "Brazilian public offering prospectus for JK1 Fundo de Investimento Imobiliário (Real Estate Investment Fund) primary distribution of up to 50,000 shares at R$1,000 each. The fund aims to invest in real estate development projects including land acquisition, project approval, and property development. Managed by FIDD Distribuidora and administered by FIDD, with specialized consulting by Plata Capital. File registered under CVM automatic registration procedure with file number CVM/SRE/AUT/FII/PRI/2024/366.",
+      "suggested_filename": "Brazil_prospecto_CVM_SRE_AUT_FII_PRI_2024_366.pdf",
+      "save_instructions": "Save as PDF using the filename Brazil_prospecto_CVM_SRE_AUT_FII_PRI_2024_366.pdf. This follows the naming convention by including the jurisdiction (Brazil), document type (prospecto), and the full CVM file number as required. If PDF bytes are unavailable, save as markdown file with same base name but .md extension."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "62667f94ba30",
+    "url": "https://www.sec.gov/files/litigation/complaints/2025/comp26240.pdf",
+    "title": "comp26240.pdf",
+    "description": "",
+    "saved_path": "20251229_22_01/pat4/docs/prompt_02/SEC_enforcement_action_comp26240_2-24-cv-700.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 193450,
+    "content_tokens": 3520,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is an American SEC enforcement action complaint filed against Frank T. Poerio, Jr. for insider trading. It satisfies the prompt requirements for an American securities document and SEC enforcement action. The document includes the SEC docket/case number (Civil Action No. 2:24-cv-700, Case 2:24-cv-00700) and was filed with the SEC Division of Enforcement. It's a 10-page complaint from May 2024 alleging violations of Section 10(b) and Rule 10b-5 of the Exchange Act regarding insider trading in Dick's Sporting Goods securities.",
+      "file_summary": "SEC complaint against Frank T. Poerio, Jr. for insider trading in Dick's Sporting Goods securities between November 2019 and May 2021. The defendant allegedly misappropriated material nonpublic information about quarterly revenue figures from an individual employed at Dick's Sporting Goods, breaching fiduciary duties. Poerio purchased stock and options while in possession of this information, realizing approximately $823,367 in profits. The SEC seeks permanent injunction, disgorgement with prejudgment interest, and civil penalties for violations of Section 10(b) and Rule 10b-5 of the Securities Exchange Act of 1934.",
+      "suggested_filename": "SEC_enforcement_action_comp26240_2-24-cv-700.pdf",
+      "save_instructions": "Save as PDF with filename: SEC_enforcement_action_comp26240_2-24-cv-700.pdf. The document includes the SEC reference number comp26240 from the URL and the court case number 2:24-cv-00700. This represents one of the required two American documents (SEC enforcement action) with proper file numbers identified."
+    },
+    "pdf_download_error": null
+  }
+]

@@ -1,9 +1,0 @@
-==========================================================================================
-PROMPT 01
-==========================================================================================
-Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) and 2 American (1 at-will employment agreement, 1 EEOC discrimination complaint). Each must be ≥3 pages. Output as PDF with filenames following pattern: {jurisdiction}_{doc_type}_{date}.pdf
-
-Pattern            Items  Actions  Iters  Time(s)    Finish
-------------------------------------------------------------------------------------------
-Pattern 5          4      22       23     198.70     Successfully collected 4 employment documents as requested: 1) Brazil_CLT_employment_contract_1978.pdf (Brazilian CLT employment contract), 2) Brazil_TST_labor_appeal_2021-03-03.pdf (Brazilian TST labor appeal brief), 3) US_at-will_employment_agreement_2024.pdf (American at-will employment agreement), and 4) US_EEOC_discrimination_complaint_2020-12-09.pdf (American EEOC discrimination complaint). All documents are ≥3 pages and follow the requested filename pattern {jurisdiction}_{doc_type}_{date}.pdf. Task complete.
-

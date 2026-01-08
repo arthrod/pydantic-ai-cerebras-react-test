@@ -1,0 +1,2 @@
+prompt_num,pattern1_sec,pattern2_sec,pattern3_sec,pattern4_sec,pattern5_sec,pattern1_bytes,pattern2_bytes,pattern3_bytes,pattern4_bytes,pattern5_bytes,prompt_text
+prompt_01,350.5660859159998,332.9623275419999,98.17771316700055,297.54640287499933,0.0,12271669,1057528,1596253,1401899,0,"Collect 4 tax documents: 2 Brazilian (1 CARF acórdão, 1 mandado de segurança tributário from TRF) and 2 American (1 Tax Court opinion, 1 IRS Chief Counsel Advice). Each ≥6 pages with citation."

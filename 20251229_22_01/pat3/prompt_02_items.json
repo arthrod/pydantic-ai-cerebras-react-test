@@ -1,0 +1,74 @@
+[
+  {
+    "doc_id": "1d560a83d7b0",
+    "url": "https://www.b3.com.br/data/files/F1/63/3A/4E/7B05A910F51990A9AC094EA8/Projeto%20Rally%20-%20Prospecto%20Definitivo%20_v.%20final%202_.pdf",
+    "title": "Projeto%20Rally%20-%20Prospecto%20Definitivo%20_v.%20final%202_.pdf",
+    "description": "",
+    "saved_path": "20251229_22_01/pat3/docs/prompt_02/Brazil_COSAN_Prospecto_CVM_SRE_AUT_ACO_PRI_2025_007.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 2181442,
+    "content_tokens": 101566,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian securities prospectus for a public offering of primary distribution of ordinary shares by Cosan S.A. The document is registered with the CVM (Brazilian Securities Commission) under number CVM/SRE/AUT/ACO/PRI/2025/007. It represents a prospecto de oferta pública (prospectus for public offering), which is one of the required document types for the Brazilian collection target. The document contains the relevant CVM filing number and meets the jurisdiction requirement (Brazil) and document type requirement.",
+      "file_summary": "Brazilian public offering prospectus for Cosan S.A.'s primary distribution of 1.812.5 billion ordinary shares at R$5.00 per share, raising R$9.06 billion. Registered with CVM under number CVM/SRE/AUT/ACO/PRI/2025/007. The offering includes anchor investors and significant lock-up periods. The prospectus contains detailed information about the company, the offering structure, risk factors, and use of proceeds for debt reduction.",
+      "suggested_filename": "Brazil_COSAN_Prospecto_CVM_SRE_AUT_ACO_PRI_2025_007.pdf",
+      "save_instructions": "Save this PDF with the naming convention: Brazil_COSAN_Prospecto_CVM_SRE_AUT_ACO_PRI_2025_007.pdf. The filename includes the jurisdiction (Brazil), company name (COSAN), document type (Prospecto), and CVM registration number (CVM/SRE/AUT/ACO/PRI/2025/007) as required by the prompt to include CVM file numbers."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "7c826dadcc85",
+    "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/anexos/2024/20240319_pas_cvm_19957_009288_2019_25_diretor_otto_lobo_voto.pdf",
+    "title": "20240319_pas_cvm_19957_009288_2019_25_diretor_otto_lobo_voto.pdf",
+    "description": "",
+    "saved_path": "20251229_22_01/pat3/docs/prompt_02/CVM_auto_infracao_19957_009288_2019_25.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 357447,
+    "content_tokens": 11667,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian CVM enforcement document that matches the requirement for \"1 CVM auto de infração\". It's an official vote in an administrative sanction proceeding (Processo Administrativo Sancionador) from the Brazilian Securities Commission (CVM) imposing penalties for violations of securities regulations. The document includes the CVM file number (19957.009288/2019-25) as required.",
+      "file_summary": "CVM administrative sanction vote imposing fines on two individuals for violations related to acting as unauthorized investment agents and delegating restricted services. Guilherme do Val was fined R$200,000 for acting as an investment agent without proper registration and later without being a partner. Antonio Samad was fined R$150,000 for delegating services to an unregistered agent and failing to provide adequate information about investment products.",
+      "suggested_filename": "CVM_auto_infracao_19957_009288_2019_25.pdf",
+      "save_instructions": "Save the PDF using the filename CVM_auto_infracao_19957_009288_2019_25.pdf. The naming convention follows: [Agency]_[document type]_[case number portions].pdf. If PDF bytes are unavailable during collection, save as markdown with same filename but .md extension."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "bdc59a04265c",
+    "url": "https://www.sec.gov/Archives/edgar/data/1499961/000182912624006661/mullenautomotive_s1.htm",
+    "title": "",
+    "description": "",
+    "saved_path": "20251229_22_01/pat3/docs/prompt_02/SEC_S1_MullenAutomotive_333-279565_2024-10-04.md",
+    "saved_as": "md",
+    "file_size_bytes": 201203,
+    "content_tokens": 45602,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is an S-1 registration statement from the U.S. Securities and Exchange Commission for Mullen Automotive Inc. It satisfies the prompt requirement for \"1 S-1 registration\" (American securities document). The document includes the SEC file number 333-279565 (as referenced in the registration statement details). It was filed with the SEC on October 4, 2024, making it a current American securities registration document that meets all requirements.",
+      "file_summary": "S-1 registration statement for Mullen Automotive Inc. filed with the SEC on October 4, 2024. The document registers 30,000,000 shares of Common Stock for resale by selling stockholders, issuable upon conversion of convertible notes and exercise of warrants from a private placement financing. The company is a Delaware corporation operating in the electric vehicle industry, with offerings including commercial trucks and passenger vehicles. Key details include a 1-for-100 reverse stock split effective September 17, 2024, and the company's status as a smaller reporting company.",
+      "suggested_filename": "SEC_S1_MullenAutomotive_333-279565_2024-10-04.pdf",
+      "save_instructions": "Save this document with the filename: SEC_S1_MullenAutomotive_333-279565_2024-10-04.pdf\n\nThis follows the naming convention: [SOURCE]_[DOCTYPE]_[COMPANY]_[FILENUMBER]_[DATE].pdf\n\nSEC = U.S. Securities and Exchange Commission source\nS1 = Form type (S-1 registration)\nMullenAutomotive = Company name\n333-279565 = SEC registration file number\n2024-10-04 = Filing date\n\nIf only the HTML content is available (not PDF), save as .md and note that the original SEC filing is available at the provided URL."
+    },
+    "pdf_download_error": "HTTP 403"
+  },
+  {
+    "doc_id": "e78b15794fc9",
+    "url": "https://www.sec.gov/enforcement-litigation/administrative-proceedings/ia-6662-s",
+    "title": "SEC Charges Investment Adviser for Pay-To-Play Violation Involving a Campaign Contribution",
+    "description": "",
+    "saved_path": "20251229_22_01/pat3/docs/prompt_02/SEC_enforcement_action_pay_to_play_obra_capital_3-22019_ia-6662.md",
+    "saved_as": "md",
+    "file_size_bytes": 18153,
+    "content_tokens": 4555,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is an SEC enforcement action that satisfies one of the four required documents (2 American: 1 S-1 registration, 1 SEC enforcement action). It's an administrative proceeding against Obra Capital Management for violating pay-to-play rules, filed on August 19, 2024. The document includes the SEC file number (File No. 3-22019) and the administrative proceeding number (ia-6662-s) as required by the prompt. This is a legitimate SEC enforcement action from a public source (sec.gov).",
+      "file_summary": "SEC administrative proceeding charging Obra Capital Management, LLC with violating pay-to-play rules under the Investment Advisers Act of 1940. The firm continued providing advisory services to a government entity within two years after a campaign contribution to an elected official with influence over adviser selection. The SEC found willful violations of Section 206(4) and Rule 206(4)-5, imposed a $95,000 civil penalty, and issued a cease-and-desist order. The proceeding was filed on August 19, 2024 under File No. 3-22019.",
+      "suggested_filename": "SEC_enforcement_action_pay_to_play_obra_capital_3-22019_ia-6662.pdf",
+      "save_instructions": "Save this document as a PDF with the filename: SEC_enforcement_action_pay_to_play_obra_capital_3-22019_ia-6662.pdf. The PDF can be downloaded from the link provided in the document: https://www.sec.gov/files/litigation/admin/2024/ia-6662.pdf. Include both the SEC file number (3-22019) and administrative proceeding number (ia-6662) as required by the prompt. If PDF download fails, save the webpage content as a markdown file with the same name but .md extension."
+    },
+    "pdf_download_error": "HTTP 403"
+  }
+]

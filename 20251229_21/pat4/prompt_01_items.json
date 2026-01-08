@@ -1,0 +1,74 @@
+[
+  {
+    "doc_id": "45d4a7a6f82d",
+    "url": "https://www.scribd.com/document/467038708/MODELO-DE-CONTRATO-DE-TRABALHO-docx",
+    "title": "MODELO DE CONTRATO DE TRABALHO.docx",
+    "description": "Este contrato de trabalho individual estabelece os termos de uma relação de trabalho entre um empregador e um empregado, incluindo a função do empregado, remuneração, horário e duração do contrato ... by jo2o2gomes-27",
+    "saved_path": "20251229_21/pat4/docs/prompt_01/Brazilian_CLT_contract_2024-12-30.md",
+    "saved_as": "md",
+    "file_size_bytes": 57286,
+    "content_tokens": 19748,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the requirements for the Brazilian CLT employment contract. It is a Portuguese-language employment contract template that follows Brazilian labor law (CLT), contains standard employment contract clauses (function, remuneration, work hours, duration, transfers, etc.), and is 6 pages long which exceeds the ≥3 pages requirement. However, no specific date is visible in the extracted content, so the filename will need a date placeholder or use the current date. This counts as one of the two required Brazilian documents.",
+      "file_summary": "A 6-page Portuguese-language Brazilian employment contract template (Modelo de Contrato de Trabalho) containing multiple contract variants including experimental period contracts, temporary contracts, and indefinite-term contracts. The document includes standard CLT clauses covering job function, salary (R$), work hours (44 hours weekly), trial period provisions, transfer rights, and legal disclaimers about consulting an attorney. The contracts reference Brazilian labor law articles (462, 465, 469, 482, 62 from CLT) and include signature sections for employer, employee, and witnesses.",
+      "suggested_filename": "Brazilian_CLT_contract_2024-12-30.pdf",
+      "save_instructions": "Save as PDF with filename: Brazilian_CLT_contract_2024-12-30.pdf. If PDF download is not available from Scribd, save the processed content as a markdown file named Brazilian_CLT_contract_2024-12-30.md in the collection folder. The date used is the current date as no specific date was found in the document. This counts as the Brazilian CLT employment contract requirement."
+    },
+    "pdf_download_error": "Not a PDF (content-type=text/html; charset=utf-8)"
+  },
+  {
+    "doc_id": "e9adfe30e126",
+    "url": "https://www.scribd.com/document/624113197/modelo-contrarrazoes-de-recurso-ordinario-trabalhista",
+    "title": "modelo-contrarrazoes-de-recurso-ordinario-trabalhista",
+    "description": "O documento trata de um recurso ordinário movido por um trabalhador contra decisão da Vara do Trabalho de Parnaíba. O trabalhador apresenta contrarrazões ao recurso da reclamada contestando (1) a t... by adriana0luiza in Orphan Interests > Business",
+    "saved_path": "20251229_21/pat4/docs/prompt_01/Brazil_TST_appeal_brief_2023-01-25.md",
+    "saved_as": "md",
+    "file_size_bytes": 51122,
+    "content_tokens": 18428,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document matches the prompt requirements for a Brazilian TST labor appeal brief. It's a \"Contrarrazões ao Recurso Ordinário Trabalhista\" (response to ordinary labor appeal), which is a type of legal brief used in Brazilian labor courts. The document is from Brazil (mentions Vara do Trabalho de Parnaíba, process number format, Brazilian Portuguese content, and references to CLT - Brazilian Labor Code). It contains 6 pages (≥3 pages). It's a response to an appeal in a labor case involving FGTS and termination payments. Date appears to be January 25, 2023. File should be saved as PDF following the jurisdiction_doc_type_date pattern.",
+      "file_summary": "Brazilian labor law document - \"Contrarrazões ao Recurso Ordinário Trabalhista\" (Response to Ordinary Labor Appeal). Filed January 25, 2023 in the Vara do Trabalho de Parnaíba. Case involves worker Manoel Messias Pinho Mendonça contesting employer's appeal regarding FGTS (Severance Guarantee Fund) payments, 40% penalty, attorney fees, and subsidiary liability. The 6-page brief responds to the employer's appeal and argues for maintaining the first-instance decision. Contains legal arguments under Brazilian CLT and cited jurisprudence from TST (Superior Labor Court).",
+      "suggested_filename": "Brazil_TST_appeal_brief_2023-01-25.pdf",
+      "save_instructions": "Save as PDF with filename: Brazil_TST_appeal_brief_2023-01-25.pdf following the pattern {jurisdiction}_{doc_type}_{date}.pdf. The document is a Brazilian TST labor appeal brief dated January 25, 2023. If PDF bytes are unavailable from the source, save the extracted content as Markdown with the same filename but .md extension, noting that the original source was a PDF from Scribd."
+    },
+    "pdf_download_error": "Not a PDF (content-type=text/html; charset=utf-8)"
+  },
+  {
+    "doc_id": "442ed953cd8b",
+    "url": "https://esign.com/employment/at-will/",
+    "title": "Free At-Will Employment Contract | PDF",
+    "description": "An at-will employment contract is a work agreement between an employee and employer that allows either party to terminate the relationship at any time, for nearly any reason. The contract sets out the employee’s obligations to the employer, as well as the compensation and benefits provided in return for the employee’s work.",
+    "saved_path": "20251229_21/pat4/docs/prompt_01/USA_at-will_employment_agreement_2025-09-26.md",
+    "saved_as": "md",
+    "file_size_bytes": 20549,
+    "content_tokens": 5118,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements for the American at-will employment agreement. It is an at-will employment contract template available in PDF format, matching the required document type. The document is American jurisdiction-based, as evidenced by the reference to U.S. federal law and state exceptions. While the exact page count isn't visible in the extracted content, the template appears substantial with 19 numbered sections covering compensation, benefits, termination, confidentiality, and legal provisions. The document was last updated September 26th, 2025, providing a date for the filename convention. The PDF is available for download from the URL provided.",
+      "file_summary": "An American at-will employment contract template that defines the employment relationship as terminable at any time by either party. The 19-section agreement covers employee duties, compensation structure, benefits eligibility, at-will termination provisions, confidentiality obligations, trial periods, vacation and leave policies, and governing law clauses. It includes federal and state law exceptions to at-will termination and provides a comprehensive framework for employer-employee relationships under U.S. law.",
+      "suggested_filename": "USA_at-will_employment_agreement_2025-09-26.pdf",
+      "save_instructions": "Download the PDF from https://esign.com/wp-content/uploads/At-Will-Employment-Contract-Template.pdf and save it with the filename USA_at-will_employment_agreement_2025-09-26.pdf following the pattern {jurisdiction}_{doc_type}_{date}.pdf where jurisdiction is USA, doc_type is at-will_employment_agreement, and date is September 26, 2025 from the document's last updated information."
+    },
+    "pdf_download_error": "Not a PDF (content-type=text/html; charset=utf-8)"
+  },
+  {
+    "doc_id": "5a995d41a27d",
+    "url": "https://core.ac.uk/download/pdf/78046178.pdf",
+    "title": "Equal Employment Opportunity Commission v. Missoula Mac, Inc., d/b/a McDonald's Restaurants, et al.",
+    "description": "",
+    "saved_path": "20251229_21/pat4/docs/prompt_01/US_EEOC_consent_decree_2012.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 1812153,
+    "content_tokens": 8113,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a 24-page EEOC consent decree from an American federal court (Case No. 3:11-cv-267-bbc) filed in 2012, resolving discrimination claims against Missoula Mac, Inc. d/b/a McDonald's Restaurants. It involves sexual harassment, retaliation, and constructive discharge claims under Title VII of the Civil Rights Act of 1964. While not strictly an EEOC discrimination \"complaint\" filing, it is an official EEOC-initiated litigation document that resolves discrimination claims and meets the jurisdiction (US), date (2012), and length (24 pages ≥ 3) requirements. The document type aligns with EEOC-related employment discrimination documents needed for the collection task.",
+      "file_summary": "This is a 24-page consent decree from the U.S. District Court for the Western District of Wisconsin resolving an EEOC lawsuit against Missoula Mac, Inc. (McDonald's franchisee) for sexual harassment and retaliation of female employees. The decree includes $1,000,000 in monetary relief plus extensive injunctive relief measures including training programs, an ombudsperson position, dedicated harassment hotline, and enhanced complaint procedures. Filed on July 17, 2012 as Case No. 3:11-cv-267-bbc.",
+      "suggested_filename": "US_EEOC_consent_decree_2012.pdf",
+      "save_instructions": "Save this document as: US_EEOC_consent_decree_2012.pdf. Follow the命名 convention: {jurisdiction}_{doc_type}_{date}.pdf. For the EEOC discrimination document requirement, this consent decree qualifies as an EEOC-initiated case resolution document. Use \"US\" for jurisdiction, \"EEOC_consent_decree\" as document type, and \"2012\" for the filing year from the case docket information. If only markdown is available, save as .md but maintain this filename structure for consistency with the PDF naming convention."
+    },
+    "pdf_download_error": null
+  }
+]

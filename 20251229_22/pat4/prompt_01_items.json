@@ -1,0 +1,74 @@
+[
+  {
+    "doc_id": "16b17e3d9316",
+    "url": "https://acordaos.economia.gov.br/acordaos2/pdfs/processados/16004720215201535_5950521.pdf",
+    "title": "16004720215201535_5950521.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat4/docs/prompt_01/CARF_Acordao_16004720215201535_IRPF_20181206.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 606831,
+    "content_tokens": 12252,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian CARF acórdão (tax administrative ruling) from the Second Section of Judgment, Fourth Chamber, First Ordinary Panel, dated December 6, 2018. It concerns an IRPF case with process number 16004.720215/201535, meeting the Brazilian tax document requirement for the collection task. The document appears to be substantial (though exact page count unclear from fragmented extraction) and contains proper legal citations.",
+      "file_summary": "CARF acórdão analyzing an IRPF tax dispute involving alleged income omission through simulated loan contracts between a taxpayer and his companies. The ruling addresses decadence periods under CTN articles 150 and 173, validity of loan contracts versus actual income transfers, and application of 150% qualified penalty for fraud. The panel unanimously denied the voluntary appeal, maintaining the tax credit assessment of approximately R$3.8 million.",
+      "suggested_filename": "CARF_Acordao_16004720215201535_IRPF_20181206.pdf",
+      "save_instructions": "Save as PDF using the process number as primary identifier: CARF_Acordao_16004720215201535_IRPF_20181206.pdf. If PDF bytes are unavailable, save as markdown with same base filename and .md extension, noting that original source was a PDF from acordaos.economia.gov.br."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "5b586366ea48",
+    "url": "https://www.jfsp.jus.br/documentos/administrativo/NUCS/galeria/2018/2018-09-09-perdcompirpjcsll.pdf",
+    "title": "PROCESSO: 5018011-73.2018.4.03.6100 - MANDADO DE SEGURANÇA",
+    "description": "",
+    "saved_path": "20251229_22/pat4/docs/prompt_01/BR_TRF3_mandado_seguranca_5018011-73.2018.4.03.6100.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 88311,
+    "content_tokens": 10479,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian tax document from TRF-3 (Tribunal Regional Federal da 3ª Região) - specifically a mandado de segurança (tax injunction) dated 2018. The document concerns IRPJ/CSLL compensation restrictions under Lei 13.670/2018. While the visible content shows 11 pages, this appears to be a decision/initial filing document. The case number 5018011-73.2018.4.03.6100 confirms it's from TRF. The document contains legal citations to CTN, Lei 9.430/96, Lei 8.383/91, and STF/STJ precedents. It meets the requirements for a Brazilian mandado de segurança tributário from TRF with citations. PDF status is confirmed by the .pdf URL.",
+      "file_summary": "Brazilian tax injunction (mandado de segurança) filed by Telefônica Brasil and subsidiaries challenging restrictions on compensation of IRPJ/CSLL estimated monthly payments with tax credits under Lei 13.670/2018. The 2018 TRF-3 decision analyzes the legality of compensation restrictions, discusses tax principles of anteriority and legal certainty, and ultimately denies the preliminary injunction. Contains citations to tax legislation and court precedents.",
+      "suggested_filename": "BR_TRF3_mandado_seguranca_5018011-73.2018.4.03.6100.pdf",
+      "save_instructions": "Save as PDF using the exact filename: BR_TRF3_mandado_seguranca_5018011-73.2018.4.03.6100.pdf. This follows the convention [Country]_[Court]_[DocumentType]_[CaseNumber].pdf. If unable to access PDF bytes directly, save the markdown content with .md extension but maintain the same base filename."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "e84d117449db",
+    "url": "https://www.taxcontroversy.com/wp-content/uploads/2021/10/Thomas-opinion-TC-Memo-2020-33.pdf",
+    "title": "Thomas-opinion-TC-Memo-2020-33.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat4/docs/prompt_01/US_Tax_Court_Thomas_TCMemo_2020-33.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 555672,
+    "content_tokens": 3254,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a U.S. Tax Court memorandum opinion (T.C. Memo. 2020-33) dated March 11, 2020, which satisfies the requirement for an American Tax Court opinion. It is substantively longer than 6 pages and includes multiple citations to the Internal Revenue Code, Tax Court Rules, and case law. The document is a PDF from a tax controversy website and appears to be a complete opinion with proper legal citations.",
+      "file_summary": "U.S. Tax Court memorandum opinion in Thomas v. Commissioner regarding jurisdiction and timely filing issues. The Court dismissed the case for lack of jurisdiction because the petition was not timely filed - the envelope bore a USPS postmark dated March 6, 2018, one day after the filing deadline of March 5, 2018. The opinion discusses the \"timely mailed, timely filed\" rule under IRC sections 6213(a) and 7502, and explains that USPS postmarks trump private postage meter marks when both are present.",
+      "suggested_filename": "US_Tax_Court_Thomas_TCMemo_2020-33.pdf",
+      "save_instructions": "Save this PDF with the filename \"US_Tax_Court_Thomas_TCMemo_2020-33.pdf\" following the naming convention for American documents. The filename includes the document type (Tax Court), party name (Thomas), docket/citation (TC Memo 2020-33), and .pdf extension. The original document is already in PDF format."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "c66476e72d5a",
+    "url": "https://www.irs.gov/pub/irs-wd/202511015.pdf",
+    "title": "202511015.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat4/docs/prompt_01/IRS_Chief_Counsel_Advice_202511015_Theft_Losses_2025.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 151085,
+    "content_tokens": 8399,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is an IRS Chief Counsel Advice dated 3/14/2025 (Memorandum 202511015). It meets the prompt requirements for an American tax document from IRS Chief Counsel. The document is well over 6 pages (appears to be 12+ pages based on page markers), contains extensive legal citations throughout, and represents official IRS legal guidance on theft losses under IRC Section 165 for scam victims. It is clearly a public filing from the IRS website (irs.gov/pub/irs-wd/).",
+      "file_summary": "IRS Chief Counsel Advice memorandum analyzing deductibility of theft losses under IRC §165 for victims of various scams (compromised account, pig butchering investment, phishing, romance, and kidnapping scams). Details legal standards for \"theft\" definition, timing of loss deductions, basis limitations, and application of §165(c)(2) profit motive test versus non-deductible personal casualty losses. Explains why Ponzi loss safe harbor doesn't apply. Provides specific analysis for five taxpayer scenarios.",
+      "suggested_filename": "IRS_Chief_Counsel_Advice_202511015_Theft_Losses_2025.pdf",
+      "save_instructions": "Save this document with the filename: IRS_Chief_Counsel_Advice_202511015_Theft_Losses_2025.pdf. The naming convention follows the pattern: [SourceType]_[DocumentType]_[DocumentNumber]_[Subject]_[Year].pdf. Since this is an actual PDF from the IRS website, preserve the original PDF format. The document number 202511015 is the official IRS Chief Counsel memorandum identifier."
+    },
+    "pdf_download_error": null
+  }
+]

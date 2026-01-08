@@ -69,6 +69,10 @@ MAX_HISTORY_TOKENS = 120_000
 # Keep this comfortably below your model context window.
 SUBAGENT_MAX_CONTENT_TOKENS = 20_000
 
+# Maximum tokens for search results before truncation.
+# This prevents search results from blowing up the main agent's context.
+SEARCH_MAX_TOKENS = 60_000
+
 JINA_API_KEY = os.getenv('JINA_API_KEY')
 JINA_SEARCH_URL = 'https://s.jina.ai/'  # POST with {"q": "..."}
 JINA_READER_URL = 'https://r.jina.ai/'  # POST with {"url": "..."}
@@ -93,35 +97,35 @@ IMPORTANT:
 
 PROMPTS: list[str] = [
     # Employment-focused (mix of BR and US)
-    'Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) and 2 American (1 at-will employment agreement, 1 EEOC discrimination complaint). Each must be ≥3 pages. Output as PDF with filenames following pattern: {jurisdiction}_{doc_type}_{date}.pdf',
-    'Collect 4 labor/employment docs: 2 from TST or TRT (any region) published 2022-2024, 2 from PACER (SDNY or NDCA) employment disputes. Include case numbers in filenames.',
+   # 'Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) and 2 American (1 at-will employment agreement, 1 EEOC discrimination complaint). Each must be ≥3 pages. Output as PDF with filenames following pattern: {jurisdiction}_{doc_type}_{date}.pdf',
+    #'Collect 4 labor/employment docs: 2 from TST or TRT (any region) published 2022-2024, 2 from PACER (SDNY or NDCA) employment disputes. Include case numbers in filenames.',
     # Contract-focused
-    'Collect 4 commercial contracts: 2 Brazilian (1 prestação de serviços, 1 compra e venda) and 2 American (1 SaaS agreement, 1 asset purchase agreement). Minimum 5 pages each. Source from public filings (CVM or SEC EDGAR) only.',
-    'Collect 4 lease agreements: 2 Brazilian commercial leases (locação não-residencial) from São Paulo registry, 2 American commercial leases from SEC 10-K/10-Q exhibits. Each ≥10 pages.',
+    #'Collect 4 commercial contracts: 2 Brazilian (1 prestação de serviços, 1 compra e venda) and 2 American (1 SaaS agreement, 1 asset purchase agreement). Minimum 5 pages each. Source from public filings (CVM or SEC EDGAR) only.',
+    #'Collect 4 lease agreements: 2 Brazilian commercial leases (locação não-residencial) from São Paulo registry, 2 American commercial leases from SEC 10-K/10-Q exhibits. Each ≥10 pages.',
     # Brief-focused
-    'Collect 4 court briefs: 2 Brazilian petições iniciais from TJSP e-SAJ (cível), 2 American motions to dismiss from PACER (any federal district). Each ≥8 pages. Include docket numbers.',
-    'Collect 4 civil litigation briefs: 2 Brazilian (1 contestação, 1 recurso de apelação) from any TJ, 2 American (1 summary judgment motion, 1 opposition brief) from PACER. Cite case numbers.',
+    #'Collect 4 court briefs: 2 Brazilian petições iniciais from TJSP e-SAJ (cível), 2 American motions to dismiss from PACER (any federal district). Each ≥8 pages. Include docket numbers.',
+    #'Collect 4 civil litigation briefs: 2 Brazilian (1 contestação, 1 recurso de apelação) from any TJ, 2 American (1 summary judgment motion, 1 opposition brief) from PACER. Cite case numbers.',
     # Opinion-focused
-    'Collect 4 legal opinions: 2 Brazilian pareceres jurídicos (1 from PGE/PGR if available, 1 from law firm published in academic journal), 2 American opinion letters (from SEC no-action letters database). Each ≥4 pages.',
-    'Collect 4 corporate/tax opinions: 2 Brazilian (CVM or RFB consultas), 2 American (IRS PLRs or SEC staff legal bulletins). Include document reference numbers.',
+    #'Collect 4 legal opinions: 2 Brazilian pareceres jurídicos (1 from PGE/PGR if available, 1 from law firm published in academic journal), 2 American opinion letters (from SEC no-action letters database). Each ≥4 pages.',
+    #'Collect 4 corporate/tax opinions: 2 Brazilian (CVM or RFB consultas), 2 American (IRS PLRs or SEC staff legal bulletins). Include document reference numbers.',
     # Real estate / property
-    'Collect 4 real estate documents: 2 Brazilian (1 escritura de compra e venda, 1 contrato de locação comercial) from cartório models or CVM filings, 2 American (1 deed, 1 commercial lease) from SEC EDGAR exhibits. ≥5 pages each.',
-    'Collect 4 property documents: 2 Brazilian imóveis documents from TJSP jurisprudência (ações possessórias), 2 American real property disputes from state court databases (NY or CA). Include citation format.',
+    #'Collect 4 real estate documents: 2 Brazilian (1 escritura de compra e venda, 1 contrato de locação comercial) from cartório models or CVM filings, 2 American (1 deed, 1 commercial lease) from SEC EDGAR exhibits. ≥5 pages each.',
+    #'Collect 4 property documents: 2 Brazilian imóveis documents from TJSP jurisprudência (ações possessórias), 2 American real property disputes from state court databases (NY or CA). Include citation format.',
     # Tax-related
-    'Collect 4 tax documents: 2 Brazilian (1 CARF acórdão, 1 mandado de segurança tributário from TRF) and 2 American (1 Tax Court opinion, 1 IRS Chief Counsel Advice). Each ≥6 pages with citation.',
-    'Collect 4 tax compliance docs: 2 Brazilian (ICMS-related from SEFAZ consultation or CONFAZ), 2 American (IRS Revenue Rulings or Procedures from 2020-2024). Include official publication numbers.',
+    #'Collect 4 tax documents: 2 Brazilian (1 CARF acórdão, 1 mandado de segurança tributário from TRF) and 2 American (1 Tax Court opinion, 1 IRS Chief Counsel Advice). Each ≥6 pages with citation.',
+    #'Collect 4 tax compliance docs: 2 Brazilian (ICMS-related from SEFAZ consultation or CONFAZ), 2 American (IRS Revenue Rulings or Procedures from 2020-2024). Include official publication numbers.',
     # Corporate / M&A
     'Collect 4 M&A documents from public filings only: 2 Brazilian (CVM fatos relevantes or acquisition agreements from Form 6-K), 2 American (SEC merger proxy statements or 8-K acquisition exhibits). ≥15 pages each.',
     'Collect 4 securities documents: 2 Brazilian (1 prospecto de oferta pública, 1 CVM auto de infração), 2 American (1 S-1 registration, 1 SEC enforcement action). Include CVM/SEC file numbers.',
     # Mixed queries with specific requirements
-    'Collect exactly: 1 Brazilian service contract (≥4pp), 1 American MSA (≥6pp), 1 Brazilian TJSP civil brief (≥5pp), 1 American SDNY motion (≥8pp). All from 2020-2024. Output as separate PDFs with source URLs documented.',
-    'Collect 4 documents from São Paulo or New York only: 2 from TJSP (1 sentença, 1 acórdão), 2 from NY state courts (1 trial court decision, 1 appellate decision). Include full citations in Bluebook/ABNT format.',
+    #'Collect exactly: 1 Brazilian service contract (≥4pp), 1 American MSA (≥6pp), 1 Brazilian TJSP civil brief (≥5pp), 1 American SDNY motion (≥8pp). All from 2020-2024. Output as separate PDFs with source URLs documented.',
+    #'Collect 4 documents from São Paulo or New York only: 2 from TJSP (1 sentença, 1 acórdão), 2 from NY state courts (1 trial court decision, 1 appellate decision). Include full citations in Bluebook/ABNT format.',
     # Consumer / civil
-    'Collect 4 consumer protection docs: 2 Brazilian (PROCON administrative decisions or CDC-related TJSP cases), 2 American (CFPB enforcement actions or FTC complaints). Each ≥5 pages with case/matter numbers.',
-    'Collect 4 damages/indemnification docs: 2 Brazilian (indenização decisions from STJ or TJSP), 2 American (personal injury complaints or insurance coverage opinions). Include monetary values discussed if available.',
+    #'Collect 4 consumer protection docs: 2 Brazilian (PROCON administrative decisions or CDC-related TJSP cases), 2 American (CFPB enforcement actions or FTC complaints). Each ≥5 pages with case/matter numbers.',
+    #'Collect 4 damages/indemnification docs: 2 Brazilian (indenização decisions from STJ or TJSP), 2 American (personal injury complaints or insurance coverage opinions). Include monetary values discussed if available.',
     # Compliance / regulatory
-    'Collect 4 compliance documents: 2 Brazilian (1 LGPD-related ANPD decision or guidance, 1 anticorruption agreement/TAC from CGU/MPF), 2 American (1 SEC enforcement, 1 DOJ FCPA resolution). Include official reference numbers.',
-    'Collect 4 documents and summarize each in ≤100 words: 2 Brazilian regulatory (CVM, BACEN, or ANPD), 2 American regulatory (SEC, CFTC, or FTC). Summary must include: jurisdiction, document type, parties, key holding, date.',
+    #'Collect 4 compliance documents: 2 Brazilian (1 LGPD-related ANPD decision or guidance, 1 anticorruption agreement/TAC from CGU/MPF), 2 American (1 SEC enforcement, 1 DOJ FCPA resolution). Include official reference numbers.',
+    #'Collect 4 documents and summarize each in ≤100 words: 2 Brazilian regulatory (CVM, BACEN, or ANPD), 2 American regulatory (SEC, CFTC, or FTC). Summary must include: jurisdiction, document type, parties, key holding, date.',
 ]
 
 
@@ -349,6 +353,10 @@ def deterministic_trim_history(messages: list[Any], max_tokens: int, log: Any | 
             f'(~{removed_tokens:,} tokens). Remaining: {len(msgs)} messages, ~{total:,} tokens.'
         )
 
+    # CRITICAL: Validate and fix tool sequence after trimming to prevent
+    # "Messages with role 'tool' must be a response to a preceding message with 'tool_calls'" errors
+    msgs = _validate_and_fix_tool_sequence(msgs, log=log)
+
     return msgs
 
 
@@ -376,8 +384,14 @@ async def token_limit_history_processor(ctx: RunContext[Any], messages: list[Any
 
 
 def emergency_trim_history(messages: list[Any], max_tokens: int = 60_000) -> list[Any]:
-    """Emergency trim (used after a context-length error)."""
-    return deterministic_trim_history(messages, max_tokens=max_tokens, log=None)
+    """Emergency trim (used after a context-length error).
+
+    Uses aggressive token limit and validates tool sequences after trimming.
+    """
+    trimmed = deterministic_trim_history(messages, max_tokens=max_tokens, log=None)
+    # Additional validation since deterministic_trim_history now does it too,
+    # but we want to be extra safe for emergency scenarios
+    return _validate_and_fix_tool_sequence(trimmed, log=None)
 
 
 # =============================================================================
@@ -515,6 +529,80 @@ doc_analyzer_agent: Agent[None, DocAnalysisResult] = Agent(
     get_model(),
     output_type=ToolOutput(DocAnalysisResult, strict=True),
     instructions=DOC_ANALYZER_INSTRUCTIONS,
+    history_processors=[token_limit_history_processor],
+)
+
+
+# =============================================================================
+# SUB-AGENT: SEARCH RESULT ANALYSIS
+# =============================================================================
+
+
+class SearchResultItem(BaseModel):
+    """A single search result item with essential information."""
+
+    model_config = ConfigDict(extra='forbid')
+
+    url: str = Field(description='The URL of the search result')
+    title: str = Field(description='Title of the page/document')
+    snippet: str = Field(description='Brief description or snippet (max 200 chars)')
+    relevance_score: float = Field(
+        description='How relevant this result is to the query (0.0 to 1.0)', ge=0.0, le=1.0
+    )
+    worth_fetching: bool = Field(description='Whether this result is worth fetching for the collection task')
+    reasoning: str = Field(description='Brief explanation of relevance assessment (max 100 chars)')
+
+
+class SearchAnalysisResult(BaseModel):
+    """Compact analysis of search results from the sub-agent."""
+
+    model_config = ConfigDict(extra='forbid')
+
+    query: str = Field(description='The original search query')
+    total_results_analyzed: int = Field(description='Number of results that were analyzed')
+    top_results: list[SearchResultItem] = Field(
+        description='Top relevant results (max 10), sorted by relevance_score descending'
+    )
+    search_quality: str = Field(
+        description="Overall quality assessment: 'excellent', 'good', 'fair', or 'poor'"
+    )
+    suggested_next_query: str = Field(
+        description='A suggested follow-up query if current results are insufficient (empty if not needed)'
+    )
+
+
+SEARCH_ANALYZER_INSTRUCTIONS = """
+You are a search result analysis sub-agent.
+
+You will receive:
+- The original collection prompt (what the main agent is trying to collect)
+- The search query that was used
+- Raw search results (may be truncated)
+
+Your job is to return a STRICT structured result that includes:
+1) query: Echo back the search query
+2) total_results_analyzed: How many results you analyzed
+3) top_results: A list of up to 10 most relevant results, each with:
+   - url, title, snippet (keep snippet under 200 chars)
+   - relevance_score (0.0 to 1.0)
+   - worth_fetching (True if this should be fetched for the collection)
+   - reasoning (brief, under 100 chars)
+4) search_quality: 'excellent', 'good', 'fair', or 'poor'
+5) suggested_next_query: If results are poor, suggest a better query (empty string if not needed)
+
+Focus on identifying results that:
+- Match the document types requested (contracts, briefs, opinions, etc.)
+- Are from the correct jurisdictions (Brazilian vs American)
+- Appear to be actual documents (PDFs, legal filings) not just informational pages
+- Have verifiable sources (court websites, government portals, legal databases)
+
+Be concise - the main agent needs actionable data, not lengthy explanations.
+"""
+
+search_analyzer_agent: Agent[None, SearchAnalysisResult] = Agent(
+    get_model(),
+    output_type=ToolOutput(SearchAnalysisResult, strict=True),
+    instructions=SEARCH_ANALYZER_INSTRUCTIONS,
     history_processors=[token_limit_history_processor],
 )
 
@@ -659,13 +747,105 @@ def _ensure_unique_path(path: Path) -> Path:
 
 
 async def _search_impl(deps: Deps, query: str) -> dict[str, Any]:
+    """Search via Jina, truncate to SEARCH_MAX_TOKENS, then run sub-agent analysis.
+
+    Returns a compact dict with analyzed search results instead of raw Jina data.
+    This keeps the main agent's context small and prevents token overflow.
+    """
     log = deps.log()
     log.info(f"🔍 Searching: '{query}'")
 
-    results = await jina_search(query, max_results=10)
+    raw_results = await jina_search(query, max_results=10)
     deps.actions.append(f'search:{query}')
 
-    return results
+    # If search failed, return error immediately
+    if raw_results.get('error'):
+        return {
+            'query': query,
+            'status': 'error',
+            'error': raw_results.get('error'),
+            'results': [],
+        }
+
+    # Convert raw results to JSON string for token counting and truncation
+    results_list = raw_results.get('results', [])
+    if not results_list:
+        return {
+            'query': query,
+            'status': 'success',
+            'total_results': 0,
+            'results': [],
+            'search_quality': 'poor',
+            'suggested_next_query': '',
+        }
+
+    # Serialize and truncate to SEARCH_MAX_TOKENS
+    raw_json = json.dumps(results_list, ensure_ascii=False, indent=2)
+    raw_tokens = _count_tokens_text(raw_json)
+
+    if raw_tokens > SEARCH_MAX_TOKENS:
+        log.info(f'🔪 Truncating search results: {raw_tokens:,} tokens → {SEARCH_MAX_TOKENS:,} tokens')
+        raw_json = truncate_text_to_tokens(raw_json, SEARCH_MAX_TOKENS)
+
+    # Build sub-agent prompt
+    sub_prompt = f"""ORIGINAL COLLECTION PROMPT:
+{deps.prompt_text}
+
+SEARCH QUERY:
+{query}
+
+RAW SEARCH RESULTS (may be truncated):
+{raw_json}
+"""
+
+    try:
+        analysis_run = await search_analyzer_agent.run(sub_prompt)
+        analysis: SearchAnalysisResult = analysis_run.output  # type: ignore[assignment]
+
+        # Return compact analyzed results
+        return {
+            'query': query,
+            'status': 'success',
+            'total_results_analyzed': analysis.total_results_analyzed,
+            'search_quality': analysis.search_quality,
+            'suggested_next_query': analysis.suggested_next_query,
+            'results': [
+                {
+                    'url': r.url,
+                    'title': r.title,
+                    'snippet': r.snippet,
+                    'relevance_score': r.relevance_score,
+                    'worth_fetching': r.worth_fetching,
+                    'reasoning': r.reasoning,
+                }
+                for r in analysis.top_results
+            ],
+        }
+    except ModelHTTPError as e:
+        if is_context_length_error(e):
+            log.warning('🔥 Search sub-agent context length exceeded. Falling back to truncated raw results.')
+            # Fallback: return truncated raw results with basic structure
+            truncated_results = []
+            for r in results_list[:5]:  # Limit to 5 results as fallback
+                truncated_results.append({
+                    'url': r.get('url') or r.get('link') or '',
+                    'title': (r.get('title') or '')[:200],
+                    'snippet': (r.get('description') or r.get('snippet') or '')[:200],
+                    'relevance_score': 0.5,
+                    'worth_fetching': True,
+                    'reasoning': 'Fallback - sub-agent failed',
+                })
+            return {
+                'query': query,
+                'status': 'partial',
+                'error': 'Sub-agent context exceeded, using truncated raw results',
+                'total_results_analyzed': len(truncated_results),
+                'search_quality': 'unknown',
+                'suggested_next_query': '',
+                'results': truncated_results,
+            }
+        else:
+            raise
 
 
 async def _fetch_impl(deps: Deps, url: str) -> dict[str, Any]:

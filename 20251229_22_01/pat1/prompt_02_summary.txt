@@ -1,0 +1,33 @@
+Prompt Index: 2
+Elapsed Seconds: 207.796
+Iterations: 1
+Finish Reason: Successfully collected all 4 required securities documents as specified: 2 Brazilian documents (1 prospecto de oferta pública - Lojas Quero-Quero S.A. IPO with CVM file number RJ-2020-00886, 1 CVM auto de infração with process number 19957.009351/2017-61) and 2 American documents (1 SEC S-1 registration - Google IPO with registration number 333, 1 SEC enforcement action with release number LR-26413 and case number 1:25-cv-24356, plus a bonus SEC administrative proceeding order with file numbers 3-20252 and 3-20253). All documents contain the required CVM/SEC file numbers and have been saved with appropriate filenames.
+Items Collected: 5
+Actions Taken: 17
+Total Saved Size: 13,916,640 bytes (13590.47 KB)
+
+Items:
+  - 20251229_22_01/pat1/docs/prompt_02/Brazil_oferta_publica_RJ-2020-00886_LojasQueroQuero.pdf (12,523,224 bytes) | https://sistemas.cvm.gov.br/dados/ofeanal/RJ-2020-00886/20200803_Prospecto%20Preliminar.pdf
+  - 20251229_22_01/pat1/docs/prompt_02/SEC_S-1_Google_333_2004-04-29.md (542,632 bytes) | https://www.sec.gov/Archives/edgar/data/1288776/000119312504073639/ds1.htm
+  - 20251229_22_01/pat1/docs/prompt_02/CVM_auto_de_infracao_19957_009351_2017_61.pdf (712,712 bytes) | https://conteudo.cvm.gov.br/export/sites/cvm/sancionadores/sancionador/anexos/2020/19957009351_2017_61.pdf
+  - 20251229_22_01/pat1/docs/prompt_02/SEC_enforcement_LR26413_No1-25cv-24356_Lopez_Mehr_Burkenroad.md (18,335 bytes) | https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26413
+  - 20251229_22_01/pat1/docs/prompt_02/SEC_enforcement_action_Release104428_FileNos3-20252_3-20253.pdf (119,737 bytes) | https://www.sec.gov/files/litigation/admin/2025/34-104428.pdf
+
+Actions:
+  - search:CVM auto de infração número processo
+  - search:prospecto oferta pública inicial CVM IPO arquivo PDF
+  - search:SEC S-1 registration statement filing PDF
+  - search:SEC enforcement action case number filing PDF
+  - search:"litigation release" SEC enforcement action case file PDF
+  - fetch:https://sistemas.cvm.gov.br/dados/ofeanal/RJ-2020-00886/2020
+  - save:Brazil_oferta_publica_RJ-2020-00886_LojasQueroQuero.pdf
+  - fetch:https://www.sec.gov/Archives/edgar/data/1288776/000119312504
+  - save:SEC_S-1_Google_333_2004-04-29.md
+  - search:CVM auto de infração processo julgado site:conteudo.cvm.gov.br PDF
+  - fetch:https://conteudo.cvm.gov.br/export/sites/cvm/sancionadores/s
+  - save:CVM_auto_de_infracao_19957_009351_2017_61.pdf
+  - fetch:https://www.sec.gov/enforcement-litigation/litigation-releas
+  - save:SEC_enforcement_LR26413_No1-25cv-24356_Lopez_Mehr_Burkenroad.md
+  - search:SEC administrative proceeding order PDF case number
+  - fetch:https://www.sec.gov/files/litigation/admin/2025/34-104428.pd
+  - save:SEC_enforcement_action_Release104428_FileNos3-20252_3-20253.pdf

@@ -1,0 +1,92 @@
+[
+  {
+    "doc_id": "ea1378a2971e",
+    "url": "https://acordaos.economia.gov.br/acordaos2/pdfs/processados/10380723668201035_5748246.pdf",
+    "title": "10380723668201035_5748246.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat1/docs/prompt_01/CARF_Acordao_1302002.285_Processo_10380.723668.201035.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 11897324,
+    "content_tokens": 63407,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian CARF acórdão (Administrative Council of Tax Appeals decision) dated June 21, 2017. It concerns the suspension of tax immunity for an educational institution (ACEF) for tax years 2006-2007, addressing issues of resource diversion, qualified penalties, solidarity liability, and procedural matters. The document is over 20 pages based on the extracted content, includes proper citations (Acórdão nº 1302002.285, Processo nº 10380.723668/201035), and is from CARF (Conselho Administrativo de Recursos Fiscais), satisfying the Brazilian document type requirement for the collection prompt.",
+      "file_summary": "CARF acórdão suspending tax immunity of ACEF educational association for 2006-2007 due to resource diversion through acquisition of beneficiary shares, applying 150% qualified penalty and imposing solidarity liability on related parties. Decision addresses procedural validity, characterization of simulation, decadence periods, and liability attribution under CTN articles 124, 135, and 149.",
+      "suggested_filename": "CARF_Acordao_1302002.285_Processo_10380.723668.201035.pdf",
+      "save_instructions": "Save using the exact naming convention: CARF_Acordao_1302002.285_Processo_10380.723668.201035.pdf. Since this is a PDF from the official CARF website, preserve the original PDF bytes. If downloading fails, save the extracted markdown content as a .md file with the same base filename."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "edc811cba3c9",
+    "url": "https://www4.trf5.jus.br/data/2016/08/PJE/08004200620154058201_20160810_82195_40500004960729.pdf",
+    "title": "08004200620154058201_20160810_82195_40500004960729.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat1/docs/prompt_01/BR_TRF5_MANDADO_SEGURANCA_TRIBUTARIO_08004200620154058201.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 22266,
+    "content_tokens": 8832,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document meets the prompt requirements for a Brazilian mandado de segurança tributário from TRF. It is from TRF5 (Tribunal Regional Federal da 5ª Região), dated 2016 (within reasonable timeframe), and is a substantial tax ruling (appeal decision) on income tax withholding by cooperatives. The document appears to be well over 6 pages based on the extensive content extracted, contains detailed legal citations and precedents, and addresses tax law specifically. The process number 0800420-06.2015.4.05.8201 is clearly identified.",
+      "file_summary": "TRF5 appellate decision (2016) reversing lower court dismissal and ruling that a credit cooperative must withhold income tax (15%) on surplus distributions to members. The court held such distributions constitute \"non-cooperative acts\" subject to taxation under Brazilian law, citing extensive precedent from STJ and TRF5. The judgment applies art. 1.013 §3º of CPC/2015 to resolve the merits directly.",
+      "suggested_filename": "BR_TRF5_MANDADO_SEGURANCA_TRIBUTARIO_08004200620154058201.pdf",
+      "save_instructions": "Save the PDF with the full process number and document type: BR_TRF5_MANDADO_SEGURANCA_TRIBUTARIO_08004200620154058201.pdf. If PDF bytes are unavailable, save as markdown with .md extension but maintain the same naming pattern."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "7526dc2c4a0f",
+    "url": "https://ustaxcourt.gov/files/documents/161_TC_1-9.pdf",
+    "title": "161_TC_1-9.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat1/docs/prompt_01/US_Tax_Court_161_TC_1-9_July-August_2023.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 95026,
+    "content_tokens": 5227,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a United States Tax Court Report (Vol. 161, Nos. 1-2, July-August 2023) that contains multiple Tax Court opinions. It meets the prompt requirements for an American Tax Court opinion: it's from the U.S. Tax Court, contains cases with proper citations and legal analysis, and spans 9 pages total. Two specific cases are included (Joseph E. Abe, DDS, Inc. v. Commissioner at 161 T.C. 1, and Pugh v. Commissioner at 161 T.C. 41), both dealing with procedural matters and citing statutes and precedents. This satisfies one of the required American tax documents.",
+      "file_summary": "United States Tax Court Report Volume 161 containing opinions from July-August 2023. Includes two cases: Joseph E. Abe, DDS, Inc. v. Commissioner (161 T.C. 1) regarding voluntary dismissal of retirement plan qualification petition under IRC §7476, and Pugh v. Commissioner (161 T.C. 41) regarding voluntary dismissal of passport denial case under IRC §7345 certification. Both cases address the Tax Court's discretion to grant motions for voluntary dismissal in non-deficiency proceedings, with detailed legal analysis and statutory citations.",
+      "suggested_filename": "US_Tax_Court_161_TC_1-9_July-August_2023.pdf",
+      "save_instructions": "Save this PDF with the filename convention: US_Tax_Court_161_TC_1-9_July-August_2023.pdf. The document is from ustaxcourt.gov and contains the complete Tax Court Report with proper pagination and citations. The volume number (161), case range (1-9), and date period (July-August 2023) are clearly indicated in the document header."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "c66476e72d5a",
+    "url": "https://www.irs.gov/pub/irs-wd/202511015.pdf",
+    "title": "202511015.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat1/docs/prompt_01/IRS_Chief_Counsel_Advice_202511015_Theft_Loss_Scams.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 151085,
+    "content_tokens": 8399,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is an IRS Chief Counsel Advice dated March 14, 2025 (Release Date: 3/14/2025) addressing theft loss deductions for scam victims under IRC §165. It meets the prompt requirements: (1) It's an American tax document (IRS Chief Counsel Advice), (2) It exceeds 6 pages (12 pages total), (3) It contains extensive legal citations to statutes, regulations, revenue procedures, revenue rulings, and case law. The document provides detailed analysis of §165 theft loss deduction rules for various scam scenarios including compromised account scams, pig butchering investment scams, phishing scams, romance scams, and kidnapping scams.",
+      "file_summary": "IRS Chief Counsel Advice memorandum addressing the allowance of theft losses under IRC §165 for victims of various scams. The document analyzes five different taxpayers who fell victim to different types of scams in 2024. It concludes that theft losses are deductible for taxpayers who incurred losses in transactions entered into for profit (Taxpayers 1-3) but not deductible for personal casualty losses (Taxpayers 4-5) due to the TCJA amendment to §165(h)(5). The memorandum also addresses the inapplicability of the Ponzi loss safe harbor under Rev. Proc. 2009-20.",
+      "suggested_filename": "IRS_Chief_Counsel_Advice_202511015_Theft_Loss_Scams.pdf",
+      "save_instructions": "Save using the filename: IRS_Chief_Counsel_Advice_202511015_Theft_Loss_Scams.pdf. The document is already available as a PDF from the IRS website (https://www.irs.gov/pub/irs-wd/202511015.pdf). Since this is an official IRS document with the memorandum number 202511015, include this identifier in the filename as required by the naming convention for official documents."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "33a0bd2d3bfe",
+    "url": "https://www.irs.gov/pub/irs-tege/solutionsplus_tcm.pdf",
+    "title": "M:\\OpinHolding\\SolutionsPlus.TCM.WPD",
+    "description": "",
+    "saved_path": "20251229_22/pat1/docs/prompt_01/IRS_Tax_Court_Opinion_Solutions_Plus_v_Commissioner_23774-06X.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 105968,
+    "content_tokens": 7276,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a U.S. Tax Court Memorandum Opinion dated February 5, 2008, with docket number 23774-06X. It is exactly the type of American tax document requested - a Tax Court opinion. The document includes formal citations throughout, references to Internal Revenue Code sections, Tax Court Rules, case law, and Revenue Rulings. While the extracted content appears substantial, I cannot verify the exact page count, but it appears to meet or exceed the 6-page requirement based on the comprehensive legal analysis and detailed factual background presented. The document is properly sourced from the IRS.gov domain (pub/irs-tege), making it a public filing.",
+      "file_summary": "U.S. Tax Court Memorandum Opinion in Solutions Plus, Inc. v. Commissioner (Docket No. 23774-06X). The case involves a petition by Solutions Plus, Inc. seeking declaratory judgment for tax-exempt status under IRC section 501(c)(3). The court granted the Commissioner's Motion for Summary Judgment, finding that the organization failed to qualify as it was not organized or operated exclusively for exempt purposes, and operated for substantial nonexempt purposes related to debt management programs. The opinion includes detailed analysis of organizational and operational tests, private interests, and distinguishes precedent cases.",
+      "suggested_filename": "IRS_Tax_Court_Opinion_Solutions_Plus_v_Commissioner_23774-06X.pdf",
+      "save_instructions": "Save this file as \"IRS_Tax_Court_Opinion_Solutions_Plus_v_Commissioner_23774-06X.pdf\" following the naming convention for American tax documents. Include the docket number (23774-06X) in the filename as specified in the prompt for case identification. The original file appears to be available as a PDF from the IRS.gov URL, so download and save it directly with the conventional filename format."
+    },
+    "pdf_download_error": null
+  }
+]

@@ -1,0 +1,105 @@
+
+
+
+<!doctype html>
+<head>
+	<title>PacerMonitor Document View - 1:22-cv-00518 - Martinenko v. 212 Steakhouse Inc. et al, Docket Item 141</title>
+	<meta charset="utf-8">
+  	<meta name="description" content="1:22-cv-00518 - Martinenko v. 212 Steakhouse Inc. et al, Docket Item 141"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+	<link rel="canonical" href="https://www.pacermonitor.com/view/FZ57TSA/Martinenko_v_212_Steakhouse_Inc_et_al__nysdce-22-00518__0141.0.pdf"/>
+    	<script src="//cdn.pacermonitor.com/static/assets/javascript/modernizr-custom.js"></script>
+	<link rel="stylesheet" href="//cdn.pacermonitor.com/static/style/bootstrap.min.css" type="text/css" />
+	<style>
+	
+		
+		@media (min-width: 768px) {	
+			.navbar-fixed-top {position:fixed;top:0;right:0;left:0;z-index:1030;}
+			.navbar-fixed-top .navbar-inner {padding-left:2px;padding-right:2px;padding-top:0;padding-bottom:0;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;}
+			body { padding-top: 60px;padding-bottom: 0px;}
+		}
+		@media (max-width: 767px) {
+		  #pmheader {display:none;}
+		  .navbar-fixed-top {display:none;}
+		}
+	 
+	
+	 
+	
+	
+	</style>
+</HEAD>
+
+<BODY>
+
+		
+	    <div id="pmheader" class="navbar navbar-fixed-top">
+	      <div class="navbar-inner">
+		  <table style="width:100%;">
+		  <tr>
+		      <td style="text-align:left;padding-left:10px;width:25%;">
+			
+			
+			<a target="_blank" style="color:#333;text-decoration:none;font-size:26px;font-weight:200;" href="https://www.pacermonitor.com">PacerMonitor</a>
+			
+		      </td>
+		      
+		      <td style="text-align:center;width:50%;">
+		      <span style=""><a target="_blank" style="color:#333;" href="https://www.pacermonitor.com/public/case/43304217/Martinenko_v_212_Steakhouse_Inc_et_al">Martinenko v. 212 Steakhouse Inc. et al - 1:22-cv-00518</a></span><BR>
+		      <a target="_blank" style="color:#333;" href="https://www.pacermonitor.com/court/154/New_York_Southern">New York Southern District Court</a>
+		      <BR>Docket Item 141.0 - 
+		      Filed: 09/24/2024
+		      </td>
+		      
+		      <td style="text-align:right;padding-right:10px;width:25%;">
+			
+		      </td>
+		   </tr>
+		  </table>
+	      </div>
+	    </div>
+	 
+
+    <div id="pdfholder">         
+	<object id="pdfitem" width="1" height="1" type="application/pdf" data="//cdn.pacermonitor.com/pdfserver/FZ57TSA/198762559/Martinenko_v_212_Steakhouse_Inc_et_al__nysdce-22-00518__0141.0.pdf#view=FitBH&scrollbar=0&toolbar=0&statusbar=0">
+	 <p style="text-align:center;padding-top:30px;">
+	 We can't find your PDF viewer.  Please <a href="//cdn.pacermonitor.com/pdfserver/FZ57TSA/198762559/Martinenko_v_212_Steakhouse_Inc_et_al__nysdce-22-00518__0141.0.pdf">click here</a> to download this document.
+	 </p>
+	 </object> 
+    </div>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+    	ga('create', 'UA-24285593-1', 'auto');
+    	ga('send', 'pageview');
+
+	var forwardToPdfLink = function() {location.href='//cdn.pacermonitor.com/pdfserver/FZ57TSA/198762559/Martinenko_v_212_Steakhouse_Inc_et_al__nysdce-22-00518__0141.0.pdf';}
+	
+    	if (navigator.mimeTypes && navigator.mimeTypes.length > 0 && navigator.mimeTypes["application/pdf"]) {
+		document.getElementById("pdfitem").onerror=forwardToPdfLink;
+		
+		if (Modernizr.mq('only all')) {
+		   if (Modernizr.mq('(min-width: 768px)')) {
+			document.getElementById("pdfitem").style.width=(window.innerWidth-20)+"px";
+			document.getElementById("pdfitem").style.height=(window.innerHeight-70)+"px";
+		   } else {
+			document.getElementById("pdfitem").style.width="100%";
+			document.getElementById("pdfitem").style.height=window.innerHeight+"px";
+		   }
+		} else {
+		    // no media queries supported.  redirect to PDF
+		    forwardToPdfLink();
+		}
+    	} else {
+		forwardToPdfLink();
+    	}
+
+    
+    </script>
+</BODY>
+</HTML>

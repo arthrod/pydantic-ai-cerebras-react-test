@@ -1,0 +1,38 @@
+Prompt Index: 1
+Elapsed Seconds: 222.428
+Iterations: 2
+Finish Reason: Task completed successfully - all 4 required employment documents have been collected, meeting jurisdiction requirements, document type specifications, length requirements (≥3 pages each), and filename formatting pattern.
+Items Collected: 4
+Actions Taken: 23
+Total Saved Size: 1,941,110 bytes (1895.62 KB)
+
+Items:
+  - 20251229_21/pat4/docs/prompt_01/Brazilian_CLT_contract_2024-12-30.md (57,286 bytes) | https://www.scribd.com/document/467038708/MODELO-DE-CONTRATO-DE-TRABALHO-docx
+  - 20251229_21/pat4/docs/prompt_01/Brazil_TST_appeal_brief_2023-01-25.md (51,122 bytes) | https://www.scribd.com/document/624113197/modelo-contrarrazoes-de-recurso-ordinario-trabalhista
+  - 20251229_21/pat4/docs/prompt_01/USA_at-will_employment_agreement_2025-09-26.md (20,549 bytes) | https://esign.com/employment/at-will/
+  - 20251229_21/pat4/docs/prompt_01/US_EEOC_consent_decree_2012.pdf (1,812,153 bytes) | https://core.ac.uk/download/pdf/78046178.pdf
+
+Actions:
+  - search:Brazilian CLT employment contract template contrato de trabalho CLT modelo
+  - fetch:https://www.pilnet.org/wp-content/uploads/2024/08/Global-Emp
+  - fetch:https://www.sec.gov/Archives/edgar/data/1688757/000162828018
+  - search:Brazilian CLT employment contract PDF "Contrato de Trabalho" modelo completo download
+  - fetch:https://www.scribd.com/document/467038708/MODELO-DE-CONTRATO
+  - save:Brazilian_CLT_contract_2024-12-30.md
+  - search:TST labor appeal brief Brazil recurso ordinário trabalhista TST PDF download
+  - search:"recurso ordinário" site:tst.jus.br filetype:pdf
+  - search:"contrarrazões ao recurso ordinário" trabalhista PDF modelo petição
+  - fetch:https://www.scribd.com/document/624113197/modelo-contrarrazo
+  - save:Brazil_TST_appeal_brief_2023-01-25.md
+  - search:"at-will employment agreement" PDF template download employee handbook
+  - fetch:https://legaltemplates.net/form/employment-contract/at-will/
+  - fetch:https://esign.com/employment/at-will/
+  - save:USA_at-will_employment_agreement_2025-09-26.md
+  - search:EEOC discrimination complaint PDF template download filing
+  - fetch:https://www.eeoc.gov/sites/default/files/2025-12/EEOC_Form_5
+  - fetch:https://www.vidol.gov/wp-content/dol_forms/70.pdf?x17136
+  - fetch:https://www.esd.whs.mil/Portals/54/Documents/DD/forms/dd/dd2
+  - search:"EEOC complaint" "filed charges" discrimination case PDF download
+  - fetch:https://www.ca10.uscourts.gov/sites/ca10/files/opinions/0101
+  - fetch:https://core.ac.uk/download/pdf/78046178.pdf
+  - save:US_EEOC_consent_decree_2012.pdf

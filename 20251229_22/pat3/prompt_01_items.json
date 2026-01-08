@@ -1,0 +1,110 @@
+[
+  {
+    "doc_id": "310650aaf16f",
+    "url": "http://acordaos.economia.gov.br/acordaos2/pdfs/processados/13964000046200929_6719654.pdf",
+    "title": "13964000046200929_6719654.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat3/docs/prompt_01/Brazilian_CARF_Acordao_2002-006888_Proc_13964-000046-2009-29.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 462922,
+    "content_tokens": 10186,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian CARF acórdão (Administrative Council of Fiscal Appeals decision) dated 24/10/2022 from the 2ª Turma Extraordinária. It is a tax document exceeding 6 pages (approximately 13 pages visible) with proper citation (Acórdão nº 2002-006.888, Processo nº 13964.000046/2009-29). The document covers IRPF (Individual Income Tax) issues including accumulated income treatment, deduction of attorney fees, and non-taxation of overdue interest, making it suitable for the Brazilian CARF acórdão requirement.",
+      "file_summary": "CARF acórdão addressing IRPF tax assessment on accumulated income from social security benefits. The court partially granted appeal, requiring recalculation of tax using accrual basis (per STF ruling RE 614.406/RS), allowing deduction of attorney fees, and excluding overdue interest from taxation (per STF RE 855.091/RS). Upheld 75% penalty and SELIC interest charges. Processo nº 13964.000046/2009-29.",
+      "suggested_filename": "Brazilian_CARF_Acordao_2002-006888_Proc_13964-000046-2009-29.pdf",
+      "save_instructions": "Save this PDF with exact filename: Brazilian_CARF_Acordao_2002-006888_Proc_13964-000046-2009-29.pdf"
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "0a9bed4424ee",
+    "url": "https://www.trf1.jus.br/sjam/conteudo/files/decis_o%20determinando%20_%20RFB%20que%20preste%20servi_os%20essenciais%20-%203%20vara.pdf",
+    "title": "Documento1",
+    "description": "",
+    "saved_path": "20251229_22/pat3/docs/prompt_01/BR_TRF1_Mandado_Seguranca_1002971-80.2017.4.01.3200.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 59060,
+    "content_tokens": 6210,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian tax document - a Mandado de Segurança (collective) from TRF-1 (Tribunal Regional Federal da 1ª Região). It concerns customs clearance procedures during a tax authority strike, which falls under tax/importation matters. The document appears to be a court decision with legal citations (art. 4º do Decreto-Lei 70.235/72, IN RFB 1169/2011, Dec. 6.759/2009, STF RE 693456). The estimated page count is approximately 10-12 pages based on the extracted content length, satisfying the ≥6 pages requirement. The docket number is 1002971-80.2017.4.01.3200. This counts as one of the two required Brazilian documents.",
+      "file_summary": "Brazilian collective Mandado de Segurança from TRF-1 (process 1002971-80.2017.4.01.3200) where CIEAM (Amazonas Industry Center) seeks court order forcing customs authorities to process import clearances within 8 days during a tax authority strike. The judge grants preliminary injunction ordering continuity of essential customs clearance services, citing legal precedents and principles of administrative efficiency and continuity of public services. The decision references RE 693456 from Supreme Court and establishes 8-day deadline for customs procedures.",
+      "suggested_filename": "BR_TRF1_Mandado_Seguranca_1002971-80.2017.4.01.3200.pdf",
+      "save_instructions": "Save as PDF using the naming convention: BR_TRF1_Mandado_Seguranca_[CASE_NUMBER].pdf where CASE_NUMBER is 1002971-80.2017.4.01.3200. If PDF cannot be downloaded directly, save as .md and note that this is one of the required Brazilian tax documents (Mandado de Segurança from TRF)."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "c93c743857ea",
+    "url": "https://ustaxcourt.gov/files/documents/163_TC_141-150.pdf",
+    "title": "163_TC_141-150.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat3/docs/prompt_01/USTaxCourt_Opinions_Oct2024_Carter_9379-22W_Jenner_8903-23.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 89367,
+    "content_tokens": 5636,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document contains two Tax Court opinions from October 2024, which satisfies the requirement for American Tax Court opinions. Both cases have proper legal citations and docket numbers. The first case (Carter v. Commissioner) spans pages 141-145, and the second case (Jenner v. Commissioner) spans pages 145-150. Combined, they exceed the 6-page minimum requirement. The document is from an official public filing source (ustaxcourt.gov) and contains multiple opinions that would each meet the page count requirement individually.",
+      "file_summary": "This volume contains two United States Tax Court opinions from October 2024. Carter v. Commissioner (Docket No. 9379-22W) addresses whether a bankruptcy filing automatically stays a whistleblower case. Jenner v. Commissioner (Docket No. 8903-23) determines that FBAR penalties are not taxes subject to Collection Due Process rights under IRC §§ 6320 and 6330. Both cases involve complex tax law interpretations and include proper legal citations.",
+      "suggested_filename": "USTaxCourt_Opinions_Oct2024 Carter_9379-22W Jenner_8903-23.pdf",
+      "save_instructions": "Save this PDF with the filename \"USTaxCourt_Opinions_Oct2024 Carter_9379-22W Jenner_8903-23.pdf\" following the naming convention for U.S. Tax Court opinions. Include the docket numbers as identifiers since the prompt requires case/docket numbers. This represents one U.S. Tax Court opinion entry for the collection task."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "310650aaf16f",
+    "url": "http://acordaos.economia.gov.br/acordaos2/pdfs/processados/13964000046200929_6719654.pdf",
+    "title": "13964000046200929_6719654.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat3/docs/prompt_01/Brazilian_CARF_Acordao_2002-006888_Proc_13964-000046-2009-29_2.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 462922,
+    "content_tokens": 10186,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian CARF acórdão (Administrative Council of Fiscal Appeals decision) dated 24/10/2022 from the 2ª Turma Extraordinária. It is a tax document exceeding 6 pages (approximately 13 pages visible) with proper citation (Acórdão nº 2002-006.888, Processo nº 13964.000046/2009-29). The document covers IRPF (Individual Income Tax) issues including accumulated income treatment, deduction of attorney fees, and non-taxation of overdue interest, making it suitable for the Brazilian CARF acórdão requirement.",
+      "file_summary": "CARF acórdão addressing IRPF tax assessment on accumulated income from social security benefits. The court partially granted appeal, requiring recalculation of tax using accrual basis (per STF ruling RE 614.406/RS), allowing deduction of attorney fees, and excluding overdue interest from taxation (per STF RE 855.091/RS). Upheld 75% penalty and SELIC interest charges. Processo nº 13964.000046/2009-29.",
+      "suggested_filename": "Brazilian_CARF_Acordao_2002-006888_Proc_13964-000046-2009-29.pdf",
+      "save_instructions": "Save this PDF with exact filename: Brazilian_CARF_Acordao_2002-006888_Proc_13964-000046-2009-29.pdf"
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "0a9bed4424ee",
+    "url": "https://www.trf1.jus.br/sjam/conteudo/files/decis_o%20determinando%20_%20RFB%20que%20preste%20servi_os%20essenciais%20-%203%20vara.pdf",
+    "title": "Documento1",
+    "description": "",
+    "saved_path": "20251229_22/pat3/docs/prompt_01/BR_TRF1_Mandado_Seguranca_1002971-80.2017.4.01.3200_2.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 59060,
+    "content_tokens": 6210,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian tax document - a Mandado de Segurança (collective) from TRF-1 (Tribunal Regional Federal da 1ª Região). It concerns customs clearance procedures during a tax authority strike, which falls under tax/importation matters. The document appears to be a court decision with legal citations (art. 4º do Decreto-Lei 70.235/72, IN RFB 1169/2011, Dec. 6.759/2009, STF RE 693456). The estimated page count is approximately 10-12 pages based on the extracted content length, satisfying the ≥6 pages requirement. The docket number is 1002971-80.2017.4.01.3200. This counts as one of the two required Brazilian documents.",
+      "file_summary": "Brazilian collective Mandado de Segurança from TRF-1 (process 1002971-80.2017.4.01.3200) where CIEAM (Amazonas Industry Center) seeks court order forcing customs authorities to process import clearances within 8 days during a tax authority strike. The judge grants preliminary injunction ordering continuity of essential customs clearance services, citing legal precedents and principles of administrative efficiency and continuity of public services. The decision references RE 693456 from Supreme Court and establishes 8-day deadline for customs procedures.",
+      "suggested_filename": "BR_TRF1_Mandado_Seguranca_1002971-80.2017.4.01.3200.pdf",
+      "save_instructions": "Save as PDF using the naming convention: BR_TRF1_Mandado_Seguranca_[CASE_NUMBER].pdf where CASE_NUMBER is 1002971-80.2017.4.01.3200. If PDF cannot be downloaded directly, save as .md and note that this is one of the required Brazilian tax documents (Mandado de Segurança from TRF)."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "310650aaf16f",
+    "url": "http://acordaos.economia.gov.br/acordaos2/pdfs/processados/13964000046200929_6719654.pdf",
+    "title": "13964000046200929_6719654.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat3/docs/prompt_01/Brazilian_CARF_Acordao_2002-006888_Proc_13964-000046-2009-29_3.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 462922,
+    "content_tokens": 10186,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian CARF acórdão (Administrative Council of Fiscal Appeals decision) dated 24/10/2022 from the 2ª Turma Extraordinária. It is a tax document exceeding 6 pages (approximately 13 pages visible) with proper citation (Acórdão nº 2002-006.888, Processo nº 13964.000046/2009-29). The document covers IRPF (Individual Income Tax) issues including accumulated income treatment, deduction of attorney fees, and non-taxation of overdue interest, making it suitable for the Brazilian CARF acórdão requirement.",
+      "file_summary": "CARF acórdão addressing IRPF tax assessment on accumulated income from social security benefits. The court partially granted appeal, requiring recalculation of tax using accrual basis (per STF ruling RE 614.406/RS), allowing deduction of attorney fees, and excluding overdue interest from taxation (per STF RE 855.091/RS). Upheld 75% penalty and SELIC interest charges. Processo nº 13964.000046/2009-29.",
+      "suggested_filename": "Brazilian_CARF_Acordao_2002-006888_Proc_13964-000046-2009-29.pdf",
+      "save_instructions": "Save this PDF with exact filename: Brazilian_CARF_Acordao_2002-006888_Proc_13964-000046-2009-29.pdf"
+    },
+    "pdf_download_error": null
+  }
+]

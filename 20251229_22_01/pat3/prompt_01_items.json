@@ -1,0 +1,38 @@
+[
+  {
+    "doc_id": "2dbd8ecd5c9c",
+    "url": "https://www.sec.gov/Archives/edgar/data/2040807/000119312525242494/d53787ddefm14a.htm",
+    "title": "DEFM14A",
+    "description": "",
+    "saved_path": "20251229_22_01/pat3/docs/prompt_01/SEC_DEFM14A_Metsera_Pfizer_Merger_2040807.md",
+    "saved_as": "md",
+    "file_size_bytes": 2322761,
+    "content_tokens": 476742,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is an American SEC merger proxy statement (DEFM14A) for the acquisition of Metsera, Inc. by Pfizer Inc. It meets the prompt requirements for an American (SEC merger proxy statement) M&A document from public filings. The document is substantial (126+ pages based on table of contents and extracted content) covering all merger details including terms, consideration ($47.50 cash + CVR per share), board recommendation, financial opinions, voting procedures, and regulatory approvals. The URL is from SEC EDGAR archives confirming public filing source.",
+      "file_summary": "SEC merger proxy statement (DEFM14A) for Pfizer Inc.'s acquisition of Metsera, Inc. Document details the merger agreement, consideration of $47.50 cash plus one CVR per share, special meeting on November 13, 2025, board recommendation, financial opinions from Goldman Sachs and Guggenheim Securities, voting procedures, regulatory approvals, and complete merger terms.",
+      "suggested_filename": "SEC_DEFM14A_Metsera_Pfizer_Merger_2040807.pdf",
+      "save_instructions": "Save this SEC merger proxy statement from EDGAR with filename: SEC_DEFM14A_Metsera_Pfizer_Merger_2040807.pdf. The file should be saved as the original SEC PDF if available, or as a markdown file if only HTML format is accessible. Include CIK number 2040807 in the filename as shown."
+    },
+    "pdf_download_error": "HTTP 403"
+  },
+  {
+    "doc_id": "a965b7ab97f7",
+    "url": "https://www.sec.gov/Archives/edgar/data/883241/000119312524008120/d720113dex21.htm",
+    "title": "EX-2.1",
+    "description": "",
+    "saved_path": "20251229_22_01/pat3/docs/prompt_01/Synopsys_Ansys_Merger_Agreement_Jan2024.md",
+    "saved_as": "md",
+    "file_size_bytes": 406525,
+    "content_tokens": 83476,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements: it's an American M&A document (merger agreement) from a public SEC filing (8-K exhibit) dated January 15, 2024. The agreement is between Synopsys, Inc., Alta Acquisition Corp., and Ansys, Inc. - all Delaware corporations. The content shows this is a comprehensive merger agreement with detailed sections covering the transaction structure, representations and warranties, covenants, conditions, and termination provisions. Based on the table of contents and the extensive content provided, this appears to be a substantial document well over 15 pages (the table of contents alone is 4 pages). This qualifies as one of the required American SEC documents for the M&A collection.",
+      "file_summary": "A comprehensive Agreement and Plan of Merger dated January 15, 2024, between Synopsys, Inc. (Parent), Alta Acquisition Corp. (Merger Sub), and Ansys, Inc. (Company). The agreement outlines a merger where Merger Sub will merge with and into the Company, making Ansys a wholly owned subsidiary of Synopsys. Key terms include an exchange ratio of 0.3450 shares of Synopsys common stock plus $197.00 in cash for each share of Ansys common stock. The document contains detailed representations and warranties, covenants, conditions precedent, and miscellaneous provisions typical of a major M&A transaction.",
+      "suggested_filename": "Synopsys_Ansys_Merger_Agreement_Jan2024.pdf",
+      "save_instructions": "Save this file with the naming convention: [Acquirer]_[Target]_[Document Type]_[Date].pdf. Use filename: Synopsys_Ansys_Merger_Agreement_Jan2024.pdf. Since this is from SEC EDGAR archives (.htm format), convert/save as PDF if possible, or save as .md if PDF conversion is not available. Document type is \"Merger Agreement\" from an 8-K filing."
+    },
+    "pdf_download_error": "HTTP 403"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "doc_id": "2ebcd522dce0",
+    "url": "https://www.gov.br/cvm/pt-br/assuntos/noticias/anexos/2024/20240326_pas_cvm_19957_004715_2020_12_presidente_joao_pedro_nascimento_relatorio.pdf",
+    "title": "Microsoft Word - 2024.03.26 - Relatório PAS CROWE 2 (1)",
+    "description": "",
+    "saved_path": "20251229_22_01/pat5/docs/prompt_02/CVM_auto_de_infracao_19957_004715_2020_12.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 949850,
+    "content_tokens": 24382,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian CVM auto de infração/Processo Administrativo Sancionador document. It's from Brazil's securities regulator (CVM) with process number 19957.004715/2020-12, investigating audit irregularities in the FIP ETB fund and related companies Xnice and Xmasseto from 2014-2020. The document accuses multiple auditors and firms of conducting audits without proper CVM registration and violating auditing standards. This satisfies the requirement for 1 Brazilian CVM auto de infração with CVM file number included.",
+      "file_summary": "CVM Processo Administrativo Sancionador investigating audit irregularities at FIP ETB fund and related companies (Xnice, Xmasseto). Accuses Luciana Toniolo Meira and various audit firms of conducting audits without proper CVM registration, violating ICVM 308/99. Documents failures in audit documentation and improper signing of audit reports from 2014-2020, involving alleged false document preparation and unauthorized securities market activities.",
+      "suggested_filename": "CVM_auto_de_infracao_19957_004715_2020_12.pdf",
+      "save_instructions": "Save as PDF using the naming convention: CVM_auto_de_infracao_19957_004715_2020_12.pdf. The CVM file number is 19957.004715/2020-12 and appears on every page header. If PDF bytes are unavailable, save as markdown with same filename but .md extension."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "3b62e2e5c17a",
+    "url": "https://www.ca-cib.com/sites/default/files/2023-10/Gerdau%20%E2%80%93%20Prospecto%20Definitivo%20de%20Emiss%C3%A3o%20de%20A%C3%A7%C3%B5es%20-%2016%2009%202020.pdf",
+    "title": "Gerdau%20%E2%80%93%20Prospecto%20Definitivo%20de%20Emiss%C3%A3o%20de%20A%C3%A7%C3%B5es%20-%2016%2009%202020.pdf",
+    "description": "",
+    "saved_path": "20251229_22_01/pat5/docs/prompt_02/Brazil_Prospecto_Oferta_Publica_Gerdau_CVM_2011_012_013_006.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 12681354,
+    "content_tokens": 563566,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a Brazilian securities prospectus that perfectly matches the prompt requirements for \"1 prospecto de oferta pública\". It is a definitive prospecto for Gerdau S.A.'s public offering of ordinary and preferred shares, conducted under CVM regulations with proper registration. The document contains CVM registration numbers (CVM/SRE/REM/2011/012 and CVM/SRE/REM/2011/013 for primary distribution, and CVM/SRE/SEC/2011/006 for secondary distribution), is dated April 12, 2011, and is in Portuguese. It represents one of the four required securities documents (2 Brazilian, 2 American).",
+      "file_summary": "Definitive prospectus for Gerdau S.A.'s global public offering of ordinary and preferred shares, including both primary distribution of new shares and secondary distribution of existing shares. The offering totaled R$4.98 billion with primary offering prices of R$15.60 per ordinary share and R$19.25 per preferred share. Registered with CVM under numbers CVM/SRE/REM/2011/012, CVM/SRE/REM/2011/013, and CVM/SRE/SEC/2011/006. Conducted through coordinated Brazilian and international offerings under Instrução CVM 400, with BTG Pactual as lead coordinator.",
+      "suggested_filename": "Brazil_Prospecto_Oferta_Publica_Gerdau_CVM_2011_012_013_006.pdf",
+      "save_instructions": "Save this PDF file using the naming convention: Brazil_Prospecto_Oferta_Publica_Gerdau_CVM_2011_012_013_006.pdf. The filename includes the country (Brazil), document type (Prospecto Oferta Pública), company name (Gerdau), CVM file numbers (2011_012_013_006), and .pdf extension as this is a PDF document. Keep the filename in lowercase with underscores as separators."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "7f9bb975874b",
+    "url": "https://www.sec.gov/Archives/edgar/data/2040127/000119312525009584/d882184ds1.htm",
+    "title": "Form S-1",
+    "description": "",
+    "saved_path": "20251229_22_01/pat5/docs/prompt_02/SEC_S1_Karman_Holdings_333_2025_jan_21.md",
+    "saved_as": "md",
+    "file_size_bytes": 737513,
+    "content_tokens": 151573,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document perfectly satisfies the prompt requirements for an American SEC S-1 registration statement. It is a Form S-1 filed with the U.S. Securities and Exchange Commission (SEC) on January 21, 2025. The document includes the SEC registration number (333-) in the header. As a preliminary prospectus from SEC EDGAR archives, it is a public filing that meets the jurisdiction (American), document type (S-1 registration), and source (public SEC filing) requirements specified in the prompt. This represents one of the two required American documents.",
+      "file_summary": "This is a preliminary prospectus for Karman Holdings Inc.'s initial public offering (IPO) filed as Form S-1 with the SEC on January 21, 2025. The company (formerly TCFIII Spaceco Holdings LLC d/b/a Karman Space and Defense) is a Delaware-based aerospace and defense manufacturer specializing in mission-critical systems for missile, space, and defense programs. The S-1 details the company's business operations across three core end markets (hypersonics, missile systems, and space/launch), financial performance including $280.7M revenue and $81.9M adjusted EBITDA for 2023, risk factors, and terms of the proposed IPO. The registration number is 333-.",
+      "suggested_filename": "SEC_S1_Karman_Holdings_333_2025_jan_21.pdf",
+      "save_instructions": "Save this document using the SEC S-1 naming convention: SEC_S1_[Company Name]_[Registration Number]_[Date]. Format the date as YYYY_Month_DD. The document should be saved as PDF if possible, otherwise as .md format. Include the registration number 333- (the actual number appears to be incomplete in the filing but should be included as shown in the document header)."
+    },
+    "pdf_download_error": "HTTP 403"
+  },
+  {
+    "doc_id": "2b2afa28f3b4",
+    "url": "https://www.sec.gov/enforcement-litigation/administrative-proceedings/3-21924",
+    "title": "21924 | U.S. Securities and Exchange Commission",
+    "description": "",
+    "saved_path": "20251229_22_01/pat5/docs/prompt_02/SEC_enforcement_3-21924_Alpine_Securities.md",
+    "saved_as": "md",
+    "file_size_bytes": 19485,
+    "content_tokens": 5182,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirement for an American SEC enforcement action. It is from the SEC's official .gov website under the Enforcement & Litigation section, specifically Administrative Proceedings. The proceeding number is 3-21924, which provides the required SEC file number. The case involves Alpine Securities Corporation and includes multiple enforcement documents filed between April 2024 and December 2025, representing an ongoing SEC administrative enforcement proceeding. This matches the requirement for 1 American SEC enforcement action in the 4-document collection.",
+      "file_summary": "SEC Administrative Proceeding File No. 3-21924 against Alpine Securities Corporation. This is an ongoing SEC enforcement action that began in April 2024 and continues through at least December 2025. The proceeding includes various documents such as applications for review, motions for emergency stays, opposition filings, and commission orders. The case involves multiple parties including NSCC and DTC who have filed objections and oppositions. The docket shows multiple commission orders granting stays and extending briefing schedules, indicating an active enforcement proceeding with ongoing litigation activities.",
+      "suggested_filename": "SEC_enforcement_3-21924_Alpine_Securities.pdf",
+      "save_instructions": "Save as PDF using the naming convention: SEC_enforcement_{file_number}_{entity}.pdf. In this case: SEC_enforcement_3-21924_Alpine_Securities.pdf. The key document to capture would be the initial Application for Review (April 30, 2024) or one of the Commission Orders that summarize the case. If multiple PDFs are available from the docket, consider combining the key documents or selecting the most comprehensive filing as the primary enforcement document."
+    },
+    "pdf_download_error": "HTTP 403"
+  }
+]

@@ -1,0 +1,39 @@
+Prompt Index: 2
+Elapsed Seconds: 168.788
+Iterations: 1
+Finish Reason: Successfully collected all 4 required securities documents:
+
+**Brazilian Documents (2):**
+1. **Brazil_CVM_Prospecto_protocolo_792379.pdf** - Brazilian public offering prospectus from CVM's RAD system with protocol number 792379
+2. **Brazil_CVM_AutoDeInfracao_protocolo_361921.pdf** - Brazilian CVM enforcement document (auto de infração) with protocol number 361921
+
+**American Documents (2):**
+1. **SEC_S-1_Google_2004_Registration_333.md** - SEC S-1 registration statement for Google's 2004 IPO with file number starting with 333
+2. **SEC_enforcement_action_lr-26455.md** - SEC enforcement action litigation release No. 26455 with case docket No. 23-cv-4455
+
+All documents include the required CVM/SEC file numbers and are sourced from official regulatory authorities. Collection complete.
+Items Collected: 4
+Actions Taken: 14
+Total Saved Size: 4,205,908 bytes (4107.33 KB)
+
+Items:
+  - 20251229_22_01/pat2/docs/prompt_02/Brazil_CVM_Prospecto_protocolo_792379.pdf (1,857,969 bytes) | https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=792379&descTipo=IPE&CodigoInstituicao=1
+  - 20251229_22_01/pat2/docs/prompt_02/Brazil_CVM_AutoDeInfracao_protocolo_361921.pdf (1,789,050 bytes) | https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=361921&descTipo=IPE&CodigoInstituicao=1
+  - 20251229_22_01/pat2/docs/prompt_02/SEC_S-1_Google_2004_Registration_333.md (542,632 bytes) | https://www.sec.gov/Archives/edgar/data/1288776/000119312504073639/ds1.htm
+  - 20251229_22_01/pat2/docs/prompt_02/SEC_enforcement_action_lr-26455.md (16,257 bytes) | https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26455
+
+Actions:
+  - search:CVM auto de infração enforcement action Brazil file number
+  - search:CVM auto de infração processo administrativo sancionador site:rad.cvm.gov.br
+  - search:prospecto oferta pública inicial IPO site:rad.cvm.gov.br
+  - search:SEC S-1 registration statement filing site:sec.gov
+  - search:SEC enforcement action litigation release site:sec.gov
+  - fetch:https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Te
+  - fetch:https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Te
+  - fetch:https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Te
+  - fetch:https://www.sec.gov/Archives/edgar/data/1288776/000119312504
+  - fetch:https://www.sec.gov/enforcement-litigation/litigation-releas
+  - save:Brazil_CVM_Prospecto_protocolo_792379.pdf
+  - save:Brazil_CVM_AutoDeInfracao_protocolo_361921.pdf
+  - save:SEC_S-1_Google_2004_Registration_333.md
+  - save:SEC_enforcement_action_lr-26455.md

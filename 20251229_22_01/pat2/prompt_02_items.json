@@ -1,0 +1,74 @@
+[
+  {
+    "doc_id": "2ab1181e9c16",
+    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=792379&descTipo=IPE&CodigoInstituicao=1",
+    "title": "",
+    "description": "",
+    "saved_path": "20251229_22_01/pat2/docs/prompt_02/Brazil_CVM_Prospecto_protocolo_792379.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 1857969,
+    "content_tokens": 1232926,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian CVM document from the official RAD.CVM.GOV.BR system. The URL indicates it's using document type \"IPE\" and protocol number 792379. However, the extracted content shows only PDF binary/stream objects and no readable Portuguese text about infrastructure offerings or proceedings. Without being able to verify this is specifically a \"prospecto de oferta pública\" rather than other CVM filings, there's uncertainty about strict compliance with the prompt requirement despite the correct Brazilian jurisdiction and CVM source.",
+      "file_summary": "Brazilian CVM document (PDF binary only) from the official RAD system with protocol 792379, designated as type IPE (likely related to infrastructure offerings). Unable to extract readable content due to binary PDF encoding.",
+      "suggested_filename": "Brazil_CVM_IPE_protocolo_792379.pdf",
+      "save_instructions": "Save as Brazil_CVM_IPE_protocolo_792379.pdf. Since this is a PDF from the official CVM RAD system, the filename includes the jurisdiction, authority (CVM), document type (IPE), and protocol number. If PDF bytes cannot be saved due to binary format issues, consider downloading directly from the CVM RAD system instead of using extracted markdown."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "2df43cb1deca",
+    "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&numProtocolo=361921&descTipo=IPE&CodigoInstituicao=1",
+    "title": "",
+    "description": "",
+    "saved_path": "20251229_22_01/pat2/docs/prompt_02/Brazil_CVM_AutoDeInfracao_protocolo_361921.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 1789050,
+    "content_tokens": 1037427,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document appears to be from Brazil's CVM (Comissão de Valores Mobiliários) based on the URL from rad.cvm.gov.br. The document shows characteristics of an official regulatory filing, possibly relating to securities enforcement or administrative proceedings. However, the extracted content is largely corrupted/binary with some readable fragments indicating it's a PDF file. While I cannot fully verify the exact document type due to corruption, the CVM source and protocol number in URL (361921) suggest it could be a CVM administrative document that may include an auto de infração (enforcement action). This would satisfy one of the required Brazilian documents. Without being able to read a clear CVM file number from the corrupted text, I suggest including the protocol number as identifier.",
+      "file_summary": "Document from Brazil's CVM (Securities Commission) accessed via their official RAD system. Content appears corrupted in extraction but the source URL with protocol number 361921 indicates an official regulatory filing. Likely an administrative proceeding or enforcement document given the CVM context. The document is in PDF format but text extraction was unsuccessful.",
+      "suggested_filename": "CVM_autodeinfracao_protocolo_361921.pdf",
+      "save_instructions": "Save this as PDF with filename: CVM_autodeinfracao_protocolo_361921.pdf. Include the protocol number 361921 as it appears to be the CVM filing identifier. Since the PDF content extraction was corrupted, save the original PDF if accessible via the provided CVM download URL. The naming convention follows the requirement for Brazilian CVM enforcement documents."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "4df7afda6c6d",
+    "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312504073639/ds1.htm",
+    "title": "Form S-1",
+    "description": "",
+    "saved_path": "20251229_22_01/pat2/docs/prompt_02/SEC_S-1_Google_2004_Registration_333.md",
+    "saved_as": "md",
+    "file_size_bytes": 542632,
+    "content_tokens": 119261,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is an American SEC Form S-1 registration statement for Google Inc.'s IPO, filed on April 29, 2004. It satisfies the requirement for an American S-1 registration document. The SEC file number is Registration No. 333- (partial number visible in the document header). This is a legitimate SEC filing from EDGAR archives containing detailed prospectus information for Google's public offering.",
+      "file_summary": "Google Inc.'s S-1 registration statement for its initial public offering filed April 29, 2004. Includes prospectus with details on the auction-based IPO process, dual-class voting structure, financial data, risk factors, and the famous \"Letter from the Founders\" outlining Google's philosophy including \"Don't be evil\" and long-term focus. Document contains offering details for Class A common stock.",
+      "suggested_filename": "SEC_S-1_Google_2004_Registration_333_",
+      "save_instructions": "Save as SEC_S-1_Google_2004_Registration_333_.pdf. The document should be saved with this filename to identify it as the American S-1 registration document with the SEC file number (333- prefix visible in the registration number). If saving the original HTML format is preferred, use .html extension instead of .pdf, but maintain the same naming convention."
+    },
+    "pdf_download_error": "HTTP 403"
+  },
+  {
+    "doc_id": "9368a45fe2aa",
+    "url": "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26455",
+    "title": "SEC.gov | David Hudzik",
+    "description": "",
+    "saved_path": "20251229_22_01/pat2/docs/prompt_02/SEC_enforcement_action_lr-26455.md",
+    "saved_as": "md",
+    "file_size_bytes": 16257,
+    "content_tokens": 4203,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a perfect match for one of the required American SEC enforcement action documents. It's an SEC Litigation Release (No. 26455) from December 23, 2025, detailing a final consent judgment in an SEC civil enforcement action against David Hudzik for securities violations. The document includes the SEC's litigation release number (26455) and references the underlying case docket (No. 23-cv-4455, E.D.N.Y.). This satisfies the requirement for an American SEC enforcement action document with SEC file numbers.",
+      "file_summary": "SEC Litigation Release No. 26455 announcing a final consent judgment against David Hudzik in an enforcement action. The SEC charged Hudzik with acting as an unregistered broker-dealer and selling unregistered shares of Native American Energy Group. The judgment imposed $70,000 disgorgement, $17,472.10 prejudgment interest, $70,000 civil penalty, and officer/director bars. The case was part of broader SEC litigation against Native American Energy Group, Inc. and its CEO.",
+      "suggested_filename": "SEC_enforcement_action_lr-26455.pdf",
+      "save_instructions": "Save this document with the filename format: SEC_enforcement_action_lr-26455.pdf. The document includes the SEC litigation release number (26455) and references case docket No. 23-cv-4455. Use the provided PDF link (https://www.sec.gov/files/litigation/litreleases/2025/judg26455.pdf) for the actual judgment document, or save the web page as PDF if the judgment PDF is not accessible."
+    },
+    "pdf_download_error": "HTTP 403"
+  }
+]

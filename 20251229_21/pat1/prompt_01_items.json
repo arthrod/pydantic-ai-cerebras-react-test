@@ -1,0 +1,74 @@
+[
+  {
+    "doc_id": "ebca1b032c40",
+    "url": "https://www.gov.br/icmbio/pt-br/assuntos/protecao/seja-um-agente-temporario-ambiental/2020/modelo_contrato_1_edital_2_brigadista_flona_bom_futuro_2020.pdf",
+    "title": "modelo_contrato_1_edital_2_brigadista_flona_bom_futuro_2020.pdf",
+    "description": "",
+    "saved_path": "20251229_21/pat1/docs/prompt_01/Brazil_CLT_contract_2020.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 317282,
+    "content_tokens": 2644,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements as a Brazilian employment contract under CLT (Consolidação das Leis do Trabalho). It's a fixed-term employment contract from a Brazilian federal agency (ICMBio) dated 2020, written in Portuguese. The contract appears substantial with multiple clauses including object, duties, work hours, compensation, duration, and termination条款. While the extracted content shows significant detail, actual page count cannot be definitively determined from the markdown content provided, but it appears to be a comprehensive employment contract that likely meets the ≥3 pages requirement.",
+      "file_summary": "Brazilian federal employment contract from ICMBio (Instituto Chico Mendes) for a temporary environmental firefighter position (Brigadista) dated 2020. Fixed-term 4-month contract with detailed clauses covering job duties, 40-hour work week, minimum wage salary with federal benefits, termination conditions, and application of Brazilian labor law (Lei nº 8.112/90). The contract establishes the relationship between the federal agency and an individual worker for environmental protection and fire prevention services.",
+      "suggested_filename": "Brazil_CLT_contract_2020.pdf",
+      "save_instructions": "Save as PDF with filename \"Brazil_CLT_contract_2020.pdf\" following the pattern {jurisdiction}_{doc_type}_{date}.pdf. The document should be downloaded from the provided gov.br URL and saved directly as a PDF file. If PDF bytes are unavailable during saving, note that this is an official Brazilian government employment contract from 2020 that serves as the Brazilian CLT document requirement."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "1e03511e7957",
+    "url": "https://portal.trt3.jus.br/internet/jurisprudencia/incidentes-suscitados-irr-iac-arginc-tst/downloads/acordao-publicado-rrag-1000063-90-2024-5-02-0032.pdf",
+    "title": "PROCESSO: 1000063-90.2024.5.02.0032 - RECURSO DE REVISTA COM AGRAVO",
+    "description": "",
+    "saved_path": "20251229_21/pat1/docs/prompt_01/Brazil_TST_labor_appeal_2024.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 93581,
+    "content_tokens": 11537,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian TST (Tribunal Superior do Trabalho) labor appeal document that meets the requirements. It's an \"Recurso de Revista com Agravo\" (appeal with grievance) from 2024, spanning 9 pages (≥3 pages). The document contains a TST process number (1000063-90.2024.5.02.0032) and is from the Brazilian labor justice system. It deals with employment law matters regarding FGTS deposits and indirect contract termination, making it suitable as the second Brazilian document needed (TST labor appeal brief).",
+      "file_summary": "Brazilian TST labor appeal document (Recurso de Revista com Agravo) from 2024 addressing whether irregular FGTS deposits justify indirect contract termination under CLT article 483. The Court reaffirmed jurisprudence that FGTS irregularities constitute breach of contract justifying indirect termination without requiring immediacy. The document includes comprehensive analysis of conflicting regional court decisions and establishes binding precedent through repetitive incident mechanism.",
+      "suggested_filename": "Brazil_TST_labor_appeal_2024.pdf",
+      "save_instructions": "Save this PDF with the filename Brazil_TST_labor_appeal_2024.pdf following the naming convention {jurisdiction}_{doc_type}_{date}.pdf where jurisdiction=Brazil, doc_type=TST_labor_appeal, and date=2024. This represents the second Brazilian document required (TST labor appeal brief)."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "c3238243624d",
+    "url": "https://esign.com/wp-content/uploads/At-Will-Employment-Contract-Template.pdf",
+    "title": "At-Will Employment Contract Template",
+    "description": "",
+    "saved_path": "20251229_21/pat1/docs/prompt_01/American_at-will_employment_agreement.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 1399535,
+    "content_tokens": 2873,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document matches the prompt requirements for the American at-will employment agreement. It is clearly a U.S.-style employment contract with at-will language (Section 4), federal references (federal holidays, federal laws), and is 6 pages long (≥3 pages as required). The jurisdiction is American/U.S. as indicated by the governing law specifying \"State of ________\" and federal law references. The document type is specifically labeled as \"AT-WILL EMPLOYMENT CONTRACT\" which matches the required \"at-will employment agreement.\"",
+      "file_summary": "A 6-page American at-will employment agreement template that covers standard employment terms including duties, compensation, benefits, termination rights, confidentiality, non-compete clauses, and governing law. The document includes comprehensive sections for employee and employer obligations, with explicit at-will termination language and legal boilerplate for U.S. employment contracts.",
+      "suggested_filename": "American_at-will_employment_agreement.pdf",
+      "save_instructions": "Save this PDF with the filename: American_at-will_employment_agreement.pdf following the pattern {jurisdiction}_{doc_type}_{date}.pdf. Since the document is undated (template), no date is included in the filename. The file is already in PDF format from the source."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "937a9ff955ae",
+    "url": "https://wp.nysd.uscourts.gov/sites/default/files/2018-06/Employment%20Discrimination.pdf",
+    "title": "Employment%20Discrimination.pdf",
+    "description": "",
+    "saved_path": "20251229_21/pat1/docs/prompt_01/American_EEOC_discrimination_complaint.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 1091962,
+    "content_tokens": 2828,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the requirement for an American EEOC discrimination complaint. It is a federal court employment discrimination complaint template from the Southern District of New York, which includes EEOC procedures and references to filing charges with the EEOC. The document is clearly at least 3 pages long (actually 7+ pages based on page numbers) and represents the type of employment discrimination filing document requested in the prompt. It matches the American jurisdiction requirement and employment discrimination category.",
+      "file_summary": "A federal court employment discrimination complaint template from the Southern District of New York. This 7+ page document provides a comprehensive form for filing employment discrimination lawsuits, covering federal statutes (Title VII, ADA, ADEA, etc.), state and local claims, administrative procedures including EEOC requirements, parties information, statements of claim, and relief sought. It includes detailed sections for causes of action, adverse employment actions, factual allegations, and plaintiff certifications.",
+      "suggested_filename": "American_EEOC_complaint_2017-03-24.pdf",
+      "save_instructions": "Save this document as a PDF with the filename: American_EEOC_complaint_2017-03-24.pdf. The filename follows the pattern {jurisdiction}_{doc_type}_{date}.pdf where jurisdiction is \"American\", doc_type is \"EEOC_complaint\", and date is \"2017-03-24\" (rev. 3/24/17 date shown on the document). If the original source is not a PDF, convert it to PDF format before saving."
+    },
+    "pdf_download_error": null
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "doc_id": "00c544f8432f",
+    "url": "https://investors.novelis.com/sec-filings/all-sec-filings/content/0001193125-11-303238/d246637dex101.htm",
+    "title": "November 9, 2011 - EX-10.1 - 10-Q: Quarterly report pursuant to Section 13 or 15(d) | Novelis Inc. ()",
+    "description": "",
+    "saved_path": "20251229_21/pat2/docs/prompt_01/Brazil_CLT_contract_20110808.md",
+    "saved_as": "md",
+    "file_size_bytes": 22238,
+    "content_tokens": 5704,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements for 1 Brazilian CLT employment contract. It is a formal employment contract between Novelis do Brasil Ltda. and Marco Antonio Palmieri, dated August 8, 2011. The contract is governed by Brazilian law (specifically references CLT - Consolidated Labor Laws), contains bilingual Portuguese/English text, spans 12 pages, and covers all standard employment contract elements including term, duties, compensation, benefits, confidentiality, non-compete, and termination clauses. It meets the ≥3 pages requirement and represents the Brazilian jurisdiction component needed for the collection.",
+      "file_summary": "Brazilian CLT employment contract for a President position at Novelis South America, bilingual (Portuguese/English), 12 pages, signed August 8, 2011. Contains standard employment terms including 90-day probation period, monthly salary of R$76,923.07, benefits, confidentiality clauses, and termination provisions under Brazilian labor law.",
+      "suggested_filename": "Brazil_CLT_contract_20110808.pdf",
+      "save_instructions": "Save as PDF using the naming convention: {jurisdiction}_{doc_type}_{date}.pdf. The date is August 8, 2011, so format as 20110808. The document should be named 'Brazil_CLT_contract_20110808.pdf' and saved in the collection folder for Brazilian employment documents. If PDF bytes are unavailable, save as markdown with .md extension and note that conversion to PDF would be needed."
+    },
+    "pdf_download_error": "Not a PDF (content-type=text/html; charset=utf-8)"
+  },
+  {
+    "doc_id": "d8642ea63aeb",
+    "url": "https://internetlab.org.br/wp-content/uploads/2021/11/uber-peticao-inicial-protocolada.pdf",
+    "title": "uber-peticao-inicial-protocolada.pdf",
+    "description": "",
+    "saved_path": "20251229_21/pat2/docs/prompt_01/Brazil_MPT_civil_action_20211108.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 1507149,
+    "content_tokens": 124272,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian labor document (civil public action from MPT) addressed by the Labor Public Ministry's Regional Office of the 2nd Region. While it's not a TST labor appeal brief specifically, it is a substantial Brazilian employment legal document with case number 1001379-33.2021.5.02.0004, dated 2021-11-08. It exceeds 3 pages and deals with employment relationship classification issues concerning Uber drivers. It meets the jurisdiction (Brazil), type (employment legal document), and length requirements, making it suitable for the Brazilian labor document portion of the collection.",
+      "file_summary": "Brazilian civil public action filed by the Ministry of Labor (MPT) against Uber Brasil Technology Ltd. arguing that Uber drivers maintain employment relationships rather than being autonomous contractors. The document presents extensive legal analysis and evidence regarding the characterization of employment relationships in the platform economy, including witness testimony, platform operations analysis, and legal reasoning about subordination, personal service, onerosity, and habituality. Filed in TRT-2 (São Paulo) in November 2021 as case 1001379-33.2021.5.02.0004.",
+      "suggested_filename": "Brazil_MPT_civil_action_2021-11-08.pdf",
+      "save_instructions": "Save this PDF with the filename: Brazil_MPT_civil_action_2021-11-08.pdf. The file is already a PDF from the source URL. If PDF bytes are not available, save the extracted markdown content as a .md file using the same naming convention: Brazil_MPT_civil_action_2021-11-08.md. Include the process number 1001379-33.2021.5.02.0004 in any metadata if the system allows."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "31ee44f80d8f",
+    "url": "https://www.sec.gov/Archives/edgar/data/1205727/000119312508043903/dex1011f.htm",
+    "title": "Form of At-will Employment Agreement",
+    "description": "",
+    "saved_path": "20251229_21/pat2/docs/prompt_01/American_at-will_employment_agreement_2008.md",
+    "saved_as": "md",
+    "file_size_bytes": 44144,
+    "content_tokens": 8758,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document matches the prompt requirements for an American at-will employment agreement. It is a Form of At-will Employment Agreement from a SEC filing (CBeyond, Inc. from 2008), which is a public filing source. The document is substantially longer than 3 pages - it spans 12 main pages plus multiple exhibit pages (A-1, A-2, B-1, B-2, and Schedule I). It contains all the essential elements of an at-will employment agreement including at-will employment acknowledgment, termination provisions, severance benefits, confidentiality, noncompete clauses, and restrictive covenants. The jurisdiction is American (Georgia law).",
+      "file_summary": "A comprehensive at-will employment agreement from CBeyond, Inc. (2008) establishing employment terms for James F. Geiger. The document details at-will employment status, severance packages with and without change in control scenarios, COBRA benefits continuation, stock award vesting acceleration, confidentiality obligations, noncompete and nonsolicitation clauses, intellectual property assignment, and extensive definitions. It includes release exhibits for individual and group terminations, and lists covered metropolitan statistical areas for noncompete restrictions. Governed by Georgia state law with arbitration provisions.",
+      "suggested_filename": "American_at-will_employment_agreement_2008.pdf",
+      "save_instructions": "Save this file using the naming convention: {jurisdiction}_{doc_type}_{date}.pdf. For this document, save as \"American_at-will_employment_agreement_2008.pdf\". The document appears to be from an SEC SEC EDGAR filing (.htm format), so you may need to convert it to PDF format before saving. If PDF conversion is not possible, save as .md with the same naming pattern and note the format difference."
+    },
+    "pdf_download_error": "HTTP 403"
+  },
+  {
+    "doc_id": "b8010cb636f8",
+    "url": "https://www.eeoc.gov/sites/default/files/2025-12/EEOC_Form_5_Charge_of_Discrimination_-_May_2025.pdf",
+    "title": "EEOC_Form_5_Charge_of_Discrimination_-_May_2025.pdf",
+    "description": "",
+    "saved_path": "20251229_21/pat2/docs/prompt_01/USA_EEOC_discrimination_complaint_202505.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 105675,
+    "content_tokens": 387,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirement for an American EEOC discrimination complaint. It is an official EEOC Form 5 Charge of Discrimination document from a US federal agency (EEOC), dated May 2025. While I cannot definitively confirm the page count is ≥3 pages from the markdown extraction, this appears to be a substantial legal form based on its structure and comprehensive sections for discrimination charges. The document is clearly an American employment-related discrimination complaint form, which matches the prompt's requirement for an EEOC discrimination complaint.",
+      "file_summary": "Official EEOC Form 5 Charge of Discrimination (May 2025) - a comprehensive legal form used to file discrimination complaints with the Equal Employment Opportunity Commission. Includes sections for complainant information, employer details, discrimination basis, dates, particulars of the complaint, notary requirements, and signatures. This is a federally mandated form for initiating employment discrimination claims in the United States.",
+      "suggested_filename": "USA_EEOC_discrimination_complaint_May2025.pdf",
+      "save_instructions": "Save this file as USA_EEOC_discrimination_complaint_May2025.pdf following the pattern {jurisdiction}_{doc_type}_{date}.pdf. The document is already in PDF format from the official EEOC website. Use the date \"May2025\" from the document title. This represents the American EEOC discrimination complaint required for the collection."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "c3238243624d",
+    "url": "https://esign.com/wp-content/uploads/At-Will-Employment-Contract-Template.pdf",
+    "title": "At-Will Employment Contract Template",
+    "description": "",
+    "saved_path": "20251229_21/pat2/docs/prompt_01/USA_at-will_employment_agreement_template.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 1399535,
+    "content_tokens": 2873,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements for an American at-will employment agreement. It is: 1) From American jurisdiction (governing law allows state choice, clearly US-based), 2) An at-will employment agreement (explicitly defines at-will employment in Section 4), 3) ≥3 pages (6 pages total). The document includes all essential elements of an employment agreement including duties, compensation, benefits, termination clauses, confidentiality, non-compete, and signatures.",
+      "file_summary": "A comprehensive 6-page American at-will employment agreement template covering employee duties, compensation, benefits, termination rights, confidentiality, non-compete provisions, vacation/personal leave policies, and standard contract clauses. The agreement clearly defines the at-will employment relationship and includes spaces for employer/employee details and signatures.",
+      "suggested_filename": "USA_at-will_employment_agreement_template.pdf",
+      "save_instructions": "Save this PDF as: USA_at-will_employment_agreement_template.pdf. The document is already in PDF format from the source URL, so download and save directly. The filename follows the required pattern: {jurisdiction}_{doc_type}_{date}.pdf with \"USA\" for jurisdiction, \"at-will_employment_agreement\" for document type, and \"template\" in place of date since no specific date is provided in the document."
+    },
+    "pdf_download_error": null
+  }
+]

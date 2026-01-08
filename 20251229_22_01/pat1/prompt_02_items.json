@@ -1,0 +1,92 @@
+[
+  {
+    "doc_id": "496759e33af8",
+    "url": "https://sistemas.cvm.gov.br/dados/ofeanal/RJ-2020-00886/20200803_Prospecto%20Preliminar.pdf",
+    "title": "20200803_Prospecto%20Preliminar.pdf",
+    "description": "",
+    "saved_path": "20251229_22_01/pat1/docs/prompt_02/Brazil_oferta_publica_RJ-2020-00886_LojasQueroQuero.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 12523224,
+    "content_tokens": 964777,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian securities document that perfectly matches the prompt requirements for \"1 prospecto de oferta pública\" (prospecto de oferta pública de distribuição). It is filed with CVM (Comissão de Valores Mobiliários) as indicated by the CVM registration process mentioned throughout and the document URL from CVM's official system. The document contains CVM file number RJ-2020-00886 visible in the URL structure. It is a preliminary prospectus for Lojas Quero-Quero S.A.'s IPO, compliant with Instrução CVM 400.",
+      "file_summary": "Preliminary prospectus for Lojas Quero-Quero S.A.'s primary and secondary public offering of ordinary shares on Brazil's Novo Mercado. Details R$1.94 billion offering of 153.4 million shares (22.1M primary, 131.3M secondary) with price range R$11.30-14.00 per share. Filed with CVM under process RJ-2020-00886, complying with Instrução CVM 400. Includes coordinated by BTG Pactual as lead coordinator, Bank of America as stabilizing agent, with co-coordinators Itaú BBA, Bradesco BBI, BB Investimentos, and Easynvest. Contains risk factors, financial statements, and use of proceeds.",
+      "suggested_filename": "Brazil_oferta_publica_RJ-2020-00886_LojasQueroQuero.pdf",
+      "save_instructions": "Save as PDF using the exact naming convention: Brazil_oferta_publica_RJ-2020-00886_LojasQueroQuero.pdf. The CVM file number RJ-2020-00886 is extracted from the URL and confirmed in the document content. This represents the 1st of 2 required Brazilian documents (prospecto de oferta pública)."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "4df7afda6c6d",
+    "url": "https://www.sec.gov/Archives/edgar/data/1288776/000119312504073639/ds1.htm",
+    "title": "Form S-1",
+    "description": "",
+    "saved_path": "20251229_22_01/pat1/docs/prompt_02/SEC_S-1_Google_333_2004-04-29.md",
+    "saved_as": "md",
+    "file_size_bytes": 542632,
+    "content_tokens": 119261,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the prompt requirements for an American S-1 registration statement. It is a Form S-1 registration statement filed with the Securities and Exchange Commission by Google Inc. on April 29, 2004, for their initial public offering. The document includes the SEC registration number as required (Registration No. 333-). This is an official SEC filing from the SEC's EDGAR database, making it a valid public-filing source. The document appears to be substantially complete, though it may have been truncated in extraction - this does not affect the core registration statement content.",
+      "file_summary": "Google Inc.'s Form S-1 registration statement from April 29, 2004, for their initial public offering. The document details the offering of Class A common stock, includes the famous \"Letter from the Founders\" outlining Google's unconventional approach to being a public company, their dual-class voting structure, auction-based IPO process, comprehensive risk factors, and financial data. This historic IPO document showcases Google's philosophy of long-term focus, innovation, and corporate governance structure designed to maintain founder control.",
+      "suggested_filename": "SEC_S-1_Google_33_2004-04-29.pdf",
+      "save_instructions": "Save this file using the SEC registration number with the format: SEC_S-1_[CompanyName]_[RegistrationNumber]_[Date].pdf. The SEC registration number is 333- (though the full number appears truncated), and the filing date is April 29, 2004. If PDF bytes are not available from the SEC EDGAR system, save as a markdown file with the same naming convention but .md extension, noting that it was extracted from the SEC's HTML EDGAR filing."
+    },
+    "pdf_download_error": "HTTP 403"
+  },
+  {
+    "doc_id": "9e65e62446ba",
+    "url": "https://conteudo.cvm.gov.br/export/sites/cvm/sancionadores/sancionador/anexos/2020/19957009351_2017_61.pdf",
+    "title": "19957009351_2017_61.pdf",
+    "description": "",
+    "saved_path": "20251229_22_01/pat1/docs/prompt_02/CVM_auto_de_infracao_19957_009351_2017_61.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 712712,
+    "content_tokens": 12758,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a CVM auto de infração (administrative sanction proceeding) as required for Brazilian securities collection. It's from Brazil's Comissão de Valores Mobiliários, contains the official CVM process number 19957.009351/2017-61, details an enforcement action for securities market violations (unfair practices), and was issued in 2020. This perfectly satisfies the Brazilian CVM enforcement action requirement with proper file number included.",
+      "file_summary": "CVM administrative sanction proceeding against Fernando Reina Rebane for unfair market practices in securities trading. Document details the investigation, charges, and final judgment imposing a R$3.245 million fine for manipulating dollar futures contract specifications to benefit himself over other investors at brokerage I.B. between 2011-2012.",
+      "suggested_filename": "CVM_auto_de_infracao_19957_009351_2017_61.pdf",
+      "save_instructions": "Save this PDF with the exact filename: CVM_auto_de_infracao_19957_009351_2017_61.pdf. The file should be saved to your Brazilian securities documents collection folder. If you cannot save the PDF directly, save the markdown content with .md extension but maintain the same base filename for consistency."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "7b0b087efad7",
+    "url": "https://www.sec.gov/enforcement-litigation/litigation-releases/lr-26413",
+    "title": "Taino Adrian Lopez, Alexander Farhang Mehr, and Maya Rose Burkenroad",
+    "description": "",
+    "saved_path": "20251229_22_01/pat1/docs/prompt_02/SEC_enforcement_LR26413_No1-25cv-24356_Lopez_Mehr_Burkenroad.md",
+    "saved_as": "md",
+    "file_size_bytes": 18335,
+    "content_tokens": 4599,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a SEC enforcement action (litigation release) against Taino Adrian Lopez, Alexander Farhang Mehr, and Maya Rose Burkenroad for securities fraud. It is filed by the U.S. Securities and Exchange Commission, which satisfies the requirement for an American document. The case number is provided (1:25-cv-24356), and the litigation release number is LR-26413. Although not a traditional filing number, LR-26413 serves as the identifier for this enforcement action. This meets the collection criteria for \"1 SEC enforcement action\" from the American documents requirement.",
+      "file_summary": "SEC Litigation Release charging co-founders and COO of Florida holding company REV with securities fraud, misappropriating $16.1 million in investor funds, and operating a Ponzi scheme that raised approximately $112 million from investors through fraudulent offerings in portfolio companies including Pier 1 Imports Online, Dress Barn Online, Linens 'N Things Online, and RadioShack Online. Filed September 25, 2025 in the Southern District of Florida.",
+      "suggested_filename": "SEC_enforcement_LR26413_No1-25cv-24356_Lopez_Mehr_Burkenroad.pdf",
+      "save_instructions": "Save as PDF using the naming convention: \"SEC_enforcement_LR26413_No1-25cv-24356_Lopez_Mehr_Burkenroad.pdf\". The key identifiers are the litigation release number (LR-26413) and case number (1:25-cv-24356). If PDF bytes are not available, save the webpage content as markdown with the same filename but .md extension, ensuring all SEC identifying information is preserved."
+    },
+    "pdf_download_error": "HTTP 403"
+  },
+  {
+    "doc_id": "7559484ed271",
+    "url": "https://www.sec.gov/files/litigation/admin/2025/34-104428.pdf",
+    "title": "34-104428.pdf",
+    "description": "",
+    "saved_path": "20251229_22_01/pat1/docs/prompt_02/SEC_enforcement_action_Release104428_FileNos3-20252_3-20253.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 119737,
+    "content_tokens": 734,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document satisfies the requirement for an American SEC enforcement action. It is an official SEC document (Release No. 104428, dated December 17, 2025) dealing with administrative proceedings and fair fund disbursement, which falls under SEC enforcement actions. The document includes SEC file numbers 3-20252 and 3-20253 for the matters involving respondents Scott T. Wolfrum and Tyler C. Sadek. This represents one of the two required American documents in the collection.",
+      "file_summary": "SEC administrative proceeding document (Release No. 104428) containing amended orders directing disbursement of fair funds totaling $220,435.80 to harmed investors in matters involving respondents Scott T. Wolfrum (File No. 3-20252) and Tyler C. Sadek (File No. 3-20253). The document details the plan of distribution process and authorizes payment from the Fair Fund in accordance with SEC rules.",
+      "suggested_filename": "SEC_enforcement_action_Release104428_FileNos3-20252_3-20253.pdf",
+      "save_instructions": "Save this as SEC_enforcement_action_Release104428_FileNos3-20252_3-20253.pdf. The filename includes the document type (SEC enforcement action), the release number (104428), and both SEC file numbers (3-20252 and 3-20253) as required by the prompt naming convention for American documents. If PDF bytes are not available, save as .md with the same filename structure."
+    },
+    "pdf_download_error": null
+  }
+]

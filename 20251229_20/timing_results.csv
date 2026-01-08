@@ -1,2 +1,0 @@
-prompt_num,pattern1_sec,pattern2_sec,pattern3_sec,pattern4_sec,pattern5_sec,pattern1_bytes,pattern2_bytes,pattern3_bytes,pattern4_bytes,pattern5_bytes,prompt_text
-prompt_01,0.0,0.0,0.0,0.0,198.6955407079995,0,0,0,0,2133842,"Collect 4 employment documents: 2 Brazilian (1 CLT employment contract, 1 TST labor appeal brief) and 2 American (1 at-will employment agreement, 1 EEOC discrimination complaint). Each must be ≥3 page..."

@@ -1,0 +1,92 @@
+[
+  {
+    "doc_id": "062e9f41f975",
+    "url": "https://acordaos.economia.gov.br/acordaos2/pdfs/processados/16327720170202102_6956764.pdf",
+    "title": "16327720170202102_6956764.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat2/docs/prompt_01/CARF_Acordao_1302-006916_16327-720170-2021-02.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 553566,
+    "content_tokens": 17952,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is a Brazilian CARF (Conselho Administrativo de Recursos Fiscais) acórdão from September 2023, meeting the requirement for a Brazilian tax document. The document contains formal citations throughout (process number, law references, cited precedents). While the exact page count isn't visible from the extracted content, the document appears substantial (with numbered pages up to at least 923) and likely exceeds the 6-page minimum. The source is an official government domain (economia.gov.br) containing the processed PDF of a CARF decision, which satisfies the public-filing source requirement for a CARF acórdão.",
+      "file_summary": "CARF acórdão (1302-006.916) concerning IRPJ and CSLL deductions for juros sobre capital próprio (JCP) related to previous periods. The case involves Eurofarma Laboratórios S.A. challenging a tax assessment of R$128 million. The contentious issue centers on whether JCP calculated on historical periods can be deducted when paid in a later period. After an initially tied vote, the designated councilor's prevailing opinion sided with the taxpayer, allowing deductions for JCP from previous exercise years when payment/deliberation occurs later, emphasizing that the obligation materializes only upon corporate deliberation.",
+      "suggested_filename": "CARF_Acordao_1302-006916_16327-720170-2021-02.pdf",
+      "save_instructions": "Save the PDF with the naming convention: CARF_Acordao_[Acórdão Number]_[Process Number].pdf. The PDF file should be saved as provided from the official CARF website at economia.gov.br. The document contains extensive legal analysis with proper citations and references to legislation, STJ jurisprudence, and previous CARF decisions."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "cb083833f30f",
+    "url": "https://pje1g.trf3.jus.br/pje/Processo/reportPDF.seam?idProcessoTrf=466735&idProcessoDoc=10632489&ca=d461dc6ff92d4658351e27b475ac73cee11d5334aefa7965",
+    "title": "Tí­tulo",
+    "description": "",
+    "saved_path": "20251229_22/pat2/docs/prompt_01/TRF3_ms_5002451-59.2018.4.03.6143.md",
+    "saved_as": "md",
+    "file_size_bytes": 2280,
+    "content_tokens": 865,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a Brazilian mandado de segurança tributário from TRF3, satisfying the jurisdiction and document type requirements. It involves tax issues (Cofins, PIS, ICMS) and includes multiple substantial documents, with some being over 1000 pages, easily meeting the ≥6 pages requirement. The process number 5002451-59.2018.4.03.6143 can serve as the docket identifier. It was filed in the Federal Regional Court of the 3rd Region (TRF3), which matches the TRF source requirement.",
+      "file_summary": "A Brazilian tax mandado de segurança filed by SINHO SOUZA TRANSPORTES EIRELI against the Federal Revenue Service regarding Cofins contributions and related tax matters. The case involves issues of tax credit suspension, compensation, and calculation base exclusions for ICMS. Filed in 2018 in the 1st Federal Court of Limeira, this case includes extensive documentation including accounting records, tax returns (DCTF), and legal documents totaling thousands of pages.",
+      "suggested_filename": "TRF3_ms_5002451-59.2018.4.03.6143.pdf",
+      "save_instructions": "Save using the TRF mandado de segurança convention: TRF3_ms_[processo].pdf. The complete process number from the document is 5002451-59.2018.4.03.6143. If only able to save a markdown file instead of PDF bytes, use TRF3_ms_5002451-59.2018.4.03.6143.md instead, but note that the target file type should be PDF if available."
+    },
+    "pdf_download_error": ""
+  },
+  {
+    "doc_id": "ef796e7608ef",
+    "url": "https://kpmg.com/kpmg-us/content/dam/kpmg/taxnewsflash/pdf/2024/10/tc-memo-2024-99.pdf",
+    "title": "tc-memo-2024-99.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat2/docs/prompt_01/US_Tax_Court_Opinion_TCMemo_2024-99_Docket634-22.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 122101,
+    "content_tokens": 4441,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a United States Tax Court Memorandum Opinion (T.C. Memo. 2024-99) dated October 29, 2024, with 8 pages and proper citations throughout. It meets the criteria for an American tax document (Tax Court opinion) and exceeds the 6-page minimum requirement. The content covers complex partnership tax issues under TEFRA, sections 704(d) and 705 regarding outside basis calculations and loss limitations. This is exactly the type of comprehensive Tax Court opinion requested for the American portion of the collection.",
+      "file_summary": "U.S. Tax Court Memorandum Opinion Surk, LLC v. Commissioner (T.C. Memo. 2024-99) addressing whether a partnership must decrease its outside basis to account for excess loss deductions claimed in prior closed years. The Court held that under section 705(a), partners must decrease outside basis by all previously allowed losses when calculating basis for current years, even when prior years are closed to assessment. The case involves complex TEFRA partnership taxation, basis calculations under sections 704(d) and 705, and the timing of FPAA adjustments.",
+      "suggested_filename": "US_Tax_Court_Opinion_TCMemo_2024-99_Docket634-22.pdf",
+      "save_instructions": "Save this file as: US_Tax_Court_Opinion_TCMemo_2024-99_Docket634-22.pdf. The filename follows the pattern (Country_CourtType_DocumentType_Citation_DocketNumber.extension). The document citation is T.C. Memo. 2024-99 and docket number is 634-22. Since the source is a PDF from KPMG, download and save as PDF bytes. If PDF bytes are unavailable, save the extracted markdown content with .md extension."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "d8de36b4effb",
+    "url": "https://www.irs.gov/pub/irs-wd/202422010.pdf",
+    "title": "202422010.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat2/docs/prompt_01/IRS_CCA_202422010_April_2024_FDAP_Microcaptive.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 128586,
+    "content_tokens": 2406,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This is an IRS Chief Counsel Advice document (202422010) dated April 8, 2024. It satisfies the American tax document requirement in the prompt. The document discusses FDAP tax adjustments in abusive foreign micro-captive insurance cases, with detailed legal analysis and multiple citations including Tax Court cases and Circuit Court opinions. The document appears to be at least 4 pages based on the page numbering, though I cannot verify if it reaches the required 6+ pages. It contains substantial legal content with proper citations to cases like Reserve Mechanical Corp. v. Commissioner and other authorities. This would count as 1 of the 2 required American tax documents.",
+      "file_summary": "IRS Chief Counsel Advice memorandum addressing FDAP tax adjustments in abusive foreign micro-captive insurance arrangements. The document provides legal analysis on when foreign entities in captive insurance arrangements fail to qualify as insurance companies, rendering §953(d) elections invalid and subjecting them to 30% FDAP tax under §881. Includes detailed discussion of burden of proof requirements, Tax Court precedent, and sample language for Form 886-A notices. Cites multiple cases including Reserve Mechanical Corp. v. Commissioner and related Tax Court decisions.",
+      "suggested_filename": "IRS_CCA_202422010_April_2024_FDAP_Microcaptive.pdf",
+      "save_instructions": "Save this PDF file as \"IRS_CCA_202422010_April_2024_FDAP_Microcaptive.pdf\" in the collection folder. This follows the naming convention for IRS Chief Counsel Advice documents with the memorandum number, date, and subject description. Ensure the document is downloaded from the IRS.gov publication repository to maintain authenticity as a public filing. Verify the document length meets the ≥6 page requirement before final inclusion in the collection."
+    },
+    "pdf_download_error": null
+  },
+  {
+    "doc_id": "93627eb17a2d",
+    "url": "https://kpmg.com/kpmg-us/content/dam/kpmg/taxnewsflash/pdf/2024/10/tc-memo-2024-100.pdf",
+    "title": "tc-memo-2024-100.pdf",
+    "description": "",
+    "saved_path": "20251229_22/pat2/docs/prompt_01/US_Tax_Court_TC_Memo_2024-100_Docket_30957-09.pdf",
+    "saved_as": "pdf",
+    "file_size_bytes": 250995,
+    "content_tokens": 15704,
+    "analysis": {
+      "should_save": true,
+      "answer_to_prompt": "This document is a U.S. Tax Court memorandum opinion (T.C. Memo. 2024-100) dated October 30, 2024, which satisfies the requirement for an American Tax Court opinion. It involves tax issues related to foreign currency options and section 1256 contracts, with detailed legal analysis and citations. The document appears to be substantially longer than 6 pages based on the extracted content with multiple sections and extensive footnotes. The case has proper docket number (30957-09) and involves tax authority (Commissioner of Internal Revenue).",
+      "file_summary": "U.S. Tax Court memorandum opinion in Wright v. Commissioner addressing whether taxpayers can deduct capital losses from foreign currency option transactions under section 1256 when the transactions lacked a primary profit motive. The court held the losses were non-deductible under section 165(c)(2) because the transactions were primarily tax-motivated rather than profit-seeking, examining the economic substance of complex foreign currency option straddles involving euro and Danish krone contracts.",
+      "suggested_filename": "US_Tax_Court_TC_Memo_2024-100_Docket_30957-09.pdf",
+      "save_instructions": "Save with the following naming convention: US_Tax_Court_TC_Memo_2024-100_Docket_30957-09.pdf. Since this is a PDF document from KPMG's website containing the Tax Court opinion, save the PDF bytes directly. If PDF bytes are unavailable, save the extracted markdown content with .md extension instead."
+    },
+    "pdf_download_error": null
+  }
+]
